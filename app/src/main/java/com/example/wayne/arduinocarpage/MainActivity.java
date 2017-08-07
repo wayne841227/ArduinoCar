@@ -61,6 +61,14 @@ class DrawView extends View {
         d.setTextSize(50);
         canvas.drawText("Kd：", 35, 415, d);
 
+        //kp,kp清空顏色
+        p.setColor(Color.WHITE);
+        p.setStyle(Paint.Style.FILL);
+        canvas.drawRect(150, 150, 900, 250, p);
+        d.setColor(Color.WHITE);
+        d.setStyle(Paint.Style.FILL);
+        canvas.drawRect(150, 350, 900, 450, d);
+
         //kp顯示範圍著色
         p.setColor(Color.RED);
         p.setStyle(Paint.Style.FILL);
@@ -106,6 +114,11 @@ class DrawView extends View {
         if(angle < 0){
             angle = 0 - angle;
         }
+
+        //清空角度顯示顏色
+        a.setStyle(Paint.Style.FILL);
+        a.setColor(Color.WHITE);
+        canvas.drawArc(rec_range, 0, -180, true, a);
 
         //角度顯示範圍著色
         a.setStyle(Paint.Style.FILL);
