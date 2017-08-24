@@ -18,19 +18,40 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.wayne.arduinocarpage.Activity_Three"
+        <activity android:name="com.example.wayne.arduinocarpage.KD_Three"
             android:screenOrientation="landscape"/>
-        <activity android:name="com.example.wayne.arduinocarpage.Activity_Five"
+
+        <activity android:name="com.example.wayne.arduinocarpage.KD_Five"
             android:screenOrientation="landscape"/>
-        <activity android:name="com.example.wayne.arduinocarpage.Activity_Seven"
+
+        <activity android:name="com.example.wayne.arduinocarpage.KD_Seven"
             android:screenOrientation="landscape"/>
-        <activity android:name="com.example.wayne.arduinocarpage.Activity_Graphic"
+
+        <activity android:name="com.example.wayne.arduinocarpage.KD_Enter_Three"
             android:screenOrientation="landscape"/>
-        <activity android:name="com.example.wayne.arduinocarpage.Enter_Three"
+
+        <activity android:name="com.example.wayne.arduinocarpage.KD_Enter_Five"
             android:screenOrientation="landscape"/>
-        <activity android:name="com.example.wayne.arduinocarpage.Enter_Five"
+
+        <activity android:name="com.example.wayne.arduinocarpage.KD_Enter_Seven"
             android:screenOrientation="landscape"/>
-        <activity android:name="com.example.wayne.arduinocarpage.Enter_Seven"
+
+        <activity android:name="com.example.wayne.arduinocarpage.KP_Three"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name="com.example.wayne.arduinocarpage.KP_Five"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name="com.example.wayne.arduinocarpage.KP_Seven"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name="com.example.wayne.arduinocarpage.KP_Enter_Three"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name="com.example.wayne.arduinocarpage.KP_Enter_Five"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name="com.example.wayne.arduinocarpage.KP_Enter_Seven"
             android:screenOrientation="landscape"/>
 
     </application>

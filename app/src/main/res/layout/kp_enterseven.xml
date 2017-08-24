@@ -83,13 +83,26 @@
     <Button
         android:text="確認"
         android:textStyle="bold"
-        android:textSize="35sp"
+        android:textSize="30sp"
+        android:drawableLeft="@drawable/kp3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/check"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="12dp" />
+
+    <Button
+        android:text="返回"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:drawableLeft="@drawable/kp3"
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

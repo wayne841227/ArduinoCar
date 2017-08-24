@@ -22,7 +22,7 @@ import java.util.Random;
 
 public class MainActivity extends Activity implements Runnable{
 
-    private Button Formula;
+    private Button KP,KD;
     private SurfaceView surface;
     private SurfaceHolder holder;
     private boolean locker=true;
@@ -33,7 +33,8 @@ public class MainActivity extends Activity implements Runnable{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Formula = (Button) findViewById(R.id.formula);
+        KP = (Button) findViewById(R.id.kp);
+        KD = (Button) findViewById(R.id.kd);
         surface = (SurfaceView) findViewById(R.id.surfaceView);
 
         holder = surface.getHolder();
@@ -41,18 +42,35 @@ public class MainActivity extends Activity implements Runnable{
         thread.start();
 
         //更換頁面到Enter_Three
-        Formula.setOnClickListener(new Button.OnClickListener() {
+        KP.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
 
-                jumpActivity_Five();
+                jumpKP_Five();
+                locker = false;
+            }
+        });
+
+        //更換頁面到Enter_Three
+        KD.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+
+                jumpKD_Five();
                 locker = false;
             }
         });
     }
-    public void jumpActivity_Five(){
+    public void jumpKD_Five(){
 
-        Intent Jump = new Intent(MainActivity.this,Activity_Five.class);
+        Intent Jump = new Intent(MainActivity.this,KD_Five.class);
+        startActivity(Jump);
+
+    }
+
+    public void jumpKP_Five(){
+
+        Intent Jump = new Intent(MainActivity.this,KP_Five.class);
         startActivity(Jump);
 
     }

@@ -2,11 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-
     <Button
         android:text="確認"
         android:textStyle="bold"
-        android:textSize="40sp"
+        android:textSize="30sp"
+        android:drawableLeft="@drawable/kd3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/check"
@@ -15,13 +15,25 @@
         android:layout_marginEnd="12dp" />
 
     <Button
+        android:text="返回"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:drawableLeft="@drawable/main3"
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
         android:id="@+id/button3"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/circle"
         android:text=" 3 "
         android:textColor="#000000"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="18dp"
         android:layout_alignParentTop="true"
@@ -29,26 +41,25 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@drawable/pushcircle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/circle"
         android:text=" 5 "
         android:textColor="#000000"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:layout_alignBottom="@+id/button3"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@drawable/circle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/pushcircle"
         android:text=" 7 "
         android:textColor="#000000"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:layout_alignEnd="@+id/check"
         android:layout_alignTop="@+id/button5"
         android:layout_marginEnd="11dp"/>
-
 
 </RelativeLayout>
