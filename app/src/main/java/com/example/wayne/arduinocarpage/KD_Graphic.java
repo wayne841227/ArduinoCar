@@ -1,6 +1,10 @@
 package com.example.wayne.arduinocarpage;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -54,4 +58,6 @@ public class KD_Graphic extends AppCompatActivity {
         startActivity(Jump);
 
     }
+
+
 }
