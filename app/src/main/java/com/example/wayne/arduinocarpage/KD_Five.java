@@ -24,13 +24,13 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kd_five);
 
+        surface = (SurfaceView)findViewById(R.id.kd5_Surface);
+        surface.getHolder().addCallback(this);
+
         Three = (Button)findViewById(R.id.button3);
         Seven = (Button)findViewById(R.id.button7);
         Check = (Button) findViewById(R.id.check);
         Back = (Button) findViewById(R.id.back);
-
-        surface = (SurfaceView)findViewById(R.id.kd5_Surface);
-        surface.getHolder().addCallback(this);
 
         //更換頁面到KD_Three
         Three.setOnClickListener(new Button.OnClickListener() {
