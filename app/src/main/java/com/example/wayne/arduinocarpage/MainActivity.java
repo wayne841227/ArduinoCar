@@ -65,6 +65,7 @@ public class MainActivity extends Activity implements Runnable{
 
         Intent Jump = new Intent(MainActivity.this,KD_Five.class);
         startActivity(Jump);
+        MainActivity.this.finish();
 
     }
 
@@ -72,7 +73,7 @@ public class MainActivity extends Activity implements Runnable{
 
         Intent Jump = new Intent(MainActivity.this,KP_Five.class);
         startActivity(Jump);
-
+        MainActivity.this.finish();
     }
 
     @Override

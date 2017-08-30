@@ -40,10 +40,6 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
         //更換頁面到KP_Three
         Three.setOnClickListener(new Button.OnClickListener(){
 
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
-
             public void onClick(View v){
                 jumpKP_Three();
             }
@@ -51,10 +47,6 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
         //更換頁面到KP_Five
         Five.setOnClickListener(new Button.OnClickListener() {
-
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
 
             public void onClick(View v) {
                 jumpKP_Five();
@@ -64,10 +56,6 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
         //更換頁面到KP_Enter_Seven
         Check.setOnClickListener(new Button.OnClickListener() {
 
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
-
             public void onClick(View v) {
                 jumpKP_Enter_Three();
             }
@@ -75,10 +63,6 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
         //更換頁面到MainActivity
         Back.setOnClickListener(new Button.OnClickListener() {
-
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
 
             public void onClick(View v) {
                 jumpMain();
@@ -195,12 +179,14 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
         Intent Jump = new Intent(KP_Seven.this, KP_Three.class);
         startActivity(Jump);
+        KP_Seven.this.finish();
     }
 
     public void jumpKP_Five(){
 
         Intent Jump = new Intent(KP_Seven.this,KP_Five.class);
         startActivity(Jump);
+        KP_Seven.this.finish();
 
     }
 
@@ -208,11 +194,13 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
         Intent Jump = new Intent(KP_Seven.this, KP_Enter_Seven.class);
         startActivity(Jump);
+        KP_Seven.this.finish();
     }
 
     public void jumpMain() {
 
         Intent Jump = new Intent(KP_Seven.this, MainActivity.class);
         startActivity(Jump);
+        KP_Seven.this.finish();
     }
 }

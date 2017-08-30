@@ -44,10 +44,6 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
         //更換頁面到KD_Three
         Three.setOnClickListener(new Button.OnClickListener(){
 
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
-
             public void onClick(View v){
                 jumpKD_Three();
             }
@@ -55,10 +51,6 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
 
         //更換頁面到KD_Five
         Five.setOnClickListener(new Button.OnClickListener() {
-
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
 
             public void onClick(View v) {
                 jumpKD_Five();
@@ -68,10 +60,6 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
         //更換頁面到KD_Enter_Seven
         Check.setOnClickListener(new Button.OnClickListener() {
 
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
-
             public void onClick(View v) {
                 jumpKD_Enter_Three();
             }
@@ -79,10 +67,6 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
 
         //更換頁面到MainActivity
         Back.setOnClickListener(new Button.OnClickListener() {
-
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
 
             public void onClick(View v) {
                 jumpMain();
@@ -197,26 +181,27 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
 
         Intent Jump = new Intent(KD_Seven.this, KD_Three.class);
         startActivity(Jump);
+        KD_Seven.this.finish();
     }
 
     public void jumpKD_Five(){
 
         Intent Jump = new Intent(KD_Seven.this,KD_Five.class);
         startActivity(Jump);
-
+        KD_Seven.this.finish();
     }
 
     public void jumpKD_Enter_Three() {
 
         Intent Jump = new Intent(KD_Seven.this, KD_Enter_Seven.class);
         startActivity(Jump);
+        KD_Seven.this.finish();
     }
 
     public void jumpMain() {
 
         Intent Jump = new Intent(KD_Seven.this, MainActivity.class);
         startActivity(Jump);
+        KD_Seven.this.finish();
     }
-
-
-    }
+}

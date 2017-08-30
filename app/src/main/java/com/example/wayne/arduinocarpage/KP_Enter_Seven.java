@@ -42,12 +42,14 @@ public class KP_Enter_Seven extends AppCompatActivity {
 
         Intent Jump = new Intent(KP_Enter_Seven.this, KP_Seven.class);
         startActivity(Jump);
+        KP_Enter_Seven.this.finish();
     }
 
     public void jumpKP_Seven() {
 
         Intent Jump = new Intent(KP_Enter_Seven.this, KP_Seven.class);
         startActivity(Jump);
+        KP_Enter_Seven.this.finish();
     }
 }
 

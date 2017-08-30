@@ -42,12 +42,14 @@ public class KP_Enter_Five extends AppCompatActivity {
 
         Intent Jump = new Intent(KP_Enter_Five.this, KP_Three.class);
         startActivity(Jump);
+        KP_Enter_Five.this.finish();
     }
 
     public void jumpKP_Five() {
 
         Intent Jump = new Intent(KP_Enter_Five.this, KP_Five.class);
         startActivity(Jump);
+        KP_Enter_Five.this.finish();
     }
 }
 

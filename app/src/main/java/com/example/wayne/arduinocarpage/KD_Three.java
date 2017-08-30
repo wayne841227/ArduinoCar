@@ -39,20 +39,12 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         //更換頁面到KD_Five
         Five.setOnClickListener(new Button.OnClickListener() {
 
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
-
             public void onClick(View v) {
                 jumpKD_Five();
             }
         });
         //更換頁面到KD_Seven
         Seven.setOnClickListener(new Button.OnClickListener(){
-
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
 
             public void onClick(View v){
                 jumpKD_Seven();
@@ -62,10 +54,6 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         //更換頁面到KD_Enter_Three
         Check.setOnClickListener(new Button.OnClickListener() {
 
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
-
             public void onClick(View v) {
                 jumpKD_Enter_Three();
             }
@@ -73,10 +61,6 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
         //更換頁面到MainActivity
         Back.setOnClickListener(new Button.OnClickListener() {
-
-            public void surfaceClear(final Canvas canvas){
-                canvas.drawColor(Color.WHITE);
-            }
 
             public void onClick(View v) {
                 jumpMain();
@@ -167,24 +151,27 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
         Intent Jump = new Intent(KD_Three.this,KD_Five.class);
         startActivity(Jump);
-
+        KD_Three.this.finish();
     }
 
     public void jumpKD_Seven() {
 
         Intent Jump = new Intent(KD_Three.this, KD_Seven.class);
         startActivity(Jump);
+        KD_Three.this.finish();
     }
 
     public void jumpKD_Enter_Three() {
 
         Intent Jump = new Intent(KD_Three.this, KD_Enter_Three.class);
         startActivity(Jump);
+        KD_Three.this.finish();
     }
 
     public void jumpMain() {
 
         Intent Jump = new Intent(KD_Three.this, MainActivity.class);
         startActivity(Jump);
+        KD_Three.this.finish();
     }
 }
