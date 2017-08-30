@@ -32,8 +32,13 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
         Check = (Button) findViewById(R.id.check);
         Back = (Button) findViewById(R.id.back);
 
+
         //更換頁面到KD_Three
         Three.setOnClickListener(new Button.OnClickListener() {
+
+            public void surfaceClear(final Canvas canvas){
+                canvas.drawColor(Color.WHITE);
+            }
 
             public void onClick(View v) {
                 jumpKD_Three();
@@ -41,6 +46,10 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
         });
         //更換頁面到KD_Seven
         Seven.setOnClickListener(new Button.OnClickListener(){
+
+            public void surfaceClear(final Canvas canvas){
+                canvas.drawColor(Color.WHITE);
+            }
 
             public void onClick(View v){
                 jumpKD_Seven();
@@ -50,6 +59,10 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
         //更換頁面到KD_Enter_Five
         Check.setOnClickListener(new Button.OnClickListener() {
 
+            public void surfaceClear(final Canvas canvas){
+                canvas.drawColor(Color.WHITE);
+            }
+
             public void onClick(View v) {
                 jumpKD_Enter_Five();
             }
@@ -57,6 +70,10 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
 
         //更換頁面到MainActivity
         Back.setOnClickListener(new Button.OnClickListener() {
+
+            public void surfaceClear(final Canvas canvas){
+                canvas.drawColor(Color.WHITE);
+            }
 
             public void onClick(View v) {
                 jumpMain();
@@ -156,7 +173,6 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
     }
 
     public void jumpKD_Three(){
-
         Intent Jump = new Intent(KD_Five.this,KD_Three.class);
         startActivity(Jump);
 

@@ -36,7 +36,7 @@ public class KD_Enter_Five extends AppCompatActivity {
     }
     public void jumpKD_Graphic() {
 
-        Intent Jump = new Intent(KD_Enter_Five.this, KD_Graphic.class);
+        Intent Jump = new Intent(KD_Enter_Five.this, KD_Five.class);
         startActivity(Jump);
     }
 

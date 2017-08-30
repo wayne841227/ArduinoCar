@@ -40,6 +40,10 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
         //更換頁面到KP_Three
         Three.setOnClickListener(new Button.OnClickListener(){
 
+            public void surfaceClear(final Canvas canvas){
+                canvas.drawColor(Color.WHITE);
+            }
+
             public void onClick(View v){
                 jumpKP_Three();
             }
@@ -47,6 +51,10 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
         //更換頁面到KP_Five
         Five.setOnClickListener(new Button.OnClickListener() {
+
+            public void surfaceClear(final Canvas canvas){
+                canvas.drawColor(Color.WHITE);
+            }
 
             public void onClick(View v) {
                 jumpKP_Five();
@@ -56,6 +64,10 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
         //更換頁面到KP_Enter_Seven
         Check.setOnClickListener(new Button.OnClickListener() {
 
+            public void surfaceClear(final Canvas canvas){
+                canvas.drawColor(Color.WHITE);
+            }
+
             public void onClick(View v) {
                 jumpKP_Enter_Three();
             }
@@ -63,6 +75,10 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
         //更換頁面到MainActivity
         Back.setOnClickListener(new Button.OnClickListener() {
+
+            public void surfaceClear(final Canvas canvas){
+                canvas.drawColor(Color.WHITE);
+            }
 
             public void onClick(View v) {
                 jumpMain();

@@ -40,7 +40,7 @@ public class KP_Enter_Seven extends AppCompatActivity {
     }
     public void jumpKP_Graphic() {
 
-        Intent Jump = new Intent(KP_Enter_Seven.this, KP_Graphic.class);
+        Intent Jump = new Intent(KP_Enter_Seven.this, KP_Seven.class);
         startActivity(Jump);
     }
 
