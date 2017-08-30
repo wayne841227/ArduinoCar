@@ -15,18 +15,30 @@ import android.widget.Button;
  * Created by nancy on 2017/8/18.
  */
 
+
+
 public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callback{
 
     private Button Check,Back,Five,Seven;
     private SurfaceView surface;
 
-    float [] kd_3_weight = {(float)0.21,(float)0.31,(float)0.48};
+
+    //Bundle bundle = getIntent().getExtras();
+    //Bundle bundle1 = getIntent().getExtras();
+    //float [] kd_3_weight = {(float)0.21,(float)0.31,(float)0.48};
+    public float [] kd_3_weight;
+    //boolean isopen_kd3enter = bundle1.getBoolean("isopen_kd3enter");
+
     float [] kd_3_angle = {(float)19,(float)21,(float)22};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kd_three);
+
+
 
         surface = (SurfaceView)findViewById(R.id.kd3_Surface);
         surface.getHolder().addCallback(this);
@@ -72,7 +84,7 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        Drawing(holder);
+            Drawing(holder);
     }
 
     @Override
@@ -86,13 +98,29 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     private void Drawing(SurfaceHolder holder) {
 
         Canvas canvas = holder.lockCanvas();
-        if (canvas == null) {
-        } else {
-            draw(canvas);
-            holder.unlockCanvasAndPost(canvas);
-        }
-    }
 
+        if( getIntent().getExtras() != null) {
+
+            Bundle bundle = getIntent().getExtras();
+            kd_3_weight = bundle.getFloatArray("kd_3_weight");
+
+            if (canvas == null) {
+            } else {
+                draw(canvas);
+                holder.unlockCanvasAndPost(canvas);
+            }
+        }else{
+            if (canvas == null) {
+            } else {
+                drawBlank(canvas);
+                holder.unlockCanvasAndPost(canvas);
+            }
+        }
+
+    }
+    private void drawBlank(final Canvas canvas){
+        canvas.drawColor(Color.WHITE);
+    }
     private void draw(final Canvas canvas) {
         canvas.drawColor(Color.WHITE);
 
@@ -165,6 +193,7 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
         Intent Jump = new Intent(KD_Three.this, KD_Enter_Three.class);
         startActivity(Jump);
+        //kd_3_weight = bundle.getFloatArray("kd_3_weight");
         KD_Three.this.finish();
     }
 
