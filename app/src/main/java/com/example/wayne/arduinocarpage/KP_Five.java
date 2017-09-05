@@ -16,7 +16,7 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
     private Button Check,Back,Three,Seven;
     private SurfaceView surface;
 
-    float [] kp_5_weight = {(float)0.21,(float)0.31,(float)0.48,(float)0.51,(float)0.61};
+    float [] kp_5_weight;
     float [] kp_5_angle = {(float)19,(float)21,(float)22,(float)26,(float)30};
 
     @Override
@@ -24,6 +24,9 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kp_five);
         getWindow().setWindowAnimations(0);
+
+        GlobalVariable gv = (GlobalVariable)getApplicationContext();
+        kp_5_weight = gv.getkp_5_weight();
 
         surface = (SurfaceView)findViewById(R.id.kp5_Surface);
         surface.getHolder().addCallback(this);
@@ -84,11 +87,24 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
     private void Drawing(SurfaceHolder holder) {
 
         Canvas canvas = holder.lockCanvas();
-        if (canvas == null) {
-        } else {
-            draw(canvas);
-            holder.unlockCanvasAndPost(canvas);
+
+        if(kp_5_weight != null){
+            if (canvas == null) {
+            } else {
+                draw(canvas);
+                holder.unlockCanvasAndPost(canvas);
+            }
+        }else{
+            if (canvas == null) {
+            } else {
+                drawBlank(canvas);
+                holder.unlockCanvasAndPost(canvas);
+            }
         }
+    }
+
+    private void drawBlank(final Canvas canvas){
+        canvas.drawColor(Color.WHITE);
     }
 
     private void draw(final Canvas canvas) {

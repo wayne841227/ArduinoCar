@@ -20,7 +20,7 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     private Button Check,Back,Five,Seven;
     private SurfaceView surface;
 
-    float [] kp_3_weight = {(float)0.21,(float)0.31,(float)0.48};
+    float [] kp_3_weight;
     float [] kp_3_angle = {(float)19,(float)21,(float)22};
 
     @Override
@@ -28,6 +28,9 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kp_three);
         getWindow().setWindowAnimations(0);
+
+        GlobalVariable gv = (GlobalVariable)getApplicationContext();
+        kp_3_weight = gv.getkp_3_weight();
 
         surface = (SurfaceView)findViewById(R.id.kp3_Surface);
         surface.getHolder().addCallback(this);
@@ -88,13 +91,25 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     private void Drawing(SurfaceHolder holder) {
 
         Canvas canvas = holder.lockCanvas();
-        if (canvas == null) {
-        } else {
-            draw(canvas);
-            holder.unlockCanvasAndPost(canvas);
+
+        if(kp_3_weight != null){
+            if (canvas == null) {
+            } else {
+                draw(canvas);
+                holder.unlockCanvasAndPost(canvas);
+            }
+        }else{
+            if (canvas == null) {
+            } else {
+                drawBlank(canvas);
+                holder.unlockCanvasAndPost(canvas);
+            }
         }
     }
 
+    private void drawBlank(final Canvas canvas){
+        canvas.drawColor(Color.WHITE);
+    }
     private void draw(final Canvas canvas) {
         canvas.drawColor(Color.WHITE);
 

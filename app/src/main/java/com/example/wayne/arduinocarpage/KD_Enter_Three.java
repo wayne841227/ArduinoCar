@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,6 @@ public class KD_Enter_Three extends AppCompatActivity {
 
     private Button Check,Back;
     float [] kd_3_weight = {(float)0,(float)0,(float)0};
-    boolean isopen_kd3enter = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,27 +41,37 @@ public class KD_Enter_Three extends AppCompatActivity {
         Check.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                //jumpKD_Graphic();
 
                 EditText edt1 = (EditText) findViewById(R.id.edit1);
-
-                if(edt1.getText() != null) {
-                    kd_3_weight[0] = Float.valueOf(edt1.getText().toString());
-                }
                 EditText edt2 = (EditText) findViewById(R.id.edit2);
-
-                if(edt2.getText() != null) {
-                    kd_3_weight[1] = Float.valueOf(edt2.getText().toString());
-                }
                 EditText edt3 = (EditText) findViewById(R.id.edit3);
 
-                if(edt3.getText() != null) {
+                //判斷輸入值是否為空
+                if("".equals(edt1.getText().toString().trim()) || "".equals(edt2.getText().toString().trim()) ||
+                        "".equals(edt3.getText().toString().trim())){
+
+                    //產生視窗物件
+                    new AlertDialog.Builder(KD_Enter_Three.this)
+                            .setTitle("警告視窗")//標題
+                            .setMessage("輸入格式有誤")//顯示的文字
+                            .setPositiveButton("關閉視窗",new DialogInterface.OnClickListener(){
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            }).show();//呈現對話視窗
+
+                }else{
+
+                    kd_3_weight[0] = Float.valueOf(edt1.getText().toString());
+                    kd_3_weight[1] = Float.valueOf(edt2.getText().toString());
                     kd_3_weight[2] = Float.valueOf(edt3.getText().toString());
+
+                    //存入全域變數的class
+                    GlobalVariable gv = (GlobalVariable)getApplicationContext();
+                    gv.setkd_3_weight(kd_3_weight);
+
+                    jumpKD_Three();
                 }
-
-
-                jumpKD_Three();
-
             }
         });
 
@@ -125,19 +135,9 @@ public class KD_Enter_Three extends AppCompatActivity {
 
     }
 
-    public void jumpKD_Graphic() {
-
-        Intent Jump = new Intent(KD_Enter_Three.this, KD_Three.class);
-        startActivity(Jump);
-        KD_Enter_Three.this.finish();
-    }
-
     public void jumpKD_Three() {
 
-        Bundle bundle = new Bundle();
-        bundle.putFloatArray("kd_3_weight",kd_3_weight);
         Intent Jump = new Intent(KD_Enter_Three.this, KD_Three.class);
-        Jump.putExtras(bundle);
         startActivity(Jump);
         KD_Enter_Three.this.finish();
 

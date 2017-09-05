@@ -49,7 +49,7 @@ public class MainActivity extends Activity implements Runnable{
 
             public void onClick(View v) {
 
-                jumpKP_Five();
+                jumpKP_Three();
                 locker = false;
             }
         });
@@ -59,7 +59,7 @@ public class MainActivity extends Activity implements Runnable{
 
             public void onClick(View v) {
 
-                jumpKD_Five();
+                jumpKD_Three();
                 locker = false;
             }
         });
@@ -115,17 +115,17 @@ public class MainActivity extends Activity implements Runnable{
 
     }
 
-    public void jumpKD_Five(){
+    public void jumpKD_Three(){
 
-        Intent Jump = new Intent(MainActivity.this,KD_Five.class);
+        Intent Jump = new Intent(MainActivity.this,KD_Three.class);
         startActivity(Jump);
         MainActivity.this.finish();
 
     }
 
-    public void jumpKP_Five(){
+    public void jumpKP_Three(){
 
-        Intent Jump = new Intent(MainActivity.this,KP_Five.class);
+        Intent Jump = new Intent(MainActivity.this,KP_Three.class);
         startActivity(Jump);
         MainActivity.this.finish();
     }

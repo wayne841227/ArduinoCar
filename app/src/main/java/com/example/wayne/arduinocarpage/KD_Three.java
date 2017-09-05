@@ -1,14 +1,11 @@
 package com.example.wayne.arduinocarpage;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -32,6 +29,7 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     public float [] kd_3_weight;
     //boolean isopen_kd3enter = bundle1.getBoolean("isopen_kd3enter");
 
+    //public float [] kd_3_angle;
     float [] kd_3_angle = {(float)19,(float)21,(float)22};
 
 
@@ -42,7 +40,8 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         setContentView(R.layout.kd_three);
         getWindow().setWindowAnimations(0);
 
-
+        GlobalVariable gv = (GlobalVariable)getApplicationContext();
+        kd_3_weight = gv.getkd_3_weight();
 
         surface = (SurfaceView)findViewById(R.id.kd3_Surface);
         surface.getHolder().addCallback(this);
@@ -82,59 +81,6 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
                 jumpMain();
             }
         });
-
-
-    }
-
-
-    public boolean onKeyDown(int keyCode,KeyEvent event){
-
-        if(keyCode== KeyEvent.KEYCODE_BACK && event.getRepeatCount()==0){   //確定按下退出鍵and防止重複按下退出鍵
-
-            dialog();
-
-        }
-
-        return false;
-
-    }
-
-    private void dialog(){
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(KD_Three.this); //創建訊息方塊
-
-        builder.setMessage("確定要離開？");
-
-        builder.setTitle("離開");
-
-        builder.setPositiveButton("確認", new DialogInterface.OnClickListener()  {
-
-            @Override
-
-            public void onClick(DialogInterface dialog, int which) {
-
-                dialog.dismiss(); //dismiss為關閉dialog,Activity還會保留dialog的狀態
-
-                KD_Three.this.finish();//關閉activity
-
-            }
-
-        });
-
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener()  {
-
-            @Override
-
-            public void onClick(DialogInterface dialog, int which) {
-
-                dialog.dismiss();
-
-            }
-
-        });
-
-        builder.create().show();
-
     }
 
     @Override
@@ -154,11 +100,7 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
         Canvas canvas = holder.lockCanvas();
 
-        if( getIntent().getExtras() != null) {
-
-            Bundle bundle = getIntent().getExtras();
-            kd_3_weight = bundle.getFloatArray("kd_3_weight");
-
+        if(kd_3_weight != null){
             if (canvas == null) {
             } else {
                 draw(canvas);
@@ -166,10 +108,10 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
             }
         }else{
             if (canvas == null) {
-            } else {
-                drawBlank(canvas);
-                holder.unlockCanvasAndPost(canvas);
-            }
+                } else {
+                    drawBlank(canvas);
+                    holder.unlockCanvasAndPost(canvas);
+                }
         }
 
     }
@@ -248,7 +190,6 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
         Intent Jump = new Intent(KD_Three.this, KD_Enter_Three.class);
         startActivity(Jump);
-        //kd_3_weight = bundle.getFloatArray("kd_3_weight");
         KD_Three.this.finish();
     }
 

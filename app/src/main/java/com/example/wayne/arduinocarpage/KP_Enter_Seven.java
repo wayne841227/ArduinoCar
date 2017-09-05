@@ -13,11 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class KP_Enter_Seven extends AppCompatActivity {
 
     private Button Check,Back;
+    float [] kp_7_weight = {(float)0,(float)0,(float)0,(float)0,(float)0,(float)0,(float)0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,46 @@ public class KP_Enter_Seven extends AppCompatActivity {
         Check.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                jumpKP_Graphic();
+                EditText edt1 = (EditText) findViewById(R.id.edit1);
+                EditText edt2 = (EditText) findViewById(R.id.edit2);
+                EditText edt3 = (EditText) findViewById(R.id.edit3);
+                EditText edt4 = (EditText) findViewById(R.id.edit4);
+                EditText edt5 = (EditText) findViewById(R.id.edit5);
+                EditText edt6 = (EditText) findViewById(R.id.edit6);
+                EditText edt7 = (EditText) findViewById(R.id.edit7);
+
+                //判斷輸入值是否為空
+                if("".equals(edt1.getText().toString().trim()) || "".equals(edt2.getText().toString().trim()) ||
+                        "".equals(edt3.getText().toString().trim()) || "".equals(edt4.getText().toString().trim()) ||
+                        "".equals(edt5.getText().toString().trim()) || "".equals(edt6.getText().toString().trim()) ||
+                        "".equals(edt7.getText().toString().trim())){
+
+                    //產生視窗物件
+                    new AlertDialog.Builder(KP_Enter_Seven.this)
+                            .setTitle("警告視窗")//標題
+                            .setMessage("輸入格式有誤")//顯示的文字
+                            .setPositiveButton("關閉視窗",new DialogInterface.OnClickListener(){
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            }).show();//呈現對話視窗
+
+                }else{
+
+                    kp_7_weight[0] = Float.valueOf(edt1.getText().toString());
+                    kp_7_weight[1] = Float.valueOf(edt2.getText().toString());
+                    kp_7_weight[2] = Float.valueOf(edt3.getText().toString());
+                    kp_7_weight[3] = Float.valueOf(edt4.getText().toString());
+                    kp_7_weight[4] = Float.valueOf(edt5.getText().toString());
+                    kp_7_weight[5] = Float.valueOf(edt6.getText().toString());
+                    kp_7_weight[6] = Float.valueOf(edt7.getText().toString());
+
+                    //存入全域變數的class
+                    GlobalVariable gv = (GlobalVariable)getApplicationContext();
+                    gv.setkp_7_weight(kp_7_weight);
+
+                    jumpKP_Seven();
+                }
             }
         });
 
@@ -98,13 +139,6 @@ public class KP_Enter_Seven extends AppCompatActivity {
 
         builder.create().show();
 
-    }
-
-    public void jumpKP_Graphic(){
-
-        Intent Jump = new Intent(KP_Enter_Seven.this, KP_Seven.class);
-        startActivity(Jump);
-        KP_Enter_Seven.this.finish();
     }
 
     public void jumpKP_Seven() {

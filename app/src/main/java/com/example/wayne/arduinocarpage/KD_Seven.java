@@ -25,10 +25,9 @@ import android.widget.Button;
 public class KD_Seven extends Activity implements SurfaceHolder.Callback{
 
     private Button Check,Back,Five,Three;
-    //private SurfaceView kd7_surface;
     private SurfaceView surface;
 
-    float [] kd_7_weight = {(float)0.2,(float)0.3,(float)0.47,(float)0.5,(float)0.6,(float)0.7,(float)0.8};
+    float [] kd_7_weight;
     float [] kd_7_angle = {(float)18,(float)20,(float)23,(float)25,(float)29,(float)31,(float)35};
 
     @Override
@@ -36,6 +35,9 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kd_seven);
         getWindow().setWindowAnimations(0);
+
+        GlobalVariable gv = (GlobalVariable)getApplicationContext();
+        kd_7_weight = gv.getkd_7_weight();
 
         surface = (SurfaceView)findViewById(R.id.kd7_Surface);
         surface.getHolder().addCallback(this);
@@ -145,11 +147,23 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
     private void Drawing(SurfaceHolder holder) {
 
         Canvas canvas = holder.lockCanvas();
-        if (canvas == null) {
-        } else {
-            draw(canvas);
-            holder.unlockCanvasAndPost(canvas);
+        if(kd_7_weight != null){
+            if (canvas == null) {
+            } else {
+                draw(canvas);
+                holder.unlockCanvasAndPost(canvas);
+            }
+        }else{
+            if (canvas == null) {
+            } else {
+                drawBlank(canvas);
+                holder.unlockCanvasAndPost(canvas);
+            }
         }
+    }
+
+    private void drawBlank(final Canvas canvas){
+        canvas.drawColor(Color.WHITE);
     }
 
     private void draw(final Canvas canvas) {
