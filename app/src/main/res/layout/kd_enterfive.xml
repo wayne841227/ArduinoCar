@@ -10,8 +10,7 @@
         android:textSize="40sp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:layout_marginBottom="69dp"
-        android:layout_above="@+id/check"
+        android:layout_below="@+id/weight"
         android:layout_alignParentStart="true" />
 
     <EditText
@@ -58,11 +57,65 @@
         android:ems="10"
         android:inputType="numberDecimal" />
 
+    <EditText
+        android:id="@+id/edit6"
+        android:background="@drawable/trangle"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:textSize="40sp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/angle"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/edit7"
+        android:background="@drawable/trangle"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:textSize="40sp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:layout_alignTop="@+id/edit6"
+        android:layout_toEndOf="@+id/edit6" />
+
+    <EditText
+        android:id="@+id/edit8"
+        android:background="@drawable/trangle"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit7"
+        android:layout_toEndOf="@+id/edit7"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit9"
+        android:background="@drawable/trangle"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit8"
+        android:layout_toEndOf="@+id/edit8"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit10"
+        android:background="@drawable/trangle"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit9"
+        android:layout_toEndOf="@+id/edit9"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
     <Button
         android:text="確認"
         android:textStyle="bold"
-        android:textSize="30sp"
-        android:drawableLeft="@drawable/kd3"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/check"
@@ -72,12 +125,33 @@
     <Button
         android:text="返回"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:id="@+id/back"
-        android:drawableLeft="@drawable/kd3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="權重"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/angle" />
+
+    <TextView
+        android:id="@+id/angle"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="角度"
+        android:layout_marginStart="11dp"
+        android:layout_below="@+id/edit2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp" />
 
 
 </RelativeLayout>

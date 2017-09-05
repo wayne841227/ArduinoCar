@@ -10,9 +10,8 @@
         android:textSize="40sp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:layout_above="@+id/check"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="86dp" />
+        android:layout_below="@+id/weight"
+        android:layout_alignStart="@+id/angle" />
 
     <EditText
         android:id="@+id/edit2"
@@ -80,11 +79,87 @@
         android:ems="10"
         android:inputType="numberDecimal" />
 
+    <EditText
+        android:id="@+id/edit8"
+        android:background="@drawable/trangle"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:textSize="40sp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/angle"
+        android:layout_alignStart="@+id/angle" />
+
+    <EditText
+        android:id="@+id/edit9"
+        android:background="@drawable/trangle"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit8"
+        android:layout_toEndOf="@+id/edit8"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit10"
+        android:background="@drawable/trangle"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit9"
+        android:layout_toEndOf="@+id/edit9"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit11"
+        android:background="@drawable/trangle"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit10"
+        android:layout_toEndOf="@+id/edit10"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit12"
+        android:background="@drawable/trangle"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit11"
+        android:layout_toEndOf="@+id/edit11"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit13"
+        android:background="@drawable/trangle"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit12"
+        android:layout_toEndOf="@+id/edit12"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit14"
+        android:background="@drawable/trangle"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit13"
+        android:layout_toEndOf="@+id/edit13"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
     <Button
         android:text="確認"
         android:textStyle="bold"
-        android:textSize="30sp"
-        android:drawableLeft="@drawable/kp3"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/check"
@@ -95,14 +170,34 @@
     <Button
         android:text="返回"
         android:textStyle="bold"
-        android:textSize="30sp"
-        android:drawableLeft="@drawable/kp3"
+        android:textSize="20sp"
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="權重"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/back" />
+
+    <TextView
+        android:id="@+id/angle"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="角度"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/edit2"
+        android:layout_alignStart="@+id/back" />
 
 
 </RelativeLayout>

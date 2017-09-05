@@ -27,6 +27,7 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kp_three);
+        getWindow().setWindowAnimations(0);
 
         surface = (SurfaceView)findViewById(R.id.kp3_Surface);
         surface.getHolder().addCallback(this);

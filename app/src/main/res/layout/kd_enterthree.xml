@@ -10,9 +10,8 @@
         android:textSize="40sp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:layout_above="@+id/check"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="68dp" />
+        android:layout_below="@+id/weight"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/edit2"
@@ -36,11 +35,47 @@
         android:ems="10"
         android:inputType="numberDecimal" />
 
+    <EditText
+        android:id="@+id/edit4"
+        android:background="@drawable/trangle"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
+        android:textSize="40sp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:layout_above="@+id/back"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/edit5"
+        android:background="@drawable/trangle"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
+        android:textSize="40sp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:layout_alignTop="@+id/edit4"
+        android:layout_toEndOf="@+id/edit4" />
+
+    <EditText
+        android:id="@+id/edit6"
+        android:background="@drawable/trangle"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@+id/edit5"
+        android:layout_toEndOf="@+id/edit5"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+
+
+
     <Button
         android:text="確認"
         android:textStyle="bold"
-        android:textSize="30sp"
-        android:drawableLeft="@drawable/kd3"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/check"
@@ -52,13 +87,32 @@
     <Button
         android:text="返回"
         android:textStyle="bold"
-        android:textSize="30sp"
-        android:drawableLeft="@drawable/kd3"
+        android:textSize="20sp"
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="權重"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/back" />
+
+    <TextView
+        android:id="@+id/angle"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="角度"
+        android:layout_above="@+id/edit4"
+        android:layout_alignStart="@+id/weight" />
 
 </RelativeLayout>

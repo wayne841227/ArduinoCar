@@ -27,6 +27,7 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kp_seven);
+        getWindow().setWindowAnimations(0);
 
         surface = (SurfaceView)findViewById(R.id.kp7_Surface);
         surface.getHolder().addCallback(this);
