@@ -3,17 +3,20 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <EditText
-    android:id="@+id/edit1"
-    android:background="@drawable/trangle"
-    android:layout_width="84dp"
-    android:layout_height="70dp"
-    android:textSize="40sp"
-    android:ems="10"
-    android:inputType="numberDecimal"
-    android:layout_below="@+id/weight"
-    android:imeOptions="actionDone"
-    android:maxLines="1"
-    android:layout_alignStart="@+id/angle" />
+        android:id="@+id/edit1"
+        android:background="@drawable/trangle"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:layout_marginBottom="25dp"
+        android:layout_above="@+id/angle"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/edit2"
@@ -21,6 +24,8 @@
         android:layout_width="84dp"
         android:layout_height="70dp"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
         android:layout_alignTop="@+id/edit1"
         android:layout_toEndOf="@+id/edit1"
         android:ems="10"
@@ -34,6 +39,8 @@
         android:layout_width="84dp"
         android:layout_height="70dp"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
         android:layout_alignTop="@+id/edit2"
         android:layout_toEndOf="@+id/edit2"
         android:ems="10"
@@ -47,6 +54,8 @@
         android:layout_width="84dp"
         android:layout_height="70dp"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
         android:layout_alignTop="@+id/edit3"
         android:layout_toEndOf="@+id/edit3"
         android:ems="10"
@@ -60,6 +69,8 @@
         android:layout_width="84dp"
         android:layout_height="70dp"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
         android:layout_alignTop="@+id/edit4"
         android:layout_toEndOf="@+id/edit4"
         android:ems="10"
@@ -73,6 +84,8 @@
         android:layout_width="84dp"
         android:layout_height="70dp"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
         android:layout_alignTop="@+id/edit5"
         android:layout_toEndOf="@+id/edit5"
         android:ems="10"
@@ -86,6 +99,8 @@
         android:layout_width="84dp"
         android:layout_height="70dp"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
         android:layout_alignTop="@+id/edit6"
         android:layout_toEndOf="@+id/edit6"
         android:ems="10"
@@ -99,12 +114,17 @@
         android:layout_width="84dp"
         android:layout_height="70dp"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
         android:ems="10"
         android:imeOptions="actionDone"
         android:maxLines="1"
         android:inputType="numberDecimal"
-        android:layout_below="@+id/angle"
-        android:layout_alignStart="@+id/angle" />
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="35dp"
+        android:layout_above="@+id/back"
+        android:layout_toStartOf="@+id/edit4" />
+
 
     <EditText
         android:id="@+id/edit9"
@@ -112,77 +132,15 @@
         android:layout_width="84dp"
         android:layout_height="70dp"
         android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:inputType="numberDecimal"
+        android:layout_marginEnd="37dp"
         android:layout_alignTop="@+id/edit8"
-        android:layout_toEndOf="@+id/edit8"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/edit10"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:layout_alignTop="@+id/edit9"
-        android:layout_toEndOf="@+id/edit9"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/edit11"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:layout_alignTop="@+id/edit10"
-        android:layout_toEndOf="@+id/edit10"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/edit12"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:layout_alignTop="@+id/edit11"
-        android:layout_toEndOf="@+id/edit11"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/edit13"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:layout_alignTop="@+id/edit12"
-        android:layout_toEndOf="@+id/edit12"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/edit14"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:layout_alignTop="@+id/edit13"
-        android:layout_toEndOf="@+id/edit13"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal" />
+        android:layout_toStartOf="@+id/check" />
 
     <Button
         android:text="確認"
@@ -220,9 +178,106 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="角度"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/edit2"
-        android:layout_alignStart="@+id/back" />
+        android:layout_marginBottom="15dp"
+        android:layout_above="@+id/edit8"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/NB"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NB"
+        android:layout_marginEnd="12dp"
+        android:layout_above="@+id/edit2"
+        android:layout_alignEnd="@+id/weight" />
+
+    <TextView
+        android:id="@+id/NM"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NM"
+        android:layout_above="@+id/edit2"
+        android:layout_toEndOf="@+id/back"
+        android:layout_marginStart="17dp" />
+
+    <TextView
+        android:id="@+id/NS"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NS"
+        android:layout_marginEnd="23dp"
+        android:layout_above="@+id/edit3"
+        android:layout_toStartOf="@+id/edit4" />
+
+    <TextView
+        android:id="@+id/ZO"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ZO"
+        android:layout_above="@+id/edit4"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/PS"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PS"
+        android:layout_above="@+id/edit5"
+        android:layout_toEndOf="@+id/edit4"
+        android:layout_marginStart="26dp" />
+
+    <TextView
+        android:id="@+id/PM"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PM"
+        android:layout_marginEnd="21dp"
+        android:layout_above="@+id/edit6"
+        android:layout_toStartOf="@+id/edit7" />
+
+    <TextView
+        android:id="@+id/PB"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PB"
+        android:layout_marginEnd="25dp"
+        android:layout_above="@+id/edit7"
+        android:layout_alignEnd="@+id/edit7" />
+
+    <TextView
+        android:id="@+id/MIN"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MIN"
+        android:layout_above="@+id/edit8"
+        android:layout_toStartOf="@+id/NS" />
+
+    <TextView
+        android:id="@+id/MAX"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MAX"
+        android:layout_alignBaseline="@+id/MIN"
+        android:layout_alignBottom="@+id/MIN"
+        android:layout_toEndOf="@+id/PS" />
 
 
 </RelativeLayout>
