@@ -11,6 +11,8 @@
     android:ems="10"
     android:inputType="numberDecimal"
     android:layout_below="@+id/weight"
+    android:imeOptions="actionDone"
+    android:maxLines="1"
     android:layout_alignStart="@+id/angle" />
 
     <EditText
@@ -22,6 +24,8 @@
         android:layout_alignTop="@+id/edit1"
         android:layout_toEndOf="@+id/edit1"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -33,6 +37,8 @@
         android:layout_alignTop="@+id/edit2"
         android:layout_toEndOf="@+id/edit2"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -44,6 +50,8 @@
         android:layout_alignTop="@+id/edit3"
         android:layout_toEndOf="@+id/edit3"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -55,6 +63,8 @@
         android:layout_alignTop="@+id/edit4"
         android:layout_toEndOf="@+id/edit4"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -66,6 +76,8 @@
         android:layout_alignTop="@+id/edit5"
         android:layout_toEndOf="@+id/edit5"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -77,6 +89,8 @@
         android:layout_alignTop="@+id/edit6"
         android:layout_toEndOf="@+id/edit6"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -86,6 +100,8 @@
         android:layout_height="70dp"
         android:textSize="40sp"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal"
         android:layout_below="@+id/angle"
         android:layout_alignStart="@+id/angle" />
@@ -99,6 +115,8 @@
         android:layout_alignTop="@+id/edit8"
         android:layout_toEndOf="@+id/edit8"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -110,6 +128,8 @@
         android:layout_alignTop="@+id/edit9"
         android:layout_toEndOf="@+id/edit9"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -121,6 +141,8 @@
         android:layout_alignTop="@+id/edit10"
         android:layout_toEndOf="@+id/edit10"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -132,6 +154,8 @@
         android:layout_alignTop="@+id/edit11"
         android:layout_toEndOf="@+id/edit11"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -143,6 +167,8 @@
         android:layout_alignTop="@+id/edit12"
         android:layout_toEndOf="@+id/edit12"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -154,6 +180,8 @@
         android:layout_alignTop="@+id/edit13"
         android:layout_toEndOf="@+id/edit13"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <Button
@@ -164,8 +192,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/check"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="12dp" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="返回"
@@ -174,9 +201,7 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true" />
 
     <TextView
         android:id="@+id/weight"

@@ -72,6 +72,14 @@ public class KP_Enter_Three extends AppCompatActivity {
         });
 
         //更換頁面到KP_Three
+        Check.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+                jumpKP_Graphic();
+            }
+        });
+
+        //更換頁面到KP_Three
         Back.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
@@ -129,6 +137,13 @@ public class KP_Enter_Three extends AppCompatActivity {
 
         builder.create().show();
 
+    }
+
+    public void jumpKP_Graphic(){
+
+        Intent Jump = new Intent(KP_Enter_Three.this, KP_Three.class);
+        startActivity(Jump);
+        KP_Enter_Three.this.finish();
     }
 
     public void jumpKP_Three() {

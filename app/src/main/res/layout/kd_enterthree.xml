@@ -9,6 +9,8 @@
         android:layout_height="90dp"
         android:textSize="40sp"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal"
         android:layout_below="@+id/weight"
         android:layout_alignParentStart="true" />
@@ -22,6 +24,8 @@
         android:layout_alignTop="@+id/edit1"
         android:layout_toEndOf="@+id/edit1"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -33,6 +37,8 @@
         android:layout_alignTop="@+id/edit2"
         android:layout_toEndOf="@+id/edit2"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -42,6 +48,8 @@
         android:layout_height="90dp"
         android:textSize="40sp"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal"
         android:layout_above="@+id/back"
         android:layout_alignParentStart="true"
@@ -54,6 +62,8 @@
         android:layout_height="90dp"
         android:textSize="40sp"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal"
         android:layout_alignTop="@+id/edit4"
         android:layout_toEndOf="@+id/edit4" />
@@ -67,10 +77,9 @@
         android:layout_alignTop="@+id/edit5"
         android:layout_toEndOf="@+id/edit5"
         android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
         android:inputType="numberDecimal" />
-
-
-
 
     <Button
         android:text="確認"
@@ -80,9 +89,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/check"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="12dp" />
-
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="返回"
@@ -91,9 +98,7 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true" />
 
     <TextView
         android:id="@+id/weight"

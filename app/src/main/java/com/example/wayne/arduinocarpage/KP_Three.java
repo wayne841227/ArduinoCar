@@ -1,11 +1,14 @@
 package com.example.wayne.arduinocarpage;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -74,6 +77,57 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
 
     }
+
+    public boolean onKeyDown(int keyCode,KeyEvent event){
+
+        if(keyCode== KeyEvent.KEYCODE_BACK && event.getRepeatCount()==0){   //確定按下退出鍵and防止重複按下退出鍵
+
+            dialog();
+
+        }
+
+        return false;
+
+    }
+
+    private void dialog(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(KP_Three.this); //創建訊息方塊
+
+        builder.setMessage("確定要離開？");
+
+        builder.setTitle("離開");
+
+        builder.setPositiveButton("確認", new DialogInterface.OnClickListener()  {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss(); //dismiss為關閉dialog,Activity還會保留dialog的狀態
+
+                KP_Three.this.finish();//關閉activity
+
+            }
+
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener()  {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+
+            }
+
+        });
+
+        builder.create().show();
+
+    }
+
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
