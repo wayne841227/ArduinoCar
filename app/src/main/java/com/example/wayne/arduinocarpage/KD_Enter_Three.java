@@ -23,6 +23,9 @@ public class KD_Enter_Three extends AppCompatActivity {
     private Button Check,Back;
     float [] kd_3_weight = {(float)0,(float)0,(float)0};
 
+    float kd_3_angle_max;
+    float kd_3_angle_min;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +49,13 @@ public class KD_Enter_Three extends AppCompatActivity {
                 EditText edt2 = (EditText) findViewById(R.id.edit2);
                 EditText edt3 = (EditText) findViewById(R.id.edit3);
 
+                EditText edt4 = (EditText) findViewById(R.id.edit4);
+                EditText edt5 = (EditText) findViewById(R.id.edit5);
+
                 //判斷輸入值是否為空
                 if("".equals(edt1.getText().toString().trim()) || "".equals(edt2.getText().toString().trim()) ||
-                        "".equals(edt3.getText().toString().trim())){
+                        "".equals(edt3.getText().toString().trim()) || "".equals(edt4.getText().toString().trim()) ||
+                        "".equals(edt5.getText().toString().trim())){
 
                     //產生視窗物件
                     new AlertDialog.Builder(KD_Enter_Three.this)
@@ -66,12 +73,18 @@ public class KD_Enter_Three extends AppCompatActivity {
                     kd_3_weight[1] = Float.valueOf(edt2.getText().toString());
                     kd_3_weight[2] = Float.valueOf(edt3.getText().toString());
 
+                    kd_3_angle_min = Float.valueOf(edt4.getText().toString());
+                    kd_3_angle_max = Float.valueOf(edt5.getText().toString());
+
                     //存入全域變數的class
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
-                    gv.setkd_3_weight(kd_3_weight);
+                    gv.setKd_3_weight(kd_3_weight);
+                    gv.setKd_3_angle(kd_3_angle_min,kd_3_angle_max);
 
                     jumpKD_Three();
                 }
+
+
             }
         });
 

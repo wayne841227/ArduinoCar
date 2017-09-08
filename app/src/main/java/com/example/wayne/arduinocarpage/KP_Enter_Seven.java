@@ -21,6 +21,9 @@ public class KP_Enter_Seven extends AppCompatActivity {
     private Button Check,Back;
     float [] kp_7_weight = {(float)0,(float)0,(float)0,(float)0,(float)0,(float)0,(float)0};
 
+    float kp_7_angle_max;
+    float kp_7_angle_min;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +49,15 @@ public class KP_Enter_Seven extends AppCompatActivity {
                 EditText edt6 = (EditText) findViewById(R.id.edit6);
                 EditText edt7 = (EditText) findViewById(R.id.edit7);
 
+                EditText edt8 = (EditText) findViewById(R.id.edit8);
+                EditText edt9 = (EditText) findViewById(R.id.edit9);
+
                 //判斷輸入值是否為空
                 if("".equals(edt1.getText().toString().trim()) || "".equals(edt2.getText().toString().trim()) ||
                         "".equals(edt3.getText().toString().trim()) || "".equals(edt4.getText().toString().trim()) ||
                         "".equals(edt5.getText().toString().trim()) || "".equals(edt6.getText().toString().trim()) ||
-                        "".equals(edt7.getText().toString().trim())){
+                        "".equals(edt7.getText().toString().trim()) || "".equals(edt8.getText().toString().trim()) ||
+                        "".equals(edt9.getText().toString().trim())){
 
                     //產生視窗物件
                     new AlertDialog.Builder(KP_Enter_Seven.this)
@@ -72,9 +79,13 @@ public class KP_Enter_Seven extends AppCompatActivity {
                     kp_7_weight[5] = Float.valueOf(edt6.getText().toString());
                     kp_7_weight[6] = Float.valueOf(edt7.getText().toString());
 
+                    kp_7_angle_min = Float.valueOf(edt8.getText().toString());
+                    kp_7_angle_max = Float.valueOf(edt9.getText().toString());
+
                     //存入全域變數的class
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
-                    gv.setkp_7_weight(kp_7_weight);
+                    gv.setKp_7_weight(kp_7_weight);
+                    gv.setKp_7_angle(kp_7_angle_min,kp_7_angle_max);
 
                     jumpKP_Seven();
                 }

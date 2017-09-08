@@ -32,8 +32,9 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     public float [] kd_3_weight;
     //boolean isopen_kd3enter = bundle1.getBoolean("isopen_kd3enter");
 
-    //public float [] kd_3_angle;
-    float [] kd_3_angle = {(float)19,(float)21,(float)22};
+    public float kd_3_angle_min;
+    public float kd_3_angle_max;
+    public float [] kd_3_angle = {(float)0,(float)0,(float)0};
 
 
 
@@ -44,7 +45,11 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         getWindow().setWindowAnimations(0);
 
         GlobalVariable gv = (GlobalVariable)getApplicationContext();
-        kd_3_weight = gv.getkd_3_weight();
+        kd_3_weight = gv.getKd_3_weight();
+        kd_3_angle_min = gv.getKd_3_angle_min();
+        kd_3_angle_max = gv.getKd_3_angle_max();
+
+        calAngle(kd_3_angle_min,kd_3_angle_max);
 
         surface = (SurfaceView)findViewById(R.id.kd3_Surface);
         surface.getHolder().addCallback(this);
@@ -89,13 +94,9 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     public boolean onKeyDown(int keyCode,KeyEvent event){
 
         if(keyCode== KeyEvent.KEYCODE_BACK && event.getRepeatCount()==0){   //確定按下退出鍵and防止重複按下退出鍵
-
             dialog();
-
         }
-
         return false;
-
     }
 
     private void dialog(){
@@ -123,11 +124,8 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener()  {
 
             @Override
-
             public void onClick(DialogInterface dialog, int which) {
-
                 dialog.dismiss();
-
             }
 
         });
@@ -223,6 +221,14 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         canvas.drawText(String.valueOf(kd_3_angle[2]), 1100-25, 400+50, t);
 
 
+    }
+
+    private void calAngle(float kd_3_angle_min,float kd_3_angle_max){
+
+        float w = kd_3_angle_max - kd_3_angle_min;
+        kd_3_angle[0] = kd_3_angle_min;
+        kd_3_angle[1] = kd_3_angle_min + (w/2);
+        kd_3_angle[2] = kd_3_angle_max;
     }
 
     public void jumpKD_Five(){

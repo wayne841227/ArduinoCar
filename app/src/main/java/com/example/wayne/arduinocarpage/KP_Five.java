@@ -20,6 +20,8 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
     private SurfaceView surface;
 
     float [] kp_5_weight;
+    public float kp_5_angle_min;
+    public float kp_5_angle_max;
     float [] kp_5_angle = {(float)19,(float)21,(float)22,(float)26,(float)30};
 
     @Override
@@ -29,7 +31,11 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
         getWindow().setWindowAnimations(0);
 
         GlobalVariable gv = (GlobalVariable)getApplicationContext();
-        kp_5_weight = gv.getkp_5_weight();
+        kp_5_weight = gv.getKp_5_weight();
+        kp_5_angle_min = gv.getKd_5_angle_min();
+        kp_5_angle_max = gv.getKd_5_angle_max();
+
+        calAngle(kp_5_angle_min,kp_5_angle_max);
 
         surface = (SurfaceView)findViewById(R.id.kp5_Surface);
         surface.getHolder().addCallback(this);
@@ -225,6 +231,16 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
         canvas.drawText(String.valueOf(kp_5_angle[4]), 1300-25, 400+50, t);
 
 
+    }
+
+    private void calAngle(float kp_5_angle_min,float kp_5_angle_max){
+
+        float w = kp_5_angle_max - kp_5_angle_min;
+        kp_5_angle[0] = kp_5_angle_min;
+        kp_5_angle[1] = kp_5_angle_min + ((w)/4);
+        kp_5_angle[2] = kp_5_angle_min + ((2*w)/4);
+        kp_5_angle[3] = kp_5_angle_min + ((3*w)/4);
+        kp_5_angle[4] = kp_5_angle_max;
     }
 
     public void jumpKP_Three(){

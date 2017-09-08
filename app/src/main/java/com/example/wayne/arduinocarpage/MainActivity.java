@@ -92,7 +92,7 @@ public class MainActivity extends Activity implements Runnable{
             public void onClick(DialogInterface dialog, int which) {
 
                 dialog.dismiss(); //dismiss為關閉dialog,Activity還會保留dialog的狀態
-
+                locker = false;
                 MainActivity.this.finish();//關閉activity
 
             }

@@ -21,6 +21,9 @@ public class KP_Enter_Five extends AppCompatActivity {
     private Button Check,Back;
     float [] kp_5_weight = {(float)0,(float)0,(float)0,(float)0,(float)0};
 
+    float kp_5_angle_max;
+    float kp_5_angle_min;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +46,14 @@ public class KP_Enter_Five extends AppCompatActivity {
                 EditText edt4 = (EditText) findViewById(R.id.edit4);
                 EditText edt5 = (EditText) findViewById(R.id.edit5);
 
+                EditText edt6 = (EditText) findViewById(R.id.edit6);
+                EditText edt7 = (EditText) findViewById(R.id.edit7);
+
                 //判斷輸入值是否為空
                 if("".equals(edt1.getText().toString().trim()) || "".equals(edt2.getText().toString().trim()) ||
                         "".equals(edt3.getText().toString().trim()) || "".equals(edt4.getText().toString().trim()) ||
-                        "".equals(edt5.getText().toString().trim())){
+                        "".equals(edt5.getText().toString().trim()) || "".equals(edt6.getText().toString().trim()) ||
+                        "".equals(edt7.getText().toString().trim())){
 
                     //產生視窗物件
                     new AlertDialog.Builder(KP_Enter_Five.this)
@@ -66,9 +73,13 @@ public class KP_Enter_Five extends AppCompatActivity {
                     kp_5_weight[3] = Float.valueOf(edt4.getText().toString());
                     kp_5_weight[4] = Float.valueOf(edt5.getText().toString());
 
+                    kp_5_angle_min = Float.valueOf(edt6.getText().toString());
+                    kp_5_angle_max = Float.valueOf(edt7.getText().toString());
+
                     //存入全域變數的class
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
-                    gv.setkp_5_weight(kp_5_weight);
+                    gv.setKp_5_weight(kp_5_weight);
+                    gv.setKp_5_angle(kp_5_angle_min,kp_5_angle_max);
 
                     jumpKP_Five();
                 }
