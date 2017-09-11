@@ -1,6 +1,18 @@
 package com.example.wayne.arduinocarpage;
 
 import android.app.Application;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
+import android.os.Handler;
+import android.util.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by wayne on 2017/9/4.
@@ -31,6 +43,27 @@ public class GlobalVariable extends Application {
     private float[] kp_7_weight;
     private float kp_7_angle_min;
     private float kp_7_angle_max;
+
+    OutputStream mmOutputStream;
+    InputStream mmInputStream;
+    private BluetoothSocket mmSocket;
+    private BluetoothDevice mmDevice = null;
+
+    public void setmmSocket(BluetoothSocket Socket){
+        mmSocket = Socket;
+    }
+
+    public BluetoothSocket getmmSocket(){
+        return mmSocket;
+    }
+
+
+    void sendData() throws IOException {
+        //String msg = edit.getText().toString();
+        //msg += "|";
+        //mmOutputStream.write(msg.getBytes());
+        //text.setText("Data Sent");
+    }
 
 
     public void setKd_3_weight(float[] kd_3_weight){

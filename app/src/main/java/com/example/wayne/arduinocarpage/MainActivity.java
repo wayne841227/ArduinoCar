@@ -41,6 +41,7 @@ public class MainActivity extends Activity implements Runnable{
     private boolean locker=true;
     private Thread thread;
     private TextView text;
+    String data = "00000000";
 
     BluetoothAdapter mBluetoothAdpter;
     BluetoothSocket mmSocket;
@@ -53,10 +54,12 @@ public class MainActivity extends Activity implements Runnable{
     int counter;
     volatile boolean stopWorker;
     Canvas canvas;
+    GlobalVariable gv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        gv = (GlobalVariable)getApplicationContext();
         setContentView(R.layout.activity_main);
 
         KP = (Button) findViewById(R.id.kp);
@@ -68,6 +71,7 @@ public class MainActivity extends Activity implements Runnable{
 
         surface = (SurfaceView) findViewById(R.id.surfaceView);
 
+
         holder = surface.getHolder();
         thread = new Thread(this);
         thread.start();
@@ -76,9 +80,15 @@ public class MainActivity extends Activity implements Runnable{
         KP.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-
+                text.setText("0");
+               /* try {
+                    closeBT();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
                 jumpKP_Three();
                 locker = false;
+
             }
         });
 
@@ -86,7 +96,12 @@ public class MainActivity extends Activity implements Runnable{
         KD.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-
+                text.setText("0");
+                /*try {
+                    closeBT();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
                 jumpKD_Three();
                 locker = false;
             }
@@ -98,6 +113,7 @@ public class MainActivity extends Activity implements Runnable{
 
                 try{
                     findBT();
+                   // gv.setDevice( mmDevice);
                     openBT();
                 }catch(IOException ex){}
 
@@ -109,11 +125,21 @@ public class MainActivity extends Activity implements Runnable{
             public void onClick(View v) {
                 try{
                     closeBT();
+                    //gv.setDevice( null);
                 }catch(IOException ex){}
 
             }
         });
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        locker=true;
+        mmOutputStream = gv.mmOutputStream;
+        mmInputStream = gv.mmInputStream;
+        beginListenForData();
     }
 
     void findBT(){
@@ -146,8 +172,11 @@ public class MainActivity extends Activity implements Runnable{
             mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
 
             mmSocket.connect();
+
             mmOutputStream = mmSocket.getOutputStream();
             mmInputStream = mmSocket.getInputStream();
+            gv.mmOutputStream = mmOutputStream;
+            gv.mmInputStream = mmInputStream;
 
             beginListenForData();
 
@@ -182,30 +211,15 @@ public class MainActivity extends Activity implements Runnable{
                                     readerThread[readBufferPositioin++] = b;
                                     byte[] encodedBytes = new byte[readBufferPositioin];
                                     System.arraycopy(readerThread, 0, encodedBytes, 0, encodedBytes.length);
-                                    final String data = new String(encodedBytes, "US-ASCII");
+                                    final String data1 = new String(encodedBytes, "US-ASCII");
                                     readBufferPositioin = 0;
 
                                     handler.post(new Runnable() {
                                         public void run() {
                                             //read.setText(data);
-                                            while(locker){
-                                                //checks if the lockCanvas() method will be success,and if not, will check this statement again
-                                                if(!holder.getSurface().isValid()){
-                                                    continue;
-                                                }
-                                                /** Start editing pixels in this surface.*/
-                                                canvas = holder.lockCanvas();
+                                            data = data1;
 
-                                                //ALL PAINT-JOB MAKE IN draw(canvas); method.
-                                                draw(canvas,data);
-
-                                                text.setText(data);
-
-                                                //Log.d("data",data);
-
-                                                // End of painting to canvas. system will paint with this canvas,to the surface.
-                                                holder.unlockCanvasAndPost(canvas);
-                                            }
+                                            Log.d("XXXX",data);
 
                                         }
                                     });
@@ -316,24 +330,24 @@ public class MainActivity extends Activity implements Runnable{
         // TODO Auto-generated method stub
         while(locker){
             //checks if the lockCanvas() method will be success,and if not, will check this statement again
-//            if(!holder.getSurface().isValid()){
-//                continue;
-//            }
-//            /** Start editing pixels in this surface.*/
-//            canvas = holder.lockCanvas();
-//
-//            //ALL PAINT-JOB MAKE IN draw(canvas); method.
-//            draw(canvas);
-//
-//            // End of painting to canvas. system will paint with this canvas,to the surface.
-//            holder.unlockCanvasAndPost(canvas);
+            if(!holder.getSurface().isValid()){
+                continue;
+            }
+            /** Start editing pixels in this surface.*/
+            canvas = holder.lockCanvas();
+
+            //ALL PAINT-JOB MAKE IN draw(canvas); method.
+            draw(canvas);
+
+            // End of painting to canvas. system will paint with this canvas,to the surface.
+            holder.unlockCanvasAndPost(canvas);
         }
     }
     /**This method deals with paint-works. Also will paint something in background*/
 
     Random r = new Random();
 
-    private void draw(Canvas canvas,String data) {
+    private void draw(Canvas canvas) {
 //        Paint gradPaint = new Paint();
 //        gradPaint.setShader(new LinearGradient(0,0,0,getHeight(),Color.WHITE,Color.WHITE,Shader.TileMode.CLAMP));
 //        canvas.drawPaint(gradPaint);
@@ -375,6 +389,7 @@ public class MainActivity extends Activity implements Runnable{
         //kp顯示範圍著色
         p.setColor(Color.RED);
         p.setStyle(Paint.Style.FILL);
+
         if(data.charAt(2) == 's'){
             canvas.drawRect(150, 150, 400, 250, p);
         }else if(data.charAt(2) == 'm'){
