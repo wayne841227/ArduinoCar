@@ -82,6 +82,33 @@
                 android:layout_toEndOf="@+id/Left"
                 android:layout_marginBottom="14dp" />
 
+            <Button
+                android:id="@+id/bluetooth_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/Up"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:text="open" />
+
+            <Button
+                android:id="@+id/bluetooth_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/Left"
+                android:layout_alignStart="@+id/kd"
+                android:layout_alignTop="@+id/Up"
+                android:layout_marginStart="19dp"
+                android:text="close" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bluetooth_close"
+                android:layout_toEndOf="@+id/kd"
+                android:text="TextView" />
+
 
         </RelativeLayout>
     </LinearLayout>

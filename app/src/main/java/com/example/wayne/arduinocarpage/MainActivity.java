@@ -1,6 +1,9 @@
 package com.example.wayne.arduinocarpage;
 
 import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
@@ -12,6 +15,8 @@ import android.graphics.Shader;
 import android.os.Bundle;
 import android.graphics.Typeface;
 import android.app.Activity;
+import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -21,15 +26,33 @@ import android.widget.Button;
 import com.example.wayne.arduinocarpage.R;
 import android.content.Intent;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
 
 public class MainActivity extends Activity implements Runnable{
 
-    private Button KP,KD;
+    private Button KP,KD,OPEN,CLOSE;
     private SurfaceView surface;
     private SurfaceHolder holder;
     private boolean locker=true;
     private Thread thread;
+    private TextView text;
+
+    BluetoothAdapter mBluetoothAdpter;
+    BluetoothSocket mmSocket;
+    BluetoothDevice mmDevice;
+    OutputStream mmOutputStream;
+    InputStream mmInputStream;
+    Thread workerThead;
+    byte[] readerThread;
+    int readBufferPositioin;
+    int counter;
+    volatile boolean stopWorker;
+    Canvas canvas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +61,11 @@ public class MainActivity extends Activity implements Runnable{
 
         KP = (Button) findViewById(R.id.kp);
         KD = (Button) findViewById(R.id.kd);
+        OPEN = (Button) findViewById(R.id.bluetooth_open);
+        CLOSE = (Button) findViewById(R.id.bluetooth_close);
+
+        text = (TextView) findViewById(R.id.textView);
+
         surface = (SurfaceView) findViewById(R.id.surfaceView);
 
         holder = surface.getHolder();
@@ -63,7 +91,160 @@ public class MainActivity extends Activity implements Runnable{
                 locker = false;
             }
         });
+
+        OPEN.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+
+                try{
+                    findBT();
+                    openBT();
+                }catch(IOException ex){}
+
+            }
+        });
+
+        CLOSE.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+                try{
+                    closeBT();
+                }catch(IOException ex){}
+
+            }
+        });
+
     }
+
+    void findBT(){
+        mBluetoothAdpter = BluetoothAdapter.getDefaultAdapter();
+
+        if(mBluetoothAdpter == null){
+            //Log.d("r","no open bluetooth");
+            text.setText("no open bluetooth");
+        }
+
+        if(!mBluetoothAdpter.isEnabled()){
+            Intent enableBluetooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBluetooth,0);
+        }
+        Set<BluetoothDevice> pairdDevice = mBluetoothAdpter.getBondedDevices();
+        if(pairdDevice.size() > 0){
+            for( BluetoothDevice device :pairdDevice){
+                text.setText(device.getName());
+                //Log.d("device",String.valueOf(device.getName()));
+                mmDevice = device;
+                break;
+            }
+        }
+    }
+
+    void openBT() throws IOException {
+        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+
+        if(mmDevice!=null){
+            mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
+
+            mmSocket.connect();
+            mmOutputStream = mmSocket.getOutputStream();
+            mmInputStream = mmSocket.getInputStream();
+
+            beginListenForData();
+
+            Log.d("mmDevice",String.valueOf(mmDevice.getName()));
+            Log.d("mmDevice",String.valueOf(mmDevice.getAddress()));
+            //text.setText("Bluetooth Opened: " + mmDevice.getName() + "" + mmDevice.getAddress());
+        }
+    }
+
+    void beginListenForData() {
+        final Handler handler = new Handler();
+        final byte delimiter = 10;
+
+        stopWorker = false;
+        readBufferPositioin = 0;
+        readerThread = new byte[1024];
+        workerThead = new Thread(new Runnable(){
+            public void run() {
+                while(!Thread.currentThread().isInterrupted() && !stopWorker) {
+                    try {
+                        int byteAvailable = mmInputStream.available();
+                        if(byteAvailable > 0) {
+                            //Log.d("res", String.valueOf(byteAvailable));
+                            //Log.d("resukt", "have  data");
+
+                            byte[] packetBytes = new byte[byteAvailable];
+                            mmInputStream.read(packetBytes);
+                            //Log.d("resukt", "have  data " + (packetBytes));
+                            for (int i = 0; i < byteAvailable; i++) {
+                                byte b = packetBytes[i];
+                                if (b == '/') {
+                                    readerThread[readBufferPositioin++] = b;
+                                    byte[] encodedBytes = new byte[readBufferPositioin];
+                                    System.arraycopy(readerThread, 0, encodedBytes, 0, encodedBytes.length);
+                                    final String data = new String(encodedBytes, "US-ASCII");
+                                    readBufferPositioin = 0;
+
+                                    handler.post(new Runnable() {
+                                        public void run() {
+                                            //read.setText(data);
+                                            while(locker){
+                                                //checks if the lockCanvas() method will be success,and if not, will check this statement again
+                                                if(!holder.getSurface().isValid()){
+                                                    continue;
+                                                }
+                                                /** Start editing pixels in this surface.*/
+                                                canvas = holder.lockCanvas();
+
+                                                //ALL PAINT-JOB MAKE IN draw(canvas); method.
+                                                draw(canvas,data);
+
+                                                text.setText(data);
+
+                                                //Log.d("data",data);
+
+                                                // End of painting to canvas. system will paint with this canvas,to the surface.
+                                                holder.unlockCanvasAndPost(canvas);
+                                            }
+
+                                        }
+                                    });
+                                }
+                                else {
+                                    readerThread[readBufferPositioin++] = b;
+                                }
+                            }
+                        }else{
+                            Log.d("resukt", "no data");
+                        }
+                    }
+                    catch (IOException ex) {
+                        stopWorker = true;
+                    }
+                }
+            }
+        });
+
+        workerThead.start();
+    }
+
+    void closeBT() throws IOException {
+        stopWorker = true;
+        mmOutputStream.close();
+        mmInputStream.close();
+        mmSocket.close();
+        //Log.d("rr","Bluetooth Closed");
+        text.setText("Bluetooth Closed");
+    }
+
+    void sendData() throws IOException {
+        //String msg = edit.getText().toString();
+        //msg += "|";
+        //mmOutputStream.write(msg.getBytes());
+        //text.setText("Data Sent");
+    }
+
+
 
     public boolean onKeyDown(int keyCode,KeyEvent event){
 
@@ -135,33 +316,38 @@ public class MainActivity extends Activity implements Runnable{
         // TODO Auto-generated method stub
         while(locker){
             //checks if the lockCanvas() method will be success,and if not, will check this statement again
-            if(!holder.getSurface().isValid()){
-                continue;
-            }
-            /** Start editing pixels in this surface.*/
-            Canvas canvas = holder.lockCanvas();
-
-            //ALL PAINT-JOB MAKE IN draw(canvas); method.
-            draw(canvas);
-
-            // End of painting to canvas. system will paint with this canvas,to the surface.
-            holder.unlockCanvasAndPost(canvas);
+//            if(!holder.getSurface().isValid()){
+//                continue;
+//            }
+//            /** Start editing pixels in this surface.*/
+//            canvas = holder.lockCanvas();
+//
+//            //ALL PAINT-JOB MAKE IN draw(canvas); method.
+//            draw(canvas);
+//
+//            // End of painting to canvas. system will paint with this canvas,to the surface.
+//            holder.unlockCanvasAndPost(canvas);
         }
     }
     /**This method deals with paint-works. Also will paint something in background*/
 
     Random r = new Random();
 
-    private void draw(Canvas canvas) {
+    private void draw(Canvas canvas,String data) {
 //        Paint gradPaint = new Paint();
 //        gradPaint.setShader(new LinearGradient(0,0,0,getHeight(),Color.WHITE,Color.WHITE,Shader.TileMode.CLAMP));
 //        canvas.drawPaint(gradPaint);
 
         canvas.drawColor(Color.WHITE);
 
-        double kp = 0.0 + (0.4 - 0) * r.nextDouble();
-        double kd = 1 + (28) * r.nextDouble();
-        double angle = 1 + (30) * r.nextDouble();
+
+        //data.charAt(4);
+
+        double angle=0;
+
+//        double kp = 0.0 + (0.4 - 0) * r.nextDouble();
+//        double kd = 1 + (28) * r.nextDouble();
+//        double angle = 1 + (30) * r.nextDouble();
 
         //kp長條圖
         Paint p = new Paint();
@@ -189,24 +375,24 @@ public class MainActivity extends Activity implements Runnable{
         //kp顯示範圍著色
         p.setColor(Color.RED);
         p.setStyle(Paint.Style.FILL);
-        if(kp>0 && kp<=0.2){
+        if(data.charAt(2) == 's'){
             canvas.drawRect(150, 150, 400, 250, p);
-        }else if(kp>0.2 && kp <=0.4){
+        }else if(data.charAt(2) == 'm'){
             canvas.drawRect(400, 150, 650, 250, p);
-        }else{
+        }else if(data.charAt(2) == 'l'){
             canvas.drawRect(650, 150, 900, 250, p);
-        }
+        }else{}
 
         //kd顯示範圍著色
         d.setColor(Color.RED);
         d.setStyle(Paint.Style.FILL);
-        if(kd>0 && kd<=18){
+        if(data.charAt(0) == 's'){
             canvas.drawRect(150, 350, 400, 450, d);
-        }else if(kd>18 && kd <=28){
+        }else if(data.charAt(0) == 'm'){
             canvas.drawRect(400, 350, 650, 450, d);
-        }else{
+        }else if(data.charAt(0) == 'l'){
             canvas.drawRect(650, 350, 900, 450, d);
-        }
+        }else{}
 
         //kp長條圖框架
         p.setStyle(Paint.Style.STROKE);
