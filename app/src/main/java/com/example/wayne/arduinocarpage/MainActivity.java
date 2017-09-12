@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import com.example.wayne.arduinocarpage.R;
 import android.content.Intent;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +33,7 @@ import java.io.OutputStream;
 import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.RunnableFuture;
 
 public class MainActivity extends Activity implements Runnable{
 
@@ -41,13 +43,13 @@ public class MainActivity extends Activity implements Runnable{
     private boolean locker=true;
     private Thread thread;
     private TextView text;
-    String data = "00000000";
+    static String data = "00000000";
 
     BluetoothAdapter mBluetoothAdpter;
-    BluetoothSocket mmSocket;
+    static BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
-    OutputStream mmOutputStream;
-    InputStream mmInputStream;
+    static OutputStream mmOutputStream;
+    static InputStream mmInputStream;
     Thread workerThead;
     byte[] readerThread;
     int readBufferPositioin;
@@ -55,6 +57,7 @@ public class MainActivity extends Activity implements Runnable{
     volatile boolean stopWorker;
     Canvas canvas;
     GlobalVariable gv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,7 @@ public class MainActivity extends Activity implements Runnable{
 
 
         holder = surface.getHolder();
+
         thread = new Thread(this);
         thread.start();
 
@@ -96,12 +100,7 @@ public class MainActivity extends Activity implements Runnable{
         KD.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                text.setText("0");
-                /*try {
-                    closeBT();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
+
                 jumpKD_Three();
                 locker = false;
             }
@@ -134,12 +133,27 @@ public class MainActivity extends Activity implements Runnable{
     }
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this,"onResume",Toast.LENGTH_LONG).show();
         locker=true;
-        mmOutputStream = gv.mmOutputStream;
-        mmInputStream = gv.mmInputStream;
-        beginListenForData();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            closeBT();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        locker = false;
+
     }
 
     void findBT(){
@@ -158,6 +172,7 @@ public class MainActivity extends Activity implements Runnable{
         if(pairdDevice.size() > 0){
             for( BluetoothDevice device :pairdDevice){
                 text.setText(device.getName());
+                Toast.makeText(this,"Find" + device.getName(),Toast.LENGTH_LONG).show();
                 //Log.d("device",String.valueOf(device.getName()));
                 mmDevice = device;
                 break;
@@ -170,25 +185,20 @@ public class MainActivity extends Activity implements Runnable{
 
         if(mmDevice!=null){
             mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
-
+            gv.setmmSocket(mmSocket);
             mmSocket.connect();
 
             mmOutputStream = mmSocket.getOutputStream();
             mmInputStream = mmSocket.getInputStream();
-            gv.mmOutputStream = mmOutputStream;
-            gv.mmInputStream = mmInputStream;
 
             beginListenForData();
-
-            Log.d("mmDevice",String.valueOf(mmDevice.getName()));
-            Log.d("mmDevice",String.valueOf(mmDevice.getAddress()));
-            //text.setText("Bluetooth Opened: " + mmDevice.getName() + "" + mmDevice.getAddress());
+            Toast.makeText(this,"connect:" + mmSocket.isConnected(),Toast.LENGTH_LONG).show();
         }
     }
 
     void beginListenForData() {
-        final Handler handler = new Handler();
-        final byte delimiter = 10;
+//        final Handler handler = new Handler();
+//        final byte delimiter = 10;
 
         stopWorker = false;
         readBufferPositioin = 0;
@@ -211,26 +221,27 @@ public class MainActivity extends Activity implements Runnable{
                                     readerThread[readBufferPositioin++] = b;
                                     byte[] encodedBytes = new byte[readBufferPositioin];
                                     System.arraycopy(readerThread, 0, encodedBytes, 0, encodedBytes.length);
-                                    final String data1 = new String(encodedBytes, "US-ASCII");
+                                    data = new String(encodedBytes, "US-ASCII");
                                     readBufferPositioin = 0;
 
-                                    handler.post(new Runnable() {
-                                        public void run() {
-                                            //read.setText(data);
-                                            data = data1;
-
-                                            Log.d("XXXX",data);
-
-                                        }
-                                    });
+//                                    handler.post(new Runnable() {
+//                                        public void run() {
+//                                            //read.setText(data);
+//
+//
+//                                            Log.d("XXXX",data);
+//
+//                                        }
+//                                    });
                                 }
                                 else {
                                     readerThread[readBufferPositioin++] = b;
                                 }
                             }
-                        }else{
-                            Log.d("resukt", "no data");
                         }
+//                        else{
+//                            Log.d("resukt", "no data");
+//                        }
                     }
                     catch (IOException ex) {
                         stopWorker = true;
@@ -247,7 +258,8 @@ public class MainActivity extends Activity implements Runnable{
         mmOutputStream.close();
         mmInputStream.close();
         mmSocket.close();
-        //Log.d("rr","Bluetooth Closed");
+        data = "00000000";
+        Toast.makeText(this,"close",Toast.LENGTH_LONG).show();
         text.setText("Bluetooth Closed");
     }
 
@@ -314,7 +326,7 @@ public class MainActivity extends Activity implements Runnable{
 
         Intent Jump = new Intent(MainActivity.this,KD_Three.class);
         startActivity(Jump);
-        MainActivity.this.finish();
+        //MainActivity.this.finish();
 
     }
 
@@ -322,30 +334,32 @@ public class MainActivity extends Activity implements Runnable{
 
         Intent Jump = new Intent(MainActivity.this,KP_Three.class);
         startActivity(Jump);
-        MainActivity.this.finish();
+        //MainActivity.this.finish();
     }
 
-    @Override
-    public void run() {
-        // TODO Auto-generated method stub
-        while(locker){
-            //checks if the lockCanvas() method will be success,and if not, will check this statement again
-            if(!holder.getSurface().isValid()){
-                continue;
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+            while(locker){
+                //checks if the lockCanvas() method will be success,and if not, will check this statement again
+                if(!holder.getSurface().isValid()){
+                    continue;
+                }
+                /** Start editing pixels in this surface.*/
+                canvas = holder.lockCanvas();
+
+                //ALL PAINT-JOB MAKE IN draw(canvas); method.
+                draw(canvas);
+                //Log.d("X12",data);
+
+                // End of painting to canvas. system will paint with this canvas,to the surface.
+                holder.unlockCanvasAndPost(canvas);
             }
-            /** Start editing pixels in this surface.*/
-            canvas = holder.lockCanvas();
-
-            //ALL PAINT-JOB MAKE IN draw(canvas); method.
-            draw(canvas);
-
-            // End of painting to canvas. system will paint with this canvas,to the surface.
-            holder.unlockCanvasAndPost(canvas);
         }
-    }
+
     /**This method deals with paint-works. Also will paint something in background*/
 
-    Random r = new Random();
+    //Random r = new Random();
 
     private void draw(Canvas canvas) {
 //        Paint gradPaint = new Paint();

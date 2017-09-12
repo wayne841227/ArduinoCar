@@ -46,7 +46,7 @@ public class GlobalVariable extends Application {
 
     OutputStream mmOutputStream;
     InputStream mmInputStream;
-    private BluetoothSocket mmSocket;
+    private BluetoothSocket mmSocket = null;
     private BluetoothDevice mmDevice = null;
 
     public void setmmSocket(BluetoothSocket Socket){
@@ -57,6 +57,9 @@ public class GlobalVariable extends Application {
         return mmSocket;
     }
 
+    public boolean isSocket(){
+        return mmSocket != null;
+    }
 
     void sendData() throws IOException {
         //String msg = edit.getText().toString();
