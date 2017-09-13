@@ -80,7 +80,6 @@ public class MainActivity extends Activity implements Runnable{
 
         surface = (SurfaceView) findViewById(R.id.surfaceView);
 
-
         holder = surface.getHolder();
         thread = new Thread(this);
 

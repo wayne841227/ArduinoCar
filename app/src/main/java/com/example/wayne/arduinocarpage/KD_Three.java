@@ -229,6 +229,9 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         kd_3_angle[0] = kd_3_angle_min;
         kd_3_angle[1] = kd_3_angle_min + (w/2);
         kd_3_angle[2] = kd_3_angle_max;
+
+
+
     }
 
     public void jumpKD_Five(){

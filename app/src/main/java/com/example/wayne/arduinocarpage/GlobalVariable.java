@@ -11,8 +11,10 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DecimalFormat;
 import java.util.Set;
 import java.util.UUID;
+
 
 /**
  * Created by wayne on 2017/9/4.
@@ -48,6 +50,17 @@ public class GlobalVariable extends Application {
     InputStream mmInputStream;
     private BluetoothSocket mmSocket = null;
     private BluetoothDevice mmDevice = null;
+
+    private String kp3String = "";
+    private String kd3String = "";
+    private String kp5String = "";
+    private String kd5String = "";
+    private String kp7String = "";
+    private String kd7String = "";
+
+    DecimalFormat mDecimalFormat = new DecimalFormat("#.##");
+
+
 
     public void setmmSocket(BluetoothSocket Socket){
         mmSocket = Socket;
@@ -174,5 +187,157 @@ public class GlobalVariable extends Application {
     public float getKp_7_angle_max() {
         return kp_7_angle_max;
     }
+
+    public String getKp3String(){
+
+        StringBuffer buf = new StringBuffer();
+        buf.append("p/3/");
+        for(int i=0; i<3; i++){
+            buf.append(kp_3_weight[i]);
+            buf.append("/");
+        }
+
+        buf.append(kp_3_angle_min);
+        buf.append("/");
+        buf.append(kp_3_angle_min + (kp_3_angle_max - kp_3_angle_min)/2 );
+        buf.append("/");
+        buf.append(kp_3_angle_max);
+        buf.append("/");
+
+        kp3String = buf.toString();
+        kp3String = String.format("%.2f", kp3String);
+
+
+        return kp3String;
+    }
+
+    public String getKd3String(){
+
+        StringBuffer buf = new StringBuffer();
+        buf.append("d/3/");
+        for(int i=0; i<3; i++){
+            buf.append(kd_3_weight[i]);
+            buf.append("/");
+        }
+
+        buf.append(kd_3_angle_min);
+        buf.append("/");
+        buf.append(kd_3_angle_min + (kd_3_angle_max - kd_3_angle_min)/2 );
+        buf.append("/");
+        buf.append(kd_3_angle_max);
+
+        kd3String = buf.toString();
+        kd3String = String.format("%.2f", kd3String);
+
+
+        return kd3String;
+    }
+
+    public String getKp5String(){
+        StringBuffer buf = new StringBuffer();
+        buf.append("p/5/");
+        for(int i=0; i<5; i++){
+            buf.append(kp_5_weight[i]);
+            buf.append("/");
+        }
+
+        buf.append(kp_5_angle_min);
+        buf.append("/");
+        buf.append(kp_5_angle_min + ((kp_5_angle_max - kp_5_angle_min)/4) );
+        buf.append("/");
+        buf.append(kp_5_angle_min + ((2*(kp_5_angle_max - kp_5_angle_min))/4));
+        buf.append("/");
+        buf.append(kp_5_angle_min + ((3*(kp_5_angle_max - kp_5_angle_min))/4));
+        buf.append("/");
+        buf.append(kp_5_angle_max);
+
+        kp5String = buf.toString();
+        kp5String = String.format("%.2f", kp5String);
+
+
+        return kp5String;
+    }
+
+    public String getKd5String(){
+        StringBuffer buf = new StringBuffer();
+        buf.append("d/5/");
+        for(int i=0; i<5; i++){
+            buf.append(kd_5_weight[i]);
+            buf.append("/");
+        }
+
+        buf.append(kd_5_angle_min);
+        buf.append("/");
+        buf.append(kd_5_angle_min + ((kd_5_angle_max - kd_5_angle_min)/4) );
+        buf.append("/");
+        buf.append(kd_5_angle_min + ((2*(kd_5_angle_max - kd_5_angle_min))/4));
+        buf.append("/");
+        buf.append(kd_5_angle_min + ((3*(kd_5_angle_max - kd_5_angle_min))/4));
+        buf.append("/");
+        buf.append(kd_5_angle_max);
+
+        kd5String = buf.toString();
+        kd5String = String.format("%.2f", kd5String);
+
+        return kd5String;
+    }
+
+    public String getKp7String(){
+        StringBuffer buf = new StringBuffer();
+        buf.append("p/7/");
+        for(int i=0; i<7; i++){
+            buf.append(kp_7_weight[i]);
+            buf.append("/");
+        }
+
+        buf.append(kp_7_angle_min);
+        buf.append("/");
+        buf.append(kp_7_angle_min + ((kp_7_angle_max - kp_7_angle_min)/6) );
+        buf.append("/");
+        buf.append(kp_7_angle_min + ((2*(kp_7_angle_max - kp_7_angle_min))/6));
+        buf.append("/");
+        buf.append(kp_7_angle_min + ((3*(kp_7_angle_max - kp_7_angle_min))/6));
+        buf.append("/");
+        buf.append(kp_7_angle_min + ((4*(kp_7_angle_max - kp_7_angle_min))/6));
+        buf.append("/");
+        buf.append(kp_7_angle_min + ((5*(kp_7_angle_max - kp_7_angle_min))/6));
+        buf.append("/");
+        buf.append(kp_7_angle_max);
+
+        kp7String = buf.toString();
+        kp7String = String.format("%.2f", kp7String);
+
+        return kp7String;
+    }
+
+    public String getKd7String(){
+        StringBuffer buf = new StringBuffer();
+        buf.append("d/7/");
+        for(int i=0; i<7; i++){
+            buf.append(kd_7_weight[i]);
+            buf.append("/");
+        }
+
+        buf.append(kd_7_angle_min);
+        buf.append("/");
+        buf.append(kd_7_angle_min + ((kd_7_angle_max - kd_7_angle_min)/6) );
+        buf.append("/");
+        buf.append(kd_7_angle_min + ((2*(kd_7_angle_max - kd_7_angle_min))/6));
+        buf.append("/");
+        buf.append(kd_7_angle_min + ((3*(kd_7_angle_max - kd_7_angle_min))/6));
+        buf.append("/");
+        buf.append(kd_7_angle_min + ((4*(kd_7_angle_max - kd_7_angle_min))/6));
+        buf.append("/");
+        buf.append(kd_7_angle_min + ((5*(kd_7_angle_max - kd_7_angle_min))/6));
+        buf.append("/");
+        buf.append(kd_7_angle_max);
+
+        kd7String = buf.toString();
+        kd7String = String.format("%.2f", kd7String);
+
+        return kd7String;
+    }
+
+
 
 }

@@ -32,8 +32,8 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
 
         GlobalVariable gv = (GlobalVariable)getApplicationContext();
         kp_5_weight = gv.getKp_5_weight();
-        kp_5_angle_min = gv.getKd_5_angle_min();
-        kp_5_angle_max = gv.getKd_5_angle_max();
+        kp_5_angle_min = gv.getKp_5_angle_min();
+        kp_5_angle_max = gv.getKp_5_angle_max();
 
         calAngle(kp_5_angle_min,kp_5_angle_max);
 

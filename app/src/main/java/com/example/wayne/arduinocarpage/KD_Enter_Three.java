@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KD_Enter_Three extends AppCompatActivity {
 
@@ -81,7 +82,13 @@ public class KD_Enter_Three extends AppCompatActivity {
                     gv.setKd_3_weight(kd_3_weight);
                     gv.setKd_3_angle(kd_3_angle_min,kd_3_angle_max);
 
+                    Toast.makeText(KD_Enter_Three.this,gv.getKd3String(),Toast.LENGTH_LONG).show();
+                    //Log.d("SSSSS",gv.getKd3String());
+
+
                     jumpKD_Three();
+
+
                 }
 
 
