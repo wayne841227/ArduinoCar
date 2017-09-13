@@ -51,7 +51,7 @@ public class MainActivity extends Activity implements Runnable{
     static BluetoothDevice mmDevice;
     static OutputStream mmOutputStream;
     static InputStream mmInputStream;
-    boolean isConnected = false;
+    static boolean isConnected = false;
     Thread workerThead;
     byte[] readerThread;
     int readBufferPositioin;
@@ -226,6 +226,14 @@ public class MainActivity extends Activity implements Runnable{
         if(!thread.isAlive()) {
             thread.start();
         }
+        if(gv.getIsSetting() == 1){
+            try {
+                sendData(gv.getCheckString());
+                gv.setIsSetting(0);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -245,7 +253,6 @@ public class MainActivity extends Activity implements Runnable{
     }
 
     void findBT() throws IOException{
-        Toast.makeText(this, "findBT", Toast.LENGTH_LONG).show();
         mBluetoothAdpter = BluetoothAdapter.getDefaultAdapter();
 
         if(mBluetoothAdpter == null){
@@ -271,20 +278,20 @@ public class MainActivity extends Activity implements Runnable{
 
     void openBT() throws IOException {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-        Toast.makeText(this, "openBT", Toast.LENGTH_LONG).show();
         if(mmDevice!=null){
             mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
-            gv.setmmSocket(mmSocket);
+            //gv.setmmSocket(mmSocket);
             mmSocket.connect();
 
             if(mmSocket.isConnected()) {
                 mmOutputStream = mmSocket.getOutputStream();
                 mmInputStream = mmSocket.getInputStream();
                 isConnected = true;
+                sendData("5");
                 beginListenForData();
-                Toast.makeText(this, "connect:" + mmSocket.isConnected(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "connected", Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(this, "connect", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No connect", Toast.LENGTH_SHORT).show();
             }
         }else{
             Toast.makeText(this,"No Find device",Toast.LENGTH_LONG).show();

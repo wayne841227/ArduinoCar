@@ -81,6 +81,7 @@ public class KP_Enter_Five extends AppCompatActivity {
                     gv.setKp_5_weight(kp_5_weight);
                     gv.setKp_5_angle(kp_5_angle_min,kp_5_angle_max);
 
+                    gv.setIsSetting(1);
                     jumpKP_Five();
                 }
 

@@ -22,7 +22,7 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
     private Button Check,Back,Five,Seven;
     private SurfaceView surface;
-
+    private Button pass;
     float [] kp_3_weight;
     public float kp_3_angle_min;
     public float kp_3_angle_max;
@@ -34,7 +34,7 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         setContentView(R.layout.kp_three);
         getWindow().setWindowAnimations(0);
 
-        GlobalVariable gv = (GlobalVariable)getApplicationContext();
+        final GlobalVariable gv = (GlobalVariable)getApplicationContext();
         kp_3_weight = gv.getKp_3_weight();
         kp_3_angle_min = gv.getKp_3_angle_min();
         kp_3_angle_max = gv.getKp_3_angle_max();
@@ -48,6 +48,7 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         Seven = (Button)findViewById(R.id.button7);
         Check = (Button) findViewById(R.id.check);
         Back = (Button) findViewById(R.id.back);
+        pass=(Button) findViewById(R.id.pass);
 
 
         //更換頁面到KD_Five
@@ -81,6 +82,15 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
             }
         });
 
+        pass.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+                if(gv.getIsSetting() != 0) {
+                    gv.setCheckString(gv.getKp3String());
+                    jumpMain();
+                }
+            }
+        });
 
     }
 

@@ -24,7 +24,7 @@ import android.widget.Button;
 
 public class KD_Seven extends Activity implements SurfaceHolder.Callback{
 
-    private Button Check,Back,Five,Three;
+    private Button Check,Back,Five,Three,pass;
     private SurfaceView surface;
 
     float [] kd_7_weight;
@@ -38,7 +38,7 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
         setContentView(R.layout.kd_seven);
         getWindow().setWindowAnimations(0);
 
-        GlobalVariable gv = (GlobalVariable)getApplicationContext();
+        final GlobalVariable gv = (GlobalVariable)getApplicationContext();
         kd_7_weight = gv.getKd_7_weight();
         kd_7_angle_min = gv.getKd_7_angle_min();
         kd_7_angle_max = gv.getKd_7_angle_max();
@@ -52,6 +52,7 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
         Five = (Button)findViewById(R.id.button5);
         Check = (Button) findViewById(R.id.check);
         Back = (Button) findViewById(R.id.back);
+        pass = (Button)findViewById(R.id.pass);
 
         //更換頁面到KD_Three
         Three.setOnClickListener(new Button.OnClickListener(){
@@ -82,6 +83,16 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
 
             public void onClick(View v) {
                 jumpMain();
+            }
+        });
+
+        pass.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+                if(gv.getIsSetting() != 0) {
+                    gv.setCheckString(gv.getKd7String());
+                    jumpMain();
+                }
             }
         });
     }

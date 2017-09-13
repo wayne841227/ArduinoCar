@@ -16,7 +16,7 @@ import android.widget.Button;
 
 public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback{
 
-    private Button Check,Back,Three,Seven;
+    private Button Check,Back,Three,Seven,pass;
     private SurfaceView surface;
 
     float [] kd_5_weight;
@@ -30,7 +30,7 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
         setContentView(R.layout.kd_five);
         getWindow().setWindowAnimations(0);
 
-        GlobalVariable gv = (GlobalVariable)getApplicationContext();
+        final GlobalVariable gv = (GlobalVariable)getApplicationContext();
         kd_5_weight = gv.getKd_5_weight();
         kd_5_angle_min = gv.getKd_5_angle_min();
         kd_5_angle_max = gv.getKd_5_angle_max();
@@ -44,6 +44,7 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
         Seven = (Button)findViewById(R.id.button7);
         Check = (Button) findViewById(R.id.check);
         Back = (Button) findViewById(R.id.back);
+        pass = (Button)findViewById(R.id.pass);
 
 
         //更換頁面到KD_Three
@@ -74,6 +75,16 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
 
             public void onClick(View v) {
                 jumpMain();
+            }
+        });
+
+        pass.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+                if(gv.getIsSetting() != 0) {
+                    gv.setCheckString(gv.getKd5String());
+                    jumpMain();
+                }
             }
         });
 
@@ -224,11 +235,11 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
         canvas.drawText(String.valueOf(kd_5_weight[3]), 1100-25, 80, t);
         canvas.drawText(String.valueOf(kd_5_weight[4]), 1300-25, 80, t);
 
-        canvas.drawText(String.valueOf(kd_5_angle[0]), 500-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_5_angle[1]), 700-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_5_angle[2]), 900-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_5_angle[3]), 1100-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_5_angle[4]), 1300-25, 400+50, t);
+        canvas.drawText(String.valueOf(kd_5_angle[0]).format("%.2f", kd_5_angle[0]), 500-25, 400+50, t);
+        canvas.drawText(String.valueOf(kd_5_angle[1]).format("%.2f", kd_5_angle[1]), 700-25, 400+50, t);
+        canvas.drawText(String.valueOf(kd_5_angle[2]).format("%.2f", kd_5_angle[2]), 900-25, 400+50, t);
+        canvas.drawText(String.valueOf(kd_5_angle[3]).format("%.2f", kd_5_angle[3]), 1100-25, 400+50, t);
+        canvas.drawText(String.valueOf(kd_5_angle[4]).format("%.2f", kd_5_angle[4]), 1300-25, 400+50, t);
 
 
     }

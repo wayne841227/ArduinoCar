@@ -46,8 +46,7 @@ public class GlobalVariable extends Application {
     private float kp_7_angle_min;
     private float kp_7_angle_max;
 
-    OutputStream mmOutputStream;
-    InputStream mmInputStream;
+
     private BluetoothSocket mmSocket = null;
     private BluetoothDevice mmDevice = null;
 
@@ -60,7 +59,8 @@ public class GlobalVariable extends Application {
 
     DecimalFormat mDecimalFormat = new DecimalFormat("#.##");
 
-
+    private int isSetting = 0;
+    private String checkString = "";
 
     public void setmmSocket(BluetoothSocket Socket){
         mmSocket = Socket;
@@ -69,18 +69,6 @@ public class GlobalVariable extends Application {
     public BluetoothSocket getmmSocket(){
         return mmSocket;
     }
-
-    public boolean isSocket(){
-        return mmSocket != null;
-    }
-
-    void sendData() throws IOException {
-        //String msg = edit.getText().toString();
-        //msg += "|";
-        //mmOutputStream.write(msg.getBytes());
-        //text.setText("Data Sent");
-    }
-
 
     public void setKd_3_weight(float[] kd_3_weight){
         this.kd_3_weight = kd_3_weight;
@@ -205,7 +193,7 @@ public class GlobalVariable extends Application {
         buf.append("/");
 
         kp3String = buf.toString();
-        kp3String = String.format("%.2f", kp3String);
+        //kp3String = String.format("%.2f", kp3String);
 
 
         return kp3String;
@@ -227,7 +215,7 @@ public class GlobalVariable extends Application {
         buf.append(kd_3_angle_max);
 
         kd3String = buf.toString();
-        kd3String = String.format("%.2f", kd3String);
+        //kd3String = String.format("%.2f", kd3String);
 
 
         return kd3String;
@@ -252,7 +240,7 @@ public class GlobalVariable extends Application {
         buf.append(kp_5_angle_max);
 
         kp5String = buf.toString();
-        kp5String = String.format("%.2f", kp5String);
+        //kp5String = String.format("%.2f", kp5String);
 
 
         return kp5String;
@@ -268,16 +256,16 @@ public class GlobalVariable extends Application {
 
         buf.append(kd_5_angle_min);
         buf.append("/");
-        buf.append(kd_5_angle_min + ((kd_5_angle_max - kd_5_angle_min)/4) );
+        buf.append(String.format("%.2f", (kd_5_angle_min + ((kd_5_angle_max - kd_5_angle_min)/4))));
         buf.append("/");
-        buf.append(kd_5_angle_min + ((2*(kd_5_angle_max - kd_5_angle_min))/4));
+        buf.append(String.format("%.2f", (kd_5_angle_min + ((2*(kd_5_angle_max - kd_5_angle_min))/4))));
         buf.append("/");
-        buf.append(kd_5_angle_min + ((3*(kd_5_angle_max - kd_5_angle_min))/4));
+        buf.append(String.format("%.2f", (kd_5_angle_min + ((3*(kd_5_angle_max - kd_5_angle_min))/4))));
         buf.append("/");
         buf.append(kd_5_angle_max);
 
         kd5String = buf.toString();
-        kd5String = String.format("%.2f", kd5String);
+        //kd5String = String.format("%.2f", kd5String);
 
         return kd5String;
     }
@@ -305,7 +293,7 @@ public class GlobalVariable extends Application {
         buf.append(kp_7_angle_max);
 
         kp7String = buf.toString();
-        kp7String = String.format("%.2f", kp7String);
+        //kp7String = String.format("%.2f", kp7String);
 
         return kp7String;
     }
@@ -333,11 +321,24 @@ public class GlobalVariable extends Application {
         buf.append(kd_7_angle_max);
 
         kd7String = buf.toString();
-        kd7String = String.format("%.2f", kd7String);
+        //kd7String = String.format("%.2f", kd7String);
 
         return kd7String;
     }
 
+    public String getCheckString() {
+        return checkString;
+    }
 
+    public void setCheckString(String checkString) {
+        this.checkString = checkString;
+    }
 
+    public int getIsSetting() {
+        return isSetting;
+    }
+
+    public void setIsSetting(int isSetting) {
+        this.isSetting = isSetting;
+    }
 }

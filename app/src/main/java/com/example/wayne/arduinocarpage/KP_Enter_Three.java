@@ -75,7 +75,7 @@ public class KP_Enter_Three extends AppCompatActivity {
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
                     gv.setKp_3_weight(kp_3_weight);
                     gv.setKp_3_angle(kp_3_angle_min,kp_3_angle_max);
-
+                    gv.setIsSetting(1);
                     jumpKP_Three();
                 }
             }
