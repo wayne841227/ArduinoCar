@@ -18,6 +18,7 @@ import android.app.Activity;
 import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -37,7 +38,7 @@ import java.util.concurrent.RunnableFuture;
 
 public class MainActivity extends Activity implements Runnable{
 
-    private Button KP,KD,OPEN,CLOSE;
+    private Button KP,KD,OPEN,CLOSE,TOP,DOWN,LEFT,RIGHT;
     private SurfaceView surface;
     private SurfaceHolder holder;
     private boolean locker=true;
@@ -45,11 +46,12 @@ public class MainActivity extends Activity implements Runnable{
     private TextView text;
     static String data = "00000000";
 
-    BluetoothAdapter mBluetoothAdpter;
+    static BluetoothAdapter mBluetoothAdpter;
     static BluetoothSocket mmSocket;
-    BluetoothDevice mmDevice;
+    static BluetoothDevice mmDevice;
     static OutputStream mmOutputStream;
     static InputStream mmInputStream;
+    boolean isConnected = false;
     Thread workerThead;
     byte[] readerThread;
     int readBufferPositioin;
@@ -69,6 +71,10 @@ public class MainActivity extends Activity implements Runnable{
         KD = (Button) findViewById(R.id.kd);
         OPEN = (Button) findViewById(R.id.bluetooth_open);
         CLOSE = (Button) findViewById(R.id.bluetooth_close);
+        TOP = (Button) findViewById(R.id.Up);
+        LEFT = (Button) findViewById(R.id.Left);
+        RIGHT = (Button) findViewById(R.id.Right);
+        DOWN = (Button) findViewById(R.id.Down);
 
         text = (TextView) findViewById(R.id.textView);
 
@@ -76,20 +82,102 @@ public class MainActivity extends Activity implements Runnable{
 
 
         holder = surface.getHolder();
-
         thread = new Thread(this);
-        thread.start();
+
+        TOP.setOnTouchListener(new View.OnTouchListener(){
+
+            @Override
+            public boolean onTouch(View v,MotionEvent event){
+            // TODO Auto-generated method stub
+                if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
+                    try {
+                        sendData("F");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
+                    try {
+                        sendData("S");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return true;
+            }
+        });
+
+        DOWN.setOnTouchListener(new View.OnTouchListener(){
+
+            @Override
+            public boolean onTouch(View v,MotionEvent event){
+                // TODO Auto-generated method stub
+                if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
+                    try {
+                        sendData("B");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
+                    try {
+                        sendData("S");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return true;
+            }
+        });
+        LEFT.setOnTouchListener(new View.OnTouchListener(){
+
+            @Override
+            public boolean onTouch(View v,MotionEvent event){
+                // TODO Auto-generated method stub
+                if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
+                    try {
+                        sendData("L");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
+                    try {
+                        sendData("S");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return true;
+            }
+        });
+        RIGHT.setOnTouchListener(new View.OnTouchListener(){
+
+            @Override
+            public boolean onTouch(View v,MotionEvent event){
+                // TODO Auto-generated method stub
+                if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
+                    try {
+                        sendData("R");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
+                    try {
+                        sendData("S");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return true;
+            }
+        });
 
         //更換頁面到Enter_Three
         KP.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                text.setText("0");
-               /* try {
-                    closeBT();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
                 jumpKP_Three();
                 locker = false;
 
@@ -100,7 +188,6 @@ public class MainActivity extends Activity implements Runnable{
         KD.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-
                 jumpKD_Three();
                 locker = false;
             }
@@ -109,12 +196,12 @@ public class MainActivity extends Activity implements Runnable{
         OPEN.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-
                 try{
                     findBT();
-                   // gv.setDevice( mmDevice);
                     openBT();
-                }catch(IOException ex){}
+                }catch(IOException ex){
+
+                }
 
             }
         });
@@ -124,7 +211,6 @@ public class MainActivity extends Activity implements Runnable{
             public void onClick(View v) {
                 try{
                     closeBT();
-                    //gv.setDevice( null);
                 }catch(IOException ex){}
 
             }
@@ -135,8 +221,12 @@ public class MainActivity extends Activity implements Runnable{
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(this,"onResume",Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,"onResume",Toast.LENGTH_LONG).show();
         locker=true;
+        Toast.makeText(this,mmSocket!=null?"re:connect:" + mmSocket.isConnected():"re:unconnect",Toast.LENGTH_LONG).show();
+        if(!thread.isAlive()) {
+            thread.start();
+        }
     }
 
     @Override
@@ -153,10 +243,10 @@ public class MainActivity extends Activity implements Runnable{
     protected void onPause() {
         super.onPause();
         locker = false;
-
     }
 
-    void findBT(){
+    void findBT() throws IOException{
+        Toast.makeText(this, "findBT", Toast.LENGTH_LONG).show();
         mBluetoothAdpter = BluetoothAdapter.getDefaultAdapter();
 
         if(mBluetoothAdpter == null){
@@ -182,17 +272,24 @@ public class MainActivity extends Activity implements Runnable{
 
     void openBT() throws IOException {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-
+        Toast.makeText(this, "openBT", Toast.LENGTH_LONG).show();
         if(mmDevice!=null){
             mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
             gv.setmmSocket(mmSocket);
             mmSocket.connect();
 
-            mmOutputStream = mmSocket.getOutputStream();
-            mmInputStream = mmSocket.getInputStream();
-
-            beginListenForData();
-            Toast.makeText(this,"connect:" + mmSocket.isConnected(),Toast.LENGTH_LONG).show();
+            if(mmSocket.isConnected()) {
+                mmOutputStream = mmSocket.getOutputStream();
+                mmInputStream = mmSocket.getInputStream();
+                isConnected = true;
+                beginListenForData();
+                Toast.makeText(this, "connect:" + mmSocket.isConnected(), Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this, "connect", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(this,"No Find device",Toast.LENGTH_LONG).show();
+            mmDevice = null;
         }
     }
 
@@ -254,20 +351,30 @@ public class MainActivity extends Activity implements Runnable{
     }
 
     void closeBT() throws IOException {
-        stopWorker = true;
-        mmOutputStream.close();
-        mmInputStream.close();
-        mmSocket.close();
-        data = "00000000";
-        Toast.makeText(this,"close",Toast.LENGTH_LONG).show();
-        text.setText("Bluetooth Closed");
+        if(isConnected) {
+            stopWorker = true;
+            isConnected = false;
+            mmOutputStream.close();
+            mmInputStream.close();
+            mmSocket.close();
+            data = "00000000";
+            Toast.makeText(this, "close", Toast.LENGTH_SHORT).show();
+            text.setText("Bluetooth Closed");
+        }else{
+            Toast.makeText(this, "No  any connect can close", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    void sendData() throws IOException {
-        //String msg = edit.getText().toString();
-        //msg += "|";
-        //mmOutputStream.write(msg.getBytes());
-        //text.setText("Data Sent");
+    void sendData(String msg) throws IOException {
+        if(isConnected) {
+            //String msg = edit.getText().toString();
+            //msg += "|";
+            mmOutputStream.write(msg.getBytes());
+            Toast.makeText(this, "sended", Toast.LENGTH_SHORT).show();
+            //text.setText("Data Sent");
+        }else{
+            Toast.makeText(this, "No send", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -455,13 +562,13 @@ public class MainActivity extends Activity implements Runnable{
         //角度顯示範圍著色
         a.setStyle(Paint.Style.FILL);
         a.setColor(Color.RED);
-        if(angle >= 0 && angle < 8){
+        if((data.charAt(4) == 's')){
             canvas.drawArc(rec_range, -135, -45, true, a);
-        }else if(angle >= 8 && angle < 15){
+        }else if((data.charAt(4) == 'q')){
             canvas.drawArc(rec_range, -90, -45, true, a);
-        }else if(angle >= 15 && angle < 23){
+        }else if((data.charAt(4) == 'm')){
             canvas.drawArc(rec_range, -45, -45, true, a);
-        }else if(angle >= 23 && angle < 30){
+        }else if((data.charAt(4) == 'l')){
             canvas.drawArc(rec_range, 0, -45, true, a);
         }else{}
 
