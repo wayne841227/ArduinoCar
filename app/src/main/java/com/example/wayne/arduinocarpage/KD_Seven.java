@@ -16,6 +16,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -95,6 +96,8 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
                     gv.setCheckString(gv.getKd7String());
                     gv.setMode("KD 7");
                     jumpMain();
+                }else{
+                    Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();
                 }
             }
         });

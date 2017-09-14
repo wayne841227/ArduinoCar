@@ -188,15 +188,15 @@ public class GlobalVariable extends Application {
         StringBuffer buf = new StringBuffer();
         buf.append("p/c/");
         for(int i=0; i<3; i++){
-            buf.append(kp_3_weight[i]);
+            buf.append(((int)(kp_3_weight[i]*100))/100.0);
             buf.append("/");
         }
 
-        buf.append(kp_3_angle_min);
+        buf.append((int)(kp_3_angle_min*100)/100.0);
         buf.append("/");
         buf.append(kp_3_angle_min + (kp_3_angle_max - kp_3_angle_min)/2 );
         buf.append("/");
-        buf.append(kp_3_angle_max);
+        buf.append(((int)kp_3_angle_max*100)/100.0);
         buf.append("/");
 
         kp3String = buf.toString();
@@ -211,15 +211,15 @@ public class GlobalVariable extends Application {
         StringBuffer buf = new StringBuffer();
         buf.append("d/c/");
         for(int i=0; i<3; i++){
-            buf.append(kd_3_weight[i]);
+            buf.append(((int)(kd_3_weight[i]*100))/100.0);
             buf.append("/");
         }
 
-        buf.append(kd_3_angle_min);
+        buf.append(((int)kd_3_angle_min*100)/100.0);
         buf.append("/");
         buf.append(kd_3_angle_min + (kd_3_angle_max - kd_3_angle_min)/2 );
         buf.append("/");
-        buf.append(kd_3_angle_max);
+        buf.append(((int)kd_3_angle_max*100)/100.0);
 
         kd3String = buf.toString();
         //kd3String = String.format("%.2f", kd3String);
@@ -232,7 +232,7 @@ public class GlobalVariable extends Application {
         StringBuffer buf = new StringBuffer();
         buf.append("p/e/");
         for(int i=0; i<5; i++){
-            buf.append(kp_5_weight[i]);
+            buf.append(((int)(kp_5_weight[i]*100))/100.0);
             buf.append("/");
         }
 
@@ -257,7 +257,7 @@ public class GlobalVariable extends Application {
         StringBuffer buf = new StringBuffer();
         buf.append("d/e/");
         for(int i=0; i<5; i++){
-            buf.append(kd_5_weight[i]);
+            buf.append(((int)(kd_5_weight[i]*100))/100.0);
             buf.append("/");
         }
 
@@ -281,7 +281,7 @@ public class GlobalVariable extends Application {
         StringBuffer buf = new StringBuffer();
         buf.append("p/g/");
         for(int i=0; i<7; i++){
-            buf.append(kp_7_weight[i]);
+            buf.append(((int)(kp_7_weight[i]*100))/100.0);
             buf.append("/");
         }
 
@@ -309,7 +309,7 @@ public class GlobalVariable extends Application {
         StringBuffer buf = new StringBuffer();
         buf.append("d/g/");
         for(int i=0; i<7; i++){
-            buf.append(kd_7_weight[i]);
+            buf.append(((int)(kd_7_weight[i]*100))/100.0);
             buf.append("/");
         }
 

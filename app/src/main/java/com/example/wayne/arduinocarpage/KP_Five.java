@@ -13,6 +13,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -87,6 +88,8 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
                     gv.setCheckString(gv.getKp5String());
                     gv.setMode("KP 5");
                     jumpMain();
+                }else{
+                    Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();
                 }
             }
         });

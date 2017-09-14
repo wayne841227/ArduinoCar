@@ -13,6 +13,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -93,6 +94,8 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
                     gv.setCheckString(gv.getKp7String());
                     gv.setMode("KP 7");
                     jumpMain();
+                }else{
+                    Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();
                 }
             }
         });
