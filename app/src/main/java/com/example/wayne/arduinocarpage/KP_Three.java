@@ -25,7 +25,7 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     private Button Check,Back,Five,Seven;
     private SurfaceView surface;
     private Button pass;
-    float [] kp_3_weight;
+    float [] kp_3_weight = {(float)0,(float)0,(float)0};
     public float kp_3_angle_min;
     public float kp_3_angle_max;
     float [] kp_3_angle = {(float)0,(float)0,(float)0};

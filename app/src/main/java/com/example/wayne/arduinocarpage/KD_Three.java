@@ -31,7 +31,7 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     //Bundle bundle = getIntent().getExtras();
     //Bundle bundle1 = getIntent().getExtras();
     //float [] kd_3_weight = {(float)0.21,(float)0.31,(float)0.48};
-    public float [] kd_3_weight;
+    public float [] kd_3_weight = {(float)0,(float)0,(float)0};
     //boolean isopen_kd3enter = bundle1.getBoolean("isopen_kd3enter");
 
     public float kd_3_angle_min;
@@ -172,9 +172,9 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
             }
         }else{
             if (canvas == null) {
-                } else {
-                    drawBlank(canvas);
-                    holder.unlockCanvasAndPost(canvas);
+            } else{
+                drawBlank(canvas);
+                holder.unlockCanvasAndPost(canvas);
                 }
         }
 

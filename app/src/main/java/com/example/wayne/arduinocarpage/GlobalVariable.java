@@ -22,9 +22,12 @@ import java.util.UUID;
 
 public class GlobalVariable extends Application {
 
-    private float[] kd_3_weight;
-    private float kd_3_angle_min;
-    private float kd_3_angle_max;
+//    private float[] kd_3_weight;
+//    private float kd_3_angle_min;
+//    private float kd_3_angle_max;
+    private float[] kd_3_weight = {(float) 0.3,(float) 0.15,(float) 0.3};
+    private float kd_3_angle_min = (float)-30;
+    private float kd_3_angle_max = (float)30;
 
     private float[] kd_5_weight;
     private float kd_5_angle_min;
@@ -34,9 +37,12 @@ public class GlobalVariable extends Application {
     private float kd_7_angle_min;
     private float kd_7_angle_max;
 
-    private float[] kp_3_weight;
-    private float kp_3_angle_min;
-    private float kp_3_angle_max;
+//    private float[] kp_3_weight;
+//    private float kp_3_angle_min;
+//    private float kp_3_angle_max;
+    private float[] kp_3_weight = {(float) 0.3,(float) 0.15,(float) 0.3};
+    private float kp_3_angle_min = (float)-30;
+    private float kp_3_angle_max = (float)30;
 
     private float[] kp_5_weight;
     private float kp_5_angle_min;
