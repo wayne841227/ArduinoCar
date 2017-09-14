@@ -91,6 +91,7 @@ public class MainActivity extends Activity implements Runnable{
                 if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
                     try {
                         sendData("F");
+                        TOP.setBackgroundColor(Color.GRAY);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -98,6 +99,7 @@ public class MainActivity extends Activity implements Runnable{
                 if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
                     try {
                         sendData("S");
+                        TOP.setBackgroundColor(Color.WHITE);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -158,6 +160,7 @@ public class MainActivity extends Activity implements Runnable{
                 if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
                     try {
                         sendData("R");
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -192,26 +195,46 @@ public class MainActivity extends Activity implements Runnable{
             }
         });
 
-        OPEN.setOnClickListener(new Button.OnClickListener() {
+        OPEN.setOnTouchListener(new View.OnTouchListener(){
 
-            public void onClick(View v) {
-                try{
-                    findBT();
-                    openBT();
-                }catch(IOException ex){
-
+            @Override
+            public boolean onTouch(View v,MotionEvent event){
+                // TODO Auto-generated method stub
+                if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
+                    OPEN.setBackgroundColor(Color.parseColor("#FF0000"));
                 }
+                if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
+                    OPEN.setBackgroundColor(Color.parseColor("#76EE00"));
+                    try{
+                        if(!isConnected) {
+                            findBT();
+                            openBT();
+                        }else{
+                            Toast.makeText(getApplicationContext(),"connected",Toast.LENGTH_LONG).show();
+                        }
+                    }catch(IOException ex){
 
+                    }
+                }
+                return true;
             }
         });
 
-        CLOSE.setOnClickListener(new Button.OnClickListener() {
+        CLOSE.setOnTouchListener(new View.OnTouchListener(){
 
-            public void onClick(View v) {
-                try{
-                    closeBT();
-                }catch(IOException ex){}
-
+            @Override
+            public boolean onTouch(View v,MotionEvent event){
+                // TODO Auto-generated method stub
+                if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
+                    CLOSE.setBackgroundColor(Color.parseColor("#FF0000"));
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
+                    CLOSE.setBackgroundColor(Color.parseColor("#76EE00"));
+                    try{
+                        closeBT();
+                    }catch(IOException ex){}
+                }
+                return true;
             }
         });
 
