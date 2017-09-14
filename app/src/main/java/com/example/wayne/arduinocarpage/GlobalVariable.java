@@ -179,7 +179,7 @@ public class GlobalVariable extends Application {
     public String getKp3String(){
 
         StringBuffer buf = new StringBuffer();
-        buf.append("p/3/");
+        buf.append("p/c/");
         for(int i=0; i<3; i++){
             buf.append(kp_3_weight[i]);
             buf.append("/");
@@ -202,7 +202,7 @@ public class GlobalVariable extends Application {
     public String getKd3String(){
 
         StringBuffer buf = new StringBuffer();
-        buf.append("d/3/");
+        buf.append("d/c/");
         for(int i=0; i<3; i++){
             buf.append(kd_3_weight[i]);
             buf.append("/");
@@ -223,7 +223,7 @@ public class GlobalVariable extends Application {
 
     public String getKp5String(){
         StringBuffer buf = new StringBuffer();
-        buf.append("p/5/");
+        buf.append("p/e/");
         for(int i=0; i<5; i++){
             buf.append(kp_5_weight[i]);
             buf.append("/");
@@ -248,7 +248,7 @@ public class GlobalVariable extends Application {
 
     public String getKd5String(){
         StringBuffer buf = new StringBuffer();
-        buf.append("d/5/");
+        buf.append("d/e/");
         for(int i=0; i<5; i++){
             buf.append(kd_5_weight[i]);
             buf.append("/");
@@ -272,7 +272,7 @@ public class GlobalVariable extends Application {
 
     public String getKp7String(){
         StringBuffer buf = new StringBuffer();
-        buf.append("p/7/");
+        buf.append("p/g/");
         for(int i=0; i<7; i++){
             buf.append(kp_7_weight[i]);
             buf.append("/");
@@ -300,7 +300,7 @@ public class GlobalVariable extends Application {
 
     public String getKd7String(){
         StringBuffer buf = new StringBuffer();
-        buf.append("d/7/");
+        buf.append("d/g/");
         for(int i=0; i<7; i++){
             buf.append(kd_7_weight[i]);
             buf.append("/");

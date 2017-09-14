@@ -228,6 +228,7 @@ public class MainActivity extends Activity implements Runnable{
         }
         if(gv.getIsSetting() == 1){
             try {
+                sendData("5");
                 sendData(gv.getCheckString());
                 gv.setIsSetting(0);
             } catch (IOException e) {
@@ -376,7 +377,7 @@ public class MainActivity extends Activity implements Runnable{
             //String msg = edit.getText().toString();
             //msg += "|";
             mmOutputStream.write(msg.getBytes());
-            Toast.makeText(this, "sended", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
             //text.setText("Data Sent");
         }else{
             Toast.makeText(this, "No send", Toast.LENGTH_SHORT).show();
