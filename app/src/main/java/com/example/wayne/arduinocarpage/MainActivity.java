@@ -90,16 +90,16 @@ public class MainActivity extends Activity implements Runnable{
             // TODO Auto-generated method stub
                 if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
                     try {
+                        TOP.setBackground(getResources().getDrawable(R.drawable.ul));
                         sendData("F");
-                        TOP.setBackgroundColor(Color.GRAY);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
                 if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
                     try {
+                        TOP.setBackground(getResources().getDrawable(R.drawable.upp));
                         sendData("S");
-                        TOP.setBackgroundColor(Color.WHITE);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -115,6 +115,7 @@ public class MainActivity extends Activity implements Runnable{
                 // TODO Auto-generated method stub
                 if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
                     try {
+                        DOWN.setBackground(getResources().getDrawable(R.drawable.dl));
                         sendData("B");
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -122,6 +123,7 @@ public class MainActivity extends Activity implements Runnable{
                 }
                 if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
                     try {
+                        DOWN.setBackground(getResources().getDrawable(R.drawable.d));
                         sendData("S");
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -137,6 +139,7 @@ public class MainActivity extends Activity implements Runnable{
                 // TODO Auto-generated method stub
                 if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
                     try {
+                        LEFT.setBackground(getResources().getDrawable(R.drawable.ll));
                         sendData("L");
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -144,6 +147,7 @@ public class MainActivity extends Activity implements Runnable{
                 }
                 if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
                     try {
+                        LEFT.setBackground(getResources().getDrawable(R.drawable.r));
                         sendData("S");
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -159,6 +163,7 @@ public class MainActivity extends Activity implements Runnable{
                 // TODO Auto-generated method stub
                 if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
                     try {
+                        RIGHT.setBackground(getResources().getDrawable(R.drawable.rl));
                         sendData("R");
 
                     } catch (IOException e) {
@@ -167,6 +172,7 @@ public class MainActivity extends Activity implements Runnable{
                 }
                 if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
                     try {
+                        RIGHT.setBackground(getResources().getDrawable(R.drawable.l));
                         sendData("S");
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -249,10 +255,15 @@ public class MainActivity extends Activity implements Runnable{
         if(!thread.isAlive()) {
             thread.start();
         }
-        if(gv.getIsSetting() == 1){
+        if(gv.getIsSetting() > 0){
             try {
                 sendData("5");
                 sendData(gv.getCheckString());
+                if(gv.getIsSetting() == 2){
+                    KD.setText(gv.getMode());
+                }else{
+                    KP.setText(gv.getMode());
+                }
                 gv.setIsSetting(0);
             } catch (IOException e) {
                 e.printStackTrace();

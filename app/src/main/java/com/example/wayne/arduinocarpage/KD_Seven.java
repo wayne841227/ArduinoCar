@@ -93,6 +93,7 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
             public void onClick(View v) {
                 if(gv.getIsSetting() != 0) {
                     gv.setCheckString(gv.getKd7String());
+                    gv.setMode("KD 7");
                     jumpMain();
                 }
             }
@@ -300,8 +301,8 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
 
     public void jumpMain() {
 
-        Intent Jump = new Intent(KD_Seven.this, MainActivity.class);
-        startActivity(Jump);
+//        Intent Jump = new Intent(KD_Seven.this, MainActivity.class);
+//        startActivity(Jump);
         KD_Seven.this.finish();
     }
 }

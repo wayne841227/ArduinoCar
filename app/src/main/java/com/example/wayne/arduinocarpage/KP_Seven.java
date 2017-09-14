@@ -91,6 +91,7 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
             public void onClick(View v) {
                 if(gv.getIsSetting() != 0) {
                     gv.setCheckString(gv.getKp7String());
+                    gv.setMode("KP 7");
                     jumpMain();
                 }
             }
@@ -300,8 +301,8 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
     public void jumpMain() {
 
-        Intent Jump = new Intent(KP_Seven.this, MainActivity.class);
-        startActivity(Jump);
+//        Intent Jump = new Intent(KP_Seven.this, MainActivity.class);
+//        startActivity(Jump);
         KP_Seven.this.finish();
     }
 }

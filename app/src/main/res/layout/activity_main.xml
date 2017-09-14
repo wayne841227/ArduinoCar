@@ -54,7 +54,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="11dp"
                 android:layout_toStartOf="@+id/Right"
-                android:background="@drawable/u"
+                android:background="@drawable/upp"
                 />
 
             <Button
@@ -63,7 +63,7 @@
                 android:layout_height="70dp"
                 android:layout_alignBottom="@+id/Right"
                 android:layout_toStartOf="@+id/Up"
-                android:background="@drawable/left" />
+                android:background="@drawable/r" />
 
             <Button
                 android:id="@+id/Right"
@@ -72,7 +72,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/right" />
+                android:background="@drawable/l" />
 
             <Button
                 android:id="@+id/Down"
@@ -81,7 +81,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="14dp"
                 android:layout_toEndOf="@+id/Left"
-                android:background="@drawable/down" />
+                android:background="@drawable/d" />
 
             <Button
                 android:id="@+id/bluetooth_open"

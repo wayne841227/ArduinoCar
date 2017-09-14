@@ -87,7 +87,7 @@ public class KD_Enter_Seven extends AppCompatActivity {
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
                     gv.setKd_7_weight(kd_7_weight);
                     gv.setKd_7_angle(kd_7_angle_min,kd_7_angle_max);
-                    gv.setIsSetting(1);
+                    gv.setIsSetting(2);
                     jumpKD_Seven();
                 }
             }

@@ -89,6 +89,7 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
             public void onClick(View v) {
                 if(gv.getIsSetting() != 0) {
                     gv.setCheckString(gv.getKp3String());
+                    gv.setMode("KP 3");
                     jumpMain();
                 }
             }
@@ -267,8 +268,8 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
     public void jumpMain() {
 
-        Intent Jump = new Intent(KP_Three.this, MainActivity.class);
-        startActivity(Jump);
+//        Intent Jump = new Intent(KP_Three.this, MainActivity.class);
+//        startActivity(Jump);
         KP_Three.this.finish();
     }
 }

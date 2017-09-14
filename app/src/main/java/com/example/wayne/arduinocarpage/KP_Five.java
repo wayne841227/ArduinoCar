@@ -85,6 +85,7 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
             public void onClick(View v) {
                 if(gv.getIsSetting() != 0) {
                     gv.setCheckString(gv.getKp5String());
+                    gv.setMode("KP 5");
                     jumpMain();
                 }
             }
@@ -279,8 +280,8 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
 
     public void jumpMain() {
 
-        Intent Jump = new Intent(KP_Five.this, MainActivity.class);
-        startActivity(Jump);
+//        Intent Jump = new Intent(KP_Five.this, MainActivity.class);
+//        startActivity(Jump);
         KP_Five.this.finish();
     }
 }

@@ -67,6 +67,7 @@ public class GlobalVariable extends Application {
 
     private int isSetting = 0;
     private String checkString = "";
+    private String mode = "";
 
     public void setmmSocket(BluetoothSocket Socket){
         mmSocket = Socket;
@@ -346,5 +347,13 @@ public class GlobalVariable extends Application {
 
     public void setIsSetting(int isSetting) {
         this.isSetting = isSetting;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
     }
 }
