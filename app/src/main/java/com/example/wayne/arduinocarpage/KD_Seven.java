@@ -17,6 +17,8 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Locale;
+
 /**
  * Created by nancy on 2017/8/18.
  */
@@ -244,21 +246,21 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
         //顯示數字
         t.setColor(Color.BLACK);
         t.setTextSize(50);
-        canvas.drawText(String.valueOf(kd_7_weight[0]), 300-25, 80, t);
-        canvas.drawText(String.valueOf(kd_7_weight[1]), 500-25, 80, t);
-        canvas.drawText(String.valueOf(kd_7_weight[2]), 700-25, 80, t);
-        canvas.drawText(String.valueOf(kd_7_weight[3]), 900-25, 80, t);
-        canvas.drawText(String.valueOf(kd_7_weight[4]), 1100-25, 80, t);
-        canvas.drawText(String.valueOf(kd_7_weight[5]), 1300-25, 80, t);
-        canvas.drawText(String.valueOf(kd_7_weight[6]), 1500-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[0]), 300-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[1]), 500-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[2]), 700-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[3]), 900-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[4]), 1100-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[5]), 1300-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[6]), 1500-25, 80, t);
 
-        canvas.drawText(String.valueOf(kd_7_angle[0]), 300-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_7_angle[1]), 500-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_7_angle[2]), 700-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_7_angle[3]), 900-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_7_angle[4]), 1100-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_7_angle[5]), 1300-25, 400+50, t);
-        canvas.drawText(String.valueOf(kd_7_angle[6]), 1500-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_angle[0]), 300-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_angle[1]), 500-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_angle[2]), 700-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_angle[3]), 900-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_angle[4]), 1100-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_angle[5]), 1300-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_angle[6]), 1500-25, 400+50, t);
 
 
     }

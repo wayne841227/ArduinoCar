@@ -14,6 +14,8 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Locale;
+
 /**
  * Created by nancy on 2017/8/18.
  */
@@ -23,7 +25,7 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     private Button Check,Back,Five,Seven;
     private SurfaceView surface;
     private Button pass;
-    float [] kp_3_weight;
+    float [] kp_3_weight = {(float)0,(float)0,(float)0};
     public float kp_3_angle_min;
     public float kp_3_angle_max;
     float [] kp_3_angle = {(float)0,(float)0,(float)0};
@@ -223,13 +225,13 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         //顯示數字
         t.setColor(Color.BLACK);
         t.setTextSize(50);
-        canvas.drawText(String.valueOf(kp_3_weight[0]), 700-25, 80, t);
-        canvas.drawText(String.valueOf(kp_3_weight[1]), 900-25, 80, t);
-        canvas.drawText(String.valueOf(kp_3_weight[2]), 1100-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[0]), 700-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[1]), 900-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[2]), 1100-25, 80, t);
 
-        canvas.drawText(String.valueOf(kp_3_angle[0]), 700-25, 400+50, t);
-        canvas.drawText(String.valueOf(kp_3_angle[1]), 900-25, 400+50, t);
-        canvas.drawText(String.valueOf(kp_3_angle[2]), 1100-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[0]), 700-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[1]), 900-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[2]), 1100-25, 400+50, t);
 
 
     }

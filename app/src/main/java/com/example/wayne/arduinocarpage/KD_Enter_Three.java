@@ -83,8 +83,6 @@ public class KD_Enter_Three extends AppCompatActivity {
                     gv.setKd_3_angle(kd_3_angle_min,kd_3_angle_max);
 
                     Toast.makeText(KD_Enter_Three.this,gv.getKd3String(),Toast.LENGTH_LONG).show();
-                    //Log.d("SSSSS",gv.getKd3String());
-
                     gv.setIsSetting(1);
                     jumpKD_Three();
 

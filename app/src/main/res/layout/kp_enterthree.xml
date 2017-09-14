@@ -61,7 +61,7 @@
         android:ems="10"
         android:imeOptions="actionDone"
         android:maxLines="1"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         android:layout_marginBottom="13dp"
         android:layout_marginEnd="39dp"
         android:layout_above="@+id/back"
@@ -79,7 +79,7 @@
         android:ems="10"
         android:imeOptions="actionDone"
         android:maxLines="1"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         android:layout_marginEnd="31dp"
         android:layout_alignTop="@+id/edit4"
         android:layout_toStartOf="@+id/check" />

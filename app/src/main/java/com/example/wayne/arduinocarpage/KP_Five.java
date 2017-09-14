@@ -14,6 +14,8 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Locale;
+
 public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback{
 
     private Button Check,Back,Three,Seven,pass;
@@ -228,17 +230,17 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
         //顯示數字
         t.setColor(Color.BLACK);
         t.setTextSize(50);
-        canvas.drawText(String.valueOf(kp_5_weight[0]), 500-25, 80, t);
-        canvas.drawText(String.valueOf(kp_5_weight[1]), 700-25, 80, t);
-        canvas.drawText(String.valueOf(kp_5_weight[2]), 900-25, 80, t);
-        canvas.drawText(String.valueOf(kp_5_weight[3]), 1100-25, 80, t);
-        canvas.drawText(String.valueOf(kp_5_weight[4]), 1300-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_weight[0]), 500-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_weight[1]), 700-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_weight[2]), 900-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_weight[3]), 1100-25, 80, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_weight[4]), 1300-25, 80, t);
 
-        canvas.drawText(String.valueOf(kp_5_angle[0]), 500-25, 400+50, t);
-        canvas.drawText(String.valueOf(kp_5_angle[1]), 700-25, 400+50, t);
-        canvas.drawText(String.valueOf(kp_5_angle[2]), 900-25, 400+50, t);
-        canvas.drawText(String.valueOf(kp_5_angle[3]), 1100-25, 400+50, t);
-        canvas.drawText(String.valueOf(kp_5_angle[4]), 1300-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_angle[0]), 500-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_angle[1]), 700-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_angle[2]), 900-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_angle[3]), 1100-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_5_angle[4]), 1300-25, 400+50, t);
 
 
     }

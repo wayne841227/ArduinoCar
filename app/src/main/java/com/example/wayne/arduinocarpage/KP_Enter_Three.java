@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KP_Enter_Three extends AppCompatActivity {
 
@@ -75,19 +76,14 @@ public class KP_Enter_Three extends AppCompatActivity {
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
                     gv.setKp_3_weight(kp_3_weight);
                     gv.setKp_3_angle(kp_3_angle_min,kp_3_angle_max);
+
+                    Toast.makeText(KP_Enter_Three.this,gv.getKp3String(),Toast.LENGTH_LONG).show();
                     gv.setIsSetting(1);
                     jumpKP_Three();
                 }
             }
         });
 
-        //更換頁面到KP_Three
-        Check.setOnClickListener(new Button.OnClickListener() {
-
-            public void onClick(View v) {
-                jumpKP_Graphic();
-            }
-        });
 
         //更換頁面到KP_Three
         Back.setOnClickListener(new Button.OnClickListener() {
@@ -147,13 +143,6 @@ public class KP_Enter_Three extends AppCompatActivity {
 
         builder.create().show();
 
-    }
-
-    public void jumpKP_Graphic(){
-
-        Intent Jump = new Intent(KP_Enter_Three.this, KP_Three.class);
-        startActivity(Jump);
-        KP_Enter_Three.this.finish();
     }
 
     public void jumpKP_Three() {
