@@ -216,7 +216,7 @@ public class MainActivity extends Activity implements Runnable{
                             findBT();
                             openBT();
                         }else{
-                            Toast.makeText(getApplicationContext(),"connected",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"connected",Toast.LENGTH_SHORT).show();
                         }
                     }catch(IOException ex){
 
@@ -251,7 +251,7 @@ public class MainActivity extends Activity implements Runnable{
         super.onResume();
         //Toast.makeText(this,"onResume",Toast.LENGTH_LONG).show();
         locker=true;
-        Toast.makeText(this,mmSocket!=null?"re:connect:" + mmSocket.isConnected():"re:unconnect",Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,mmSocket!=null?"re:connect:" + mmSocket.isConnected():"re:unconnect",Toast.LENGTH_SHORT).show();
         if(!thread.isAlive()) {
             thread.start();
         }
@@ -303,7 +303,7 @@ public class MainActivity extends Activity implements Runnable{
         if(pairdDevice.size() > 0){
             for( BluetoothDevice device :pairdDevice){
                 text.setText(device.getName());
-                Toast.makeText(this,"Find" + device.getName(),Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Find" + device.getName(),Toast.LENGTH_SHORT).show();
                 //Log.d("device",String.valueOf(device.getName()));
                 mmDevice = device;
                 break;
@@ -329,7 +329,7 @@ public class MainActivity extends Activity implements Runnable{
                 Toast.makeText(this, "No connect", Toast.LENGTH_SHORT).show();
             }
         }else{
-            Toast.makeText(this,"No Find device",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"No Find device",Toast.LENGTH_SHORT).show();
             mmDevice = null;
         }
     }

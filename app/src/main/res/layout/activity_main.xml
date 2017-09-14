@@ -40,12 +40,12 @@
                 android:id="@+id/kd"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="22dp"
-                android:layout_toEndOf="@+id/kp"
+                android:layout_marginStart="10dp"
                 android:background="@drawable/car"
                 android:text="  KD 3 "
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/kp" />
 
             <Button
                 android:id="@+id/Up"
@@ -54,8 +54,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="11dp"
                 android:layout_toStartOf="@+id/Right"
-                android:background="@drawable/upp"
-                />
+                android:background="@drawable/upp" />
 
             <Button
                 android:id="@+id/Left"
@@ -91,8 +90,8 @@
                 android:layout_alignBottom="@+id/Up"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="29dp"
-                android:text="open"
-                android:background="#76EE00"/>
+                android:background="#76EE00"
+                android:text="open" />
 
             <Button
                 android:id="@+id/bluetooth_close"
@@ -101,8 +100,8 @@
                 android:layout_alignBottom="@+id/bluetooth_open"
                 android:layout_alignStart="@+id/kd"
                 android:layout_marginStart="19dp"
-                android:text="close"
-                android:background="#76EE00"/>
+                android:background="#76EE00"
+                android:text="close" />
 
             <TextView
                 android:id="@+id/textView"
@@ -110,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/bluetooth_close"
                 android:layout_toEndOf="@+id/kd"
-                android:text="TextView" />
+                android:text="device" />
 
 
         </RelativeLayout>
