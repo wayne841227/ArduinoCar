@@ -533,12 +533,22 @@ public class MainActivity extends Activity implements Runnable{
         Paint a = new Paint();
 
         p.setColor(Color.RED);
+        p.setTextSize(70);
+        canvas.drawText("Kp", 35, 215, p);
+        p.setColor(Color.BLACK);
         p.setTextSize(50);
-        canvas.drawText("Kp：", 35, 215, p);
+        canvas.drawText("0", 140, 130, p);
+        canvas.drawText("18", 380, 130, p);
+        canvas.drawText("28", 630, 130, p);
 
         d.setColor(Color.RED);
+        d.setTextSize(70);
+        canvas.drawText("Kd", 35, 415, d);
+        d.setColor(Color.BLACK);
         d.setTextSize(50);
-        canvas.drawText("Kd：", 35, 415, d);
+        canvas.drawText("0", 140, 330, d);
+        canvas.drawText("0.2", 380, 330, d);
+        canvas.drawText("0.4", 630, 330, d);
 
         //kp,kp清空顏色
         p.setColor(Color.WHITE);
