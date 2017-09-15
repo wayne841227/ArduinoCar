@@ -192,11 +192,11 @@ public class GlobalVariable extends Application {
             buf.append("/");
         }
 
-        buf.append((int)(kp_3_angle_min*100)/100.0);
+        buf.append(((int)(kp_3_angle_min*100))/100.0);
         buf.append("/");
         buf.append(((int)((kp_3_angle_min + (kp_3_angle_max - kp_3_angle_min)/2)*100))/100.0 );
         buf.append("/");
-        buf.append(((int)kp_3_angle_max*100)/100.0);
+        buf.append(((int)(kp_3_angle_max*100))/100.0);
         buf.append("/");
 
         kp3String = buf.toString();
@@ -215,11 +215,11 @@ public class GlobalVariable extends Application {
             buf.append("/");
         }
 
-        buf.append(((int)kd_3_angle_min*100)/100.0);
+        buf.append(((int)(kd_3_angle_min*100))/100.0);
         buf.append("/");
         buf.append(((int)((kd_3_angle_min + (kd_3_angle_max - kd_3_angle_min)/2)*100))/100.0);
         buf.append("/");
-        buf.append(((int)kd_3_angle_max*100)/100.0);
+        buf.append(((int)(kd_3_angle_max*100))/100.0);
 
         kd3String = buf.toString();
         //kd3String = String.format("%.2f", kd3String);
