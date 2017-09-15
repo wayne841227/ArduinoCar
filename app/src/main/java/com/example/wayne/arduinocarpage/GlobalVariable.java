@@ -194,7 +194,7 @@ public class GlobalVariable extends Application {
 
         buf.append((int)(kp_3_angle_min*100)/100.0);
         buf.append("/");
-        buf.append(kp_3_angle_min + (kp_3_angle_max - kp_3_angle_min)/2 );
+        buf.append(((int)((kp_3_angle_min + (kp_3_angle_max - kp_3_angle_min)/2)*100))/100.0 );
         buf.append("/");
         buf.append(((int)kp_3_angle_max*100)/100.0);
         buf.append("/");
@@ -217,7 +217,7 @@ public class GlobalVariable extends Application {
 
         buf.append(((int)kd_3_angle_min*100)/100.0);
         buf.append("/");
-        buf.append(kd_3_angle_min + (kd_3_angle_max - kd_3_angle_min)/2 );
+        buf.append(((int)((kd_3_angle_min + (kd_3_angle_max - kd_3_angle_min)/2)*100))/100.0);
         buf.append("/");
         buf.append(((int)kd_3_angle_max*100)/100.0);
 
@@ -236,9 +236,9 @@ public class GlobalVariable extends Application {
             buf.append("/");
         }
 
-        buf.append(kp_5_angle_min);
+        buf.append(((int)(kp_5_angle_min*100))/100.0);
         buf.append("/");
-        buf.append(kp_5_angle_min + ((kp_5_angle_max - kp_5_angle_min)/4) );
+        buf.append(((int)((kp_5_angle_min + ((kp_5_angle_max - kp_5_angle_min)/4))*100) / 100.0));
         buf.append("/");
         buf.append(kp_5_angle_min + ((2*(kp_5_angle_max - kp_5_angle_min))/4));
         buf.append("/");
