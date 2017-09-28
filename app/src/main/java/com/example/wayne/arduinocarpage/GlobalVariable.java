@@ -25,7 +25,7 @@ public class GlobalVariable extends Application {
 //    private float[] kd_3_weight;
 //    private float kd_3_angle_min;
 //    private float kd_3_angle_max;
-    private float[] kd_3_weight = {(float) 0.3,(float) 0.15,(float) 0.3};
+    private float[] kd_3_weight = {(float) 14,(float) 26,(float) 14};
     private float kd_3_angle_min = (float)-30;
     private float kd_3_angle_max = (float)30;
 
