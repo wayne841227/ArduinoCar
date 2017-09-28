@@ -4,19 +4,13 @@ import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.graphics.Shader;
 import android.os.Bundle;
-import android.graphics.Typeface;
 import android.app.Activity;
-import android.os.Handler;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -24,17 +18,13 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
-import com.example.wayne.arduinocarpage.R;
 import android.content.Intent;
 import android.widget.Toast;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.RunnableFuture;
 
 public class MainActivity extends Activity implements Runnable{
 
@@ -361,25 +351,12 @@ public class MainActivity extends Activity implements Runnable{
                                     System.arraycopy(readerThread, 0, encodedBytes, 0, encodedBytes.length);
                                     data = new String(encodedBytes, "US-ASCII");
                                     readBufferPositioin = 0;
-
-//                                    handler.post(new Runnable() {
-//                                        public void run() {
-//                                            //read.setText(data);
-//
-//
-//                                            Log.d("XXXX",data);
-//
-//                                        }
-//                                    });
                                 }
                                 else {
                                     readerThread[readBufferPositioin++] = b;
                                 }
                             }
                         }
-//                        else{
-//                            Log.d("resukt", "no data");
-//                        }
                     }
                     catch (IOException ex) {
                         stopWorker = true;
@@ -408,8 +385,6 @@ public class MainActivity extends Activity implements Runnable{
 
     void sendData(String msg) throws IOException {
         if(isConnected) {
-            //String msg = edit.getText().toString();
-            //msg += "|";
             mmOutputStream.write(msg.getBytes());
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
             //text.setText("Data Sent");
@@ -510,20 +485,10 @@ public class MainActivity extends Activity implements Runnable{
     //Random r = new Random();
 
     private void draw(Canvas canvas) {
-//        Paint gradPaint = new Paint();
-//        gradPaint.setShader(new LinearGradient(0,0,0,getHeight(),Color.WHITE,Color.WHITE,Shader.TileMode.CLAMP));
-//        canvas.drawPaint(gradPaint);
 
         canvas.drawColor(Color.WHITE);
 
-
-        //data.charAt(4);
-
         double angle=0;
-
-//        double kp = 0.0 + (0.4 - 0) * r.nextDouble();
-//        double kd = 1 + (28) * r.nextDouble();
-//        double angle = 1 + (30) * r.nextDouble();
 
         //kp長條圖
         Paint p = new Paint();
@@ -534,7 +499,8 @@ public class MainActivity extends Activity implements Runnable{
 
         p.setColor(Color.RED);
         p.setTextSize(70);
-        canvas.drawText("Kp", 35, 415, d);
+        canvas.drawText("Kp", 35, 415, p);
+        //canvas.drawText(String.valueOf(px) , 35, 415, d);
         p.setColor(Color.BLACK);
         p.setTextSize(50);
         canvas.drawText("0", 140, 130, p);
@@ -543,7 +509,7 @@ public class MainActivity extends Activity implements Runnable{
 
         d.setColor(Color.RED);
         d.setTextSize(70);
-        canvas.drawText("Kd", 35, 215, p);
+        canvas.drawText("Kd", 35, 215, d);
         d.setColor(Color.BLACK);
         d.setTextSize(50);
         canvas.drawText("0", 140, 330, d);
