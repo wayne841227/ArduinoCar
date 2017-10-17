@@ -229,13 +229,22 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         //顯示數字
         t.setColor(Color.BLACK);
         t.setTextSize(50);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[0]), 700-25, 80, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[1]), 900-25, 80, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[2]), 1100-25, 80, t);
 
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[0]), 700-25, 400+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[1]), 900-25, 400+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[2]), 1100-25, 400+50, t);
+        canvas.drawText("NS", 700-25, 80, t);
+        canvas.drawText("ZO", 900-25, 80, t);
+        canvas.drawText("PS", 1100-25, 80, t);
+
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[0]), 700-25, 80, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[1]), 900-25, 80, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_weight[2]), 1100-25, 80, t);
+
+        canvas.drawText("-30", 700-25, 400+50, t);
+        canvas.drawText("0", 900-25, 400+50, t);
+        canvas.drawText("30", 1100-25, 400+50, t);
+
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[0]), 700-25, 400+50, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[1]), 900-25, 400+50, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_3_angle[2]), 1100-25, 400+50, t);
 
 
     }

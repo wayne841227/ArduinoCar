@@ -499,7 +499,7 @@ public class MainActivity extends Activity implements Runnable{
 
         p.setColor(Color.RED);
         p.setTextSize(70);
-        canvas.drawText("Kp", 35, 415, p);
+        canvas.drawText("Kd", 35, 415, p);
         //canvas.drawText(String.valueOf(px) , 35, 415, d);
         p.setColor(Color.BLACK);
         p.setTextSize(50);
@@ -509,7 +509,7 @@ public class MainActivity extends Activity implements Runnable{
 
         d.setColor(Color.RED);
         d.setTextSize(70);
-        canvas.drawText("Kd", 35, 215, d);
+        canvas.drawText("Kp", 35, 215, d);
         d.setColor(Color.BLACK);
         d.setTextSize(50);
         canvas.drawText("0", 140, 330, d);

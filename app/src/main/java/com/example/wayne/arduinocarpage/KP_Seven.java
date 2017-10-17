@@ -249,21 +249,38 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
         //顯示數字
         t.setColor(Color.BLACK);
         t.setTextSize(50);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[0]), 300-25, 80, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[1]), 500-25, 80, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[2]), 700-25, 80, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[3]), 900-25, 80, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[4]), 1100-25, 80, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[5]), 1300-25, 80, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[6]), 1500-25, 80, t);
 
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[0]), 300-25, 400+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[1]), 500-25, 400+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[2]), 700-25, 400+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[3]), 900-25, 400+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[4]), 1100-25, 400+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[5]), 1300-25, 400+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[6]), 1500-25, 400+50, t);
+        canvas.drawText("NB", 300-25, 80, t);
+        canvas.drawText("NM", 500-25, 80, t);
+        canvas.drawText("NS", 700-25, 80, t);
+        canvas.drawText("ZO", 900-25, 80, t);
+        canvas.drawText("PS", 1100-25, 80, t);
+        canvas.drawText("PM", 1300-25, 80, t);
+        canvas.drawText("PB", 1500-25, 80, t);
+
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[0]), 300-25, 80, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[1]), 500-25, 80, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[2]), 700-25, 80, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[3]), 900-25, 80, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[4]), 1100-25, 80, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[5]), 1300-25, 80, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_weight[6]), 1500-25, 80, t);
+
+        canvas.drawText("-30", 300-25, 400+50, t);
+        canvas.drawText("wait", 500-25, 400+50, t);
+        canvas.drawText("wait", 700-25, 400+50, t);
+        canvas.drawText("0", 900-25, 400+50, t);
+        canvas.drawText("wait", 1100-25, 400+50, t);
+        canvas.drawText("wait", 1300-25, 400+50, t);
+        canvas.drawText("30", 1500-25, 400+50, t);
+
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[0]), 300-25, 400+50, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[1]), 500-25, 400+50, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[2]), 700-25, 400+50, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[3]), 900-25, 400+50, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[4]), 1100-25, 400+50, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[5]), 1300-25, 400+50, t);
+//        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kp_7_angle[6]), 1500-25, 400+50, t);
 
 
     }
