@@ -26,31 +26,31 @@ public class GlobalVariable extends Application {
 //    private float kd_3_angle_min;
 //    private float kd_3_angle_max;
     private float[] kd_3_weight = {(float) 14,(float) 26,(float) 14};
-    private float kd_3_angle_min = (float)-30;
-    private float kd_3_angle_max = (float)30;
+    //private float kd_3_angle_min = (float)-30;
+    //private float kd_3_angle_max = (float)30;
 
     private float[] kd_5_weight;
-    private float kd_5_angle_min;
-    private float kd_5_angle_max;
+    //private float kd_5_angle_min;
+    //private float kd_5_angle_max;
 
     private float[] kd_7_weight;
-    private float kd_7_angle_min;
-    private float kd_7_angle_max;
+    //private float kd_7_angle_min;
+    //private float kd_7_angle_max;
 
 //    private float[] kp_3_weight;
 //    private float kp_3_angle_min;
 //    private float kp_3_angle_max;
     private float[] kp_3_weight = {(float) 0.3,(float) 0.15,(float) 0.3};
-    private float kp_3_angle_min = (float)-30;
-    private float kp_3_angle_max = (float)30;
+    //private float kp_3_angle_min = (float)-30;
+    //private float kp_3_angle_max = (float)30;
 
     private float[] kp_5_weight;
-    private float kp_5_angle_min;
-    private float kp_5_angle_max;
+    //private float kp_5_angle_min;
+    //private float kp_5_angle_max;
 
     private float[] kp_7_weight;
-    private float kp_7_angle_min;
-    private float kp_7_angle_max;
+    //private float kp_7_angle_min;
+    //private float kp_7_angle_max;
 
 
     private BluetoothSocket mmSocket = null;
@@ -83,16 +83,16 @@ public class GlobalVariable extends Application {
     public float[] getKd_3_weight() {
         return kd_3_weight;
     }
-    public void setKd_3_angle(float kd_3_angle_min , float kd_3_angle_max){
-        this.kd_3_angle_min = kd_3_angle_min;
-        this.kd_3_angle_max = kd_3_angle_max;
-    }
-    public float getKd_3_angle_min() {
-        return kd_3_angle_min;
-    }
-    public float getKd_3_angle_max() {
-        return kd_3_angle_max;
-    }
+//    public void setKd_3_angle(float kd_3_angle_min , float kd_3_angle_max){
+//        this.kd_3_angle_min = kd_3_angle_min;
+//        this.kd_3_angle_max = kd_3_angle_max;
+//    }
+//    public float getKd_3_angle_min() {
+//        return kd_3_angle_min;
+//    }
+//    public float getKd_3_angle_max() {
+//        return kd_3_angle_max;
+//    }
 
 
     public void setKd_5_weight(float[] kd_5_weight){
@@ -101,16 +101,16 @@ public class GlobalVariable extends Application {
     public float[] getKd_5_weight() {
         return kd_5_weight;
     }
-    public void setKd_5_angle(float kd_5_angle_min , float kd_5_angle_max){
-        this.kd_5_angle_min = kd_5_angle_min;
-        this.kd_5_angle_max = kd_5_angle_max;
-    }
-    public float getKd_5_angle_min() {
-        return kd_5_angle_min;
-    }
-    public float getKd_5_angle_max() {
-        return kd_5_angle_max;
-    }
+//    public void setKd_5_angle(float kd_5_angle_min , float kd_5_angle_max){
+//        this.kd_5_angle_min = kd_5_angle_min;
+//        this.kd_5_angle_max = kd_5_angle_max;
+//    }
+//    public float getKd_5_angle_min() {
+//        return kd_5_angle_min;
+//    }
+//    public float getKd_5_angle_max() {
+//        return kd_5_angle_max;
+//    }
 
     public void setKd_7_weight(float[] kd_7_weight){
         this.kd_7_weight = kd_7_weight;
@@ -118,16 +118,16 @@ public class GlobalVariable extends Application {
     public float[] getKd_7_weight() {
         return kd_7_weight;
     }
-    public void setKd_7_angle(float kd_7_angle_min , float kd_7_angle_max){
-        this.kd_7_angle_min = kd_7_angle_min;
-        this.kd_7_angle_max = kd_7_angle_max;
-    }
-    public float getKd_7_angle_min() {
-        return kd_7_angle_min;
-    }
-    public float getKd_7_angle_max() {
-        return kd_7_angle_max;
-    }
+//    public void setKd_7_angle(float kd_7_angle_min , float kd_7_angle_max){
+//        this.kd_7_angle_min = kd_7_angle_min;
+//        this.kd_7_angle_max = kd_7_angle_max;
+//    }
+//    public float getKd_7_angle_min() {
+//        return kd_7_angle_min;
+//    }
+//    public float getKd_7_angle_max() {
+//        return kd_7_angle_max;
+//    }
 
 
 
@@ -138,16 +138,16 @@ public class GlobalVariable extends Application {
         return kp_3_weight;
     }
 
-    public void setKp_3_angle(float kp_3_angle_min , float kp_3_angle_max){
-        this.kp_3_angle_min = kp_3_angle_min;
-        this.kp_3_angle_max = kp_3_angle_max;
-    }
-    public float getKp_3_angle_min() {
-        return kp_3_angle_min;
-    }
-    public float getKp_3_angle_max() {
-        return kp_3_angle_max;
-    }
+//    public void setKp_3_angle(float kp_3_angle_min , float kp_3_angle_max){
+//        this.kp_3_angle_min = kp_3_angle_min;
+//        this.kp_3_angle_max = kp_3_angle_max;
+//    }
+//    public float getKp_3_angle_min() {
+//        return kp_3_angle_min;
+//    }
+//    public float getKp_3_angle_max() {
+//        return kp_3_angle_max;
+//    }
 
     public void setKp_5_weight(float[] kp_5_weight){
         this.kp_5_weight = kp_5_weight;
@@ -155,16 +155,16 @@ public class GlobalVariable extends Application {
     public float[] getKp_5_weight() {
         return kp_5_weight;
     }
-    public void setKp_5_angle(float kp_5_angle_min , float kp_5_angle_max){
-        this.kp_5_angle_min = kp_5_angle_min;
-        this.kp_5_angle_max = kp_5_angle_max;
-    }
-    public float getKp_5_angle_min() {
-        return kp_5_angle_min;
-    }
-    public float getKp_5_angle_max() {
-        return kp_5_angle_max;
-    }
+//    public void setKp_5_angle(float kp_5_angle_min , float kp_5_angle_max){
+//        this.kp_5_angle_min = kp_5_angle_min;
+//        this.kp_5_angle_max = kp_5_angle_max;
+//    }
+//    public float getKp_5_angle_min() {
+//        return kp_5_angle_min;
+//    }
+//    public float getKp_5_angle_max() {
+//        return kp_5_angle_max;
+//    }
 
     public void setKp_7_weight(float[] kp_7_weight){
         this.kp_7_weight = kp_7_weight;
@@ -172,32 +172,32 @@ public class GlobalVariable extends Application {
     public float[] getKp_7_weight() {
         return kp_7_weight;
     }
-    public void setKp_7_angle(float kp_7_angle_min , float kp_7_angle_max){
-        this.kp_7_angle_min = kp_7_angle_min;
-        this.kp_7_angle_max = kp_7_angle_max;
-    }
-    public float getKp_7_angle_min() {
-        return kp_7_angle_min;
-    }
-    public float getKp_7_angle_max() {
-        return kp_7_angle_max;
-    }
+//    public void setKp_7_angle(float kp_7_angle_min , float kp_7_angle_max){
+//        this.kp_7_angle_min = kp_7_angle_min;
+//        this.kp_7_angle_max = kp_7_angle_max;
+//    }
+//    public float getKp_7_angle_min() {
+//        return kp_7_angle_min;
+//    }
+//    public float getKp_7_angle_max() {
+//        return kp_7_angle_max;
+//    }
 
     public String getKp3String(){
 
         StringBuffer buf = new StringBuffer();
         buf.append("p/c/");
-        for(int i=0; i<3; i++){
-            buf.append(((int)(kp_3_weight[i]*100))/100.0);
-            buf.append("/");
-        }
-
-        buf.append(((int)(kp_3_angle_min*100))/100.0);
-        buf.append("/");
-        buf.append(((int)((kp_3_angle_min + (kp_3_angle_max - kp_3_angle_min)/2)*100))/100.0 );
-        buf.append("/");
-        buf.append(((int)(kp_3_angle_max*100))/100.0);
-        buf.append("/");
+//        for(int i=0; i<3; i++){
+//            buf.append(((int)(kp_3_weight[i]*100))/100.0);
+//            buf.append("/");
+//        }
+//
+//        buf.append(((int)(kp_3_angle_min*100))/100.0);
+//        buf.append("/");
+//        buf.append(((int)((kp_3_angle_min + (kp_3_angle_max - kp_3_angle_min)/2)*100))/100.0 );
+//        buf.append("/");
+//        buf.append(((int)(kp_3_angle_max*100))/100.0);
+//        buf.append("/");
 
         kp3String = buf.toString();
         //kp3String = String.format("%.2f", kp3String);
@@ -210,16 +210,16 @@ public class GlobalVariable extends Application {
 
         StringBuffer buf = new StringBuffer();
         buf.append("d/c/");
-        for(int i=0; i<3; i++){
-            buf.append(((int)(kd_3_weight[i]*100))/100.0);
-            buf.append("/");
-        }
-
-        buf.append(((int)(kd_3_angle_min*100))/100.0);
-        buf.append("/");
-        buf.append(((int)((kd_3_angle_min + (kd_3_angle_max - kd_3_angle_min)/2)*100))/100.0);
-        buf.append("/");
-        buf.append(((int)(kd_3_angle_max*100))/100.0);
+//        for(int i=0; i<3; i++){
+//            buf.append(((int)(kd_3_weight[i]*100))/100.0);
+//            buf.append("/");
+//        }
+//
+//        buf.append(((int)(kd_3_angle_min*100))/100.0);
+//        buf.append("/");
+//        buf.append(((int)((kd_3_angle_min + (kd_3_angle_max - kd_3_angle_min)/2)*100))/100.0);
+//        buf.append("/");
+//        buf.append(((int)(kd_3_angle_max*100))/100.0);
 
         kd3String = buf.toString();
         //kd3String = String.format("%.2f", kd3String);
@@ -231,20 +231,22 @@ public class GlobalVariable extends Application {
     public String getKp5String(){
         StringBuffer buf = new StringBuffer();
         buf.append("p/e/");
-        for(int i=0; i<5; i++){
-            buf.append(((int)(kp_5_weight[i]*100))/100.0);
-            buf.append("/");
-        }
+        buf.append(((int)(kp_5_weight[3]*100))/100.0);
 
-        buf.append(((int)(kp_5_angle_min*100))/100.0);
-        buf.append("/");
-        buf.append(((int)((kp_5_angle_min + ((kp_5_angle_max - kp_5_angle_min)/4))*100) / 100.0));
-        buf.append("/");
-        buf.append(((int)((kp_5_angle_min + ((2*(kp_5_angle_max - kp_5_angle_min))/4))*100))/100.0);
-        buf.append("/");
-        buf.append(((int)((kp_5_angle_min + ((3*(kp_5_angle_max - kp_5_angle_min))/4))*100))/100.0);
-        buf.append("/");
-        buf.append(((int)(kp_5_angle_max*100))/100.0);
+//        for(int i=0; i<5; i++){
+//            buf.append(((int)(kp_5_weight[i]*100))/100.0);
+//            buf.append("/");
+//        }
+
+//        buf.append(((int)(kp_5_angle_min*100))/100.0);
+//        buf.append("/");
+//        buf.append(((int)((kp_5_angle_min + ((kp_5_angle_max - kp_5_angle_min)/4))*100) / 100.0));
+//        buf.append("/");
+//        buf.append(((int)((kp_5_angle_min + ((2*(kp_5_angle_max - kp_5_angle_min))/4))*100))/100.0);
+//        buf.append("/");
+//        buf.append(((int)((kp_5_angle_min + ((3*(kp_5_angle_max - kp_5_angle_min))/4))*100))/100.0);
+//        buf.append("/");
+//        buf.append(((int)(kp_5_angle_max*100))/100.0);
 
         kp5String = buf.toString();
         //kp5String = String.format("%.2f", kp5String);
@@ -256,20 +258,21 @@ public class GlobalVariable extends Application {
     public String getKd5String(){
         StringBuffer buf = new StringBuffer();
         buf.append("d/e/");
-        for(int i=0; i<5; i++){
-            buf.append(((int)(kd_5_weight[i]*100))/100.0);
-            buf.append("/");
-        }
-
-        buf.append(((int)(kd_5_angle_min*100))/100.0);
-        buf.append("/");
-        buf.append(String.format("%.2f", (kd_5_angle_min + ((kd_5_angle_max - kd_5_angle_min)/4))));
-        buf.append("/");
-        buf.append(String.format("%.2f", (kd_5_angle_min + ((2*(kd_5_angle_max - kd_5_angle_min))/4))));
-        buf.append("/");
-        buf.append(String.format("%.2f", (kd_5_angle_min + ((3*(kd_5_angle_max - kd_5_angle_min))/4))));
-        buf.append("/");
-        buf.append(((int)((kd_5_angle_max)*100)/100.0));
+        buf.append(((int)(kd_5_weight[3]*100))/100.0);
+//        for(int i=0; i<5; i++){
+//            buf.append(((int)(kd_5_weight[i]*100))/100.0);
+//            buf.append("/");
+//        }
+//
+//        buf.append(((int)(kd_5_angle_min*100))/100.0);
+//        buf.append("/");
+//        buf.append(String.format("%.2f", (kd_5_angle_min + ((kd_5_angle_max - kd_5_angle_min)/4))));
+//        buf.append("/");
+//        buf.append(String.format("%.2f", (kd_5_angle_min + ((2*(kd_5_angle_max - kd_5_angle_min))/4))));
+//        buf.append("/");
+//        buf.append(String.format("%.2f", (kd_5_angle_min + ((3*(kd_5_angle_max - kd_5_angle_min))/4))));
+//        buf.append("/");
+//        buf.append(((int)((kd_5_angle_max)*100)/100.0));
 
         kd5String = buf.toString();
         //kd5String = String.format("%.2f", kd5String);
@@ -280,24 +283,28 @@ public class GlobalVariable extends Application {
     public String getKp7String(){
         StringBuffer buf = new StringBuffer();
         buf.append("p/g/");
-        for(int i=0; i<7; i++){
-            buf.append(((int)(kp_7_weight[i]*100))/100.0);
-            buf.append("/");
-        }
+        buf.append(((int)(kp_7_weight[4]*100))/100.0);
+        buf.append("/");
+        buf.append(((int)(kp_7_weight[5]*100))/100.0);
 
-        buf.append(((int)(kp_7_angle_min*100))/100.0);
-        buf.append("/");
-        buf.append(((int)((kp_7_angle_min + ((kp_7_angle_max - kp_7_angle_min)/6) )*100))/100.0);
-        buf.append("/");
-        buf.append((int)((kp_7_angle_min + ((2*(kp_7_angle_max - kp_7_angle_min))/6))*100)/100.0);
-        buf.append("/");
-        buf.append((int)((kp_7_angle_min + ((3*(kp_7_angle_max - kp_7_angle_min))/6))*100)/100.0);
-        buf.append("/");
-        buf.append((int)((kp_7_angle_min + ((4*(kp_7_angle_max - kp_7_angle_min))/6))*100)/100.0);
-        buf.append("/");
-        buf.append((int)((kp_7_angle_min + ((5*(kp_7_angle_max - kp_7_angle_min))/6))*100)/100.0);
-        buf.append("/");
-        buf.append((int)(kp_7_angle_max*100)/100.0);
+//        for(int i=0; i<7; i++){
+//            buf.append(((int)(kp_7_weight[i]*100))/100.0);
+//            buf.append("/");
+//        }
+//
+//        buf.append(((int)(kp_7_angle_min*100))/100.0);
+//        buf.append("/");
+//        buf.append(((int)((kp_7_angle_min + ((kp_7_angle_max - kp_7_angle_min)/6) )*100))/100.0);
+//        buf.append("/");
+//        buf.append((int)((kp_7_angle_min + ((2*(kp_7_angle_max - kp_7_angle_min))/6))*100)/100.0);
+//        buf.append("/");
+//        buf.append((int)((kp_7_angle_min + ((3*(kp_7_angle_max - kp_7_angle_min))/6))*100)/100.0);
+//        buf.append("/");
+//        buf.append((int)((kp_7_angle_min + ((4*(kp_7_angle_max - kp_7_angle_min))/6))*100)/100.0);
+//        buf.append("/");
+//        buf.append((int)((kp_7_angle_min + ((5*(kp_7_angle_max - kp_7_angle_min))/6))*100)/100.0);
+//        buf.append("/");
+//        buf.append((int)(kp_7_angle_max*100)/100.0);
 
         kp7String = buf.toString();
         //kp7String = String.format("%.2f", kp7String);
@@ -308,24 +315,28 @@ public class GlobalVariable extends Application {
     public String getKd7String(){
         StringBuffer buf = new StringBuffer();
         buf.append("d/g/");
-        for(int i=0; i<7; i++){
-            buf.append(((int)(kd_7_weight[i]*100))/100.0);
-            buf.append("/");
-        }
+        buf.append(((int)(kd_7_weight[4]*100))/100.0);
+        buf.append("/");
+        buf.append(((int)(kd_7_weight[5]*100))/100.0);
 
-        buf.append(((int)(kd_7_angle_min*100))/100.0);
-        buf.append("/");
-        buf.append(((int)((kd_7_angle_min + ((kd_7_angle_max - kd_7_angle_min)/6) )*100))/100.0);
-        buf.append("/");
-        buf.append((int)((kd_7_angle_min + ((2*(kd_7_angle_max - kd_7_angle_min))/6))*100)/100.0);
-        buf.append("/");
-        buf.append((int)((kd_7_angle_min + ((3*(kd_7_angle_max - kd_7_angle_min))/6))*100)/100.0);
-        buf.append("/");
-        buf.append((int)((kd_7_angle_min + ((4*(kd_7_angle_max - kd_7_angle_min))/6))*100)/100.0);
-        buf.append("/");
-        buf.append((int)((kd_7_angle_min + ((5*(kd_7_angle_max - kd_7_angle_min))/6))*100)/100.0);
-        buf.append("/");
-        buf.append((int)(kd_7_angle_max*100)/100.0);
+//        for(int i=0; i<7; i++){
+//            buf.append(((int)(kd_7_weight[i]*100))/100.0);
+//            buf.append("/");
+//        }
+//
+//        buf.append(((int)(kd_7_angle_min*100))/100.0);
+//        buf.append("/");
+//        buf.append(((int)((kd_7_angle_min + ((kd_7_angle_max - kd_7_angle_min)/6) )*100))/100.0);
+//        buf.append("/");
+//        buf.append((int)((kd_7_angle_min + ((2*(kd_7_angle_max - kd_7_angle_min))/6))*100)/100.0);
+//        buf.append("/");
+//        buf.append((int)((kd_7_angle_min + ((3*(kd_7_angle_max - kd_7_angle_min))/6))*100)/100.0);
+//        buf.append("/");
+//        buf.append((int)((kd_7_angle_min + ((4*(kd_7_angle_max - kd_7_angle_min))/6))*100)/100.0);
+//        buf.append("/");
+//        buf.append((int)((kd_7_angle_min + ((5*(kd_7_angle_max - kd_7_angle_min))/6))*100)/100.0);
+//        buf.append("/");
+//        buf.append((int)(kd_7_angle_max*100)/100.0);
 
         kd7String = buf.toString();
         //kd7String = String.format("%.2f", kd7String);

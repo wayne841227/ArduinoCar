@@ -27,9 +27,9 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
     private SurfaceView surface;
 
     float [] kp_7_weight;
-    public float kp_7_angle_min;
-    public float kp_7_angle_max;
-    float [] kp_7_angle = {(float)0,(float)0,(float)0,(float)0,(float)0,(float)0,(float)0};
+    //public float kp_7_angle_min;
+    //public float kp_7_angle_max;
+    //float [] kp_7_angle = {(float)0,(float)0,(float)0,(float)0,(float)0,(float)0,(float)0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,10 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
         final GlobalVariable gv = (GlobalVariable)getApplicationContext();
         kp_7_weight = gv.getKp_7_weight();
-        kp_7_angle_min = gv.getKp_7_angle_min();
-        kp_7_angle_max = gv.getKp_7_angle_max();
+        //kp_7_angle_min = gv.getKp_7_angle_min();
+        //kp_7_angle_max = gv.getKp_7_angle_max();
 
-        calAngle(kp_7_angle_min,kp_7_angle_max);
+        //calAngle(kp_7_angle_min,kp_7_angle_max);
 
 
         surface = (SurfaceView)findViewById(R.id.kp7_Surface);
@@ -285,17 +285,17 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
 
     }
 
-    private void calAngle(float kp_7_angle_min,float kp_7_angle_max){
-
-        float w = kp_7_angle_max - kp_7_angle_min;
-        kp_7_angle[0] = kp_7_angle_min;
-        kp_7_angle[1] = kp_7_angle_min + ((w)/6);
-        kp_7_angle[2] = kp_7_angle_min + ((2*w)/6);
-        kp_7_angle[3] = kp_7_angle_min + ((3*w)/6);
-        kp_7_angle[4] = kp_7_angle_min + ((4*w)/6);
-        kp_7_angle[5] = kp_7_angle_min + ((5*w)/6);
-        kp_7_angle[6] = kp_7_angle_max;
-    }
+//    private void calAngle(float kp_7_angle_min,float kp_7_angle_max){
+//
+//        float w = kp_7_angle_max - kp_7_angle_min;
+//        kp_7_angle[0] = kp_7_angle_min;
+//        kp_7_angle[1] = kp_7_angle_min + ((w)/6);
+//        kp_7_angle[2] = kp_7_angle_min + ((2*w)/6);
+//        kp_7_angle[3] = kp_7_angle_min + ((3*w)/6);
+//        kp_7_angle[4] = kp_7_angle_min + ((4*w)/6);
+//        kp_7_angle[5] = kp_7_angle_min + ((5*w)/6);
+//        kp_7_angle[6] = kp_7_angle_max;
+//    }
 
     public void jumpKP_Three() {
 

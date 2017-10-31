@@ -126,22 +126,6 @@
         android:layout_toStartOf="@+id/edit4" />
 
 
-    <EditText
-        android:id="@+id/edit9"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberSigned|numberDecimal"
-        android:layout_marginEnd="37dp"
-        android:layout_alignTop="@+id/edit8"
-        android:layout_toStartOf="@+id/check" />
-
     <Button
         android:text="確認"
         android:textStyle="bold"
@@ -257,27 +241,6 @@
         android:layout_marginEnd="25dp"
         android:layout_above="@+id/edit7"
         android:layout_alignEnd="@+id/edit7" />
-
-    <TextView
-        android:id="@+id/MIN"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MIN"
-        android:layout_above="@+id/edit8"
-        android:layout_toStartOf="@+id/NS" />
-
-    <TextView
-        android:id="@+id/MAX"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MAX"
-        android:layout_alignBaseline="@+id/MIN"
-        android:layout_alignBottom="@+id/MIN"
-        android:layout_toEndOf="@+id/PS" />
 
 
 </RelativeLayout>

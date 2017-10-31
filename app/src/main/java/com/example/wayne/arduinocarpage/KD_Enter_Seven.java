@@ -21,8 +21,8 @@ public class KD_Enter_Seven extends AppCompatActivity {
     private Button Check,Back;
     float [] kd_7_weight = {(float)0,(float)0,(float)0,(float)0,(float)0,(float)0,(float)0};
 
-    float kd_7_angle_max;
-    float kd_7_angle_min;
+    //float kd_7_angle_max;
+    //float kd_7_angle_min;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +80,13 @@ public class KD_Enter_Seven extends AppCompatActivity {
                     kd_7_weight[5] = Float.valueOf(edt6.getText().toString());
                     kd_7_weight[6] = Float.valueOf(edt7.getText().toString());
 
-                    kd_7_angle_min = Float.valueOf(edt8.getText().toString());
-                    kd_7_angle_max = Float.valueOf(edt9.getText().toString());
+                    //kd_7_angle_min = Float.valueOf(edt8.getText().toString());
+                    //kd_7_angle_max = Float.valueOf(edt9.getText().toString());
 
                     //存入全域變數的class
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
                     gv.setKd_7_weight(kd_7_weight);
-                    gv.setKd_7_angle(kd_7_angle_min,kd_7_angle_max);
+                    //gv.setKd_7_angle(kd_7_angle_min,kd_7_angle_max);
                     gv.setIsSetting(2);
                     jumpKD_Seven();
                 }

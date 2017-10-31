@@ -27,9 +27,9 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
     private SurfaceView surface;
     private Button pass;
     float [] kp_3_weight = {(float)0,(float)0,(float)0};
-    public float kp_3_angle_min;
-    public float kp_3_angle_max;
-    float [] kp_3_angle = {(float)0,(float)0,(float)0};
+    //public float kp_3_angle_min;
+    //public float kp_3_angle_max;
+    //float [] kp_3_angle = {(float)0,(float)0,(float)0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,10 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
         final GlobalVariable gv = (GlobalVariable)getApplicationContext();
         kp_3_weight = gv.getKp_3_weight();
-        kp_3_angle_min = gv.getKp_3_angle_min();
-        kp_3_angle_max = gv.getKp_3_angle_max();
+        //kp_3_angle_min = gv.getKp_3_angle_min();
+        //kp_3_angle_max = gv.getKp_3_angle_max();
 
-        calAngle(kp_3_angle_min,kp_3_angle_max);
+        //calAngle(kp_3_angle_min,kp_3_angle_max);
 
         surface = (SurfaceView)findViewById(R.id.kp3_Surface);
         surface.getHolder().addCallback(this);
@@ -249,13 +249,13 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
     }
 
-    private void calAngle(float kp_3_angle_min,float kp_3_angle_max){
-
-        float w = kp_3_angle_max - kp_3_angle_min;
-        kp_3_angle[0] = kp_3_angle_min;
-        kp_3_angle[1] = kp_3_angle_min + (w/2);
-        kp_3_angle[2] = kp_3_angle_max;
-    }
+//    private void calAngle(float kp_3_angle_min,float kp_3_angle_max){
+//
+//        float w = kp_3_angle_max - kp_3_angle_min;
+//        kp_3_angle[0] = kp_3_angle_min;
+//        kp_3_angle[1] = kp_3_angle_min + (w/2);
+//        kp_3_angle[2] = kp_3_angle_max;
+//    }
 
     public void jumpKP_Five(){
 
@@ -273,9 +273,9 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
     public void jumpKP_Enter_Three() {
 
-        Intent Jump = new Intent(KP_Three.this, KP_Enter_Three.class);
-        startActivity(Jump);
-        KP_Three.this.finish();
+        //Intent Jump = new Intent(KP_Three.this, KP_Enter_Three.class);
+        //startActivity(Jump);
+        //KP_Three.this.finish();
     }
 
     public void jumpMain() {

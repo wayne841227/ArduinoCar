@@ -82,39 +82,6 @@
         android:layout_above="@+id/angle"
         android:layout_toEndOf="@+id/edit4" />
 
-    <EditText
-        android:id="@+id/edit6"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberSigned|numberDecimal"
-        android:layout_marginBottom="12dp"
-        android:layout_above="@+id/back"
-        android:layout_toEndOf="@+id/edit1"
-        android:layout_marginStart="10dp" />
-
-    <EditText
-        android:id="@+id/edit7"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberSigned|numberDecimal"
-        android:layout_alignTop="@+id/edit6"
-        android:layout_alignStart="@+id/edit4"
-        android:layout_marginStart="14dp"/>
-
     <Button
         android:text="確認"
         android:textStyle="bold"
@@ -173,8 +140,8 @@
         android:layout_height="wrap_content"
         android:text="NS"
         android:layout_above="@+id/edit2"
-        android:layout_alignEnd="@+id/edit6"
-        android:layout_marginEnd="13dp" />
+        android:layout_alignStart="@+id/edit2"
+        android:layout_marginStart="25dp" />
 
     <TextView
         android:id="@+id/ZO"
@@ -193,9 +160,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PS"
+        android:layout_marginStart="26dp"
         android:layout_above="@+id/edit4"
-        android:layout_alignStart="@+id/edit7"
-        android:layout_marginStart="12dp" />
+        android:layout_alignStart="@+id/edit4" />
 
     <TextView
         android:id="@+id/PM"
@@ -207,26 +174,6 @@
         android:layout_above="@+id/edit5"
         android:layout_alignStart="@+id/edit5"
         android:layout_marginStart="22dp" />
-
-    <TextView
-        android:id="@+id/MIN"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MIN"
-        android:layout_above="@+id/edit6"
-        android:layout_alignStart="@+id/edit2" />
-
-    <TextView
-        android:id="@+id/MAX"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MAX"
-        android:layout_above="@+id/edit7"
-        android:layout_alignStart="@+id/PS" />
 
 
 </RelativeLayout>
