@@ -245,6 +245,7 @@ public class MainActivity extends Activity implements Runnable{
         locker=true;
         //Toast.makeText(this,mmSocket!=null?"re:connect:" + mmSocket.isConnected():"re:unconnect",Toast.LENGTH_SHORT).show();
         if(!thread.isAlive()) {
+            thread = new Thread(this);
             thread.start();
         }
         if(gv.getIsSetting() > 0){
