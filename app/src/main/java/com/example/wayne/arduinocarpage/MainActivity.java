@@ -9,8 +9,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.annotation.RequiresApi;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -249,7 +251,7 @@ public class MainActivity extends Activity implements Runnable{
             try {
                 sendData("5");
                 sendData(gv.getCheckString());
-                if(gv.getIsSetting() == 2){
+                if((gv.getIsSetting()/10) == 2){
                     KD.setText(gv.getMode());
                 }else{
                     KP.setText(gv.getMode());
@@ -432,7 +434,6 @@ public class MainActivity extends Activity implements Runnable{
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener()  {
 
             @Override
-
             public void onClick(DialogInterface dialog, int which) {
 
                 dialog.dismiss();

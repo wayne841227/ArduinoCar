@@ -92,7 +92,7 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
         pass.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                if(gv.getIsSetting() != 0) {
+                if(gv.getIsSetting() == 27) {
                     gv.setCheckString(gv.getKd7String());
                     gv.setMode("KD 7");
                     jumpMain();

@@ -90,7 +90,7 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
         pass.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                if(gv.getIsSetting() != 0) {
+                if(gv.getIsSetting() == 17) {
                     gv.setCheckString(gv.getKp7String());
                     gv.setMode("KP 7");
                     jumpMain();

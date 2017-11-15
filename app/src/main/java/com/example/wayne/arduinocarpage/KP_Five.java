@@ -84,7 +84,7 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
         pass.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                if(gv.getIsSetting() != 0) {
+                if(gv.getIsSetting() == 15) {
                     gv.setCheckString(gv.getKp5String());
                     gv.setMode("KP 5");
                     jumpMain();
