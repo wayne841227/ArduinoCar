@@ -57,8 +57,7 @@ public class KD_Enter_Seven extends AppCompatActivity {
                 if("".equals(edt1.getText().toString().trim()) || "".equals(edt2.getText().toString().trim()) ||
                         "".equals(edt3.getText().toString().trim()) || "".equals(edt4.getText().toString().trim()) ||
                         "".equals(edt5.getText().toString().trim()) || "".equals(edt6.getText().toString().trim()) ||
-                        "".equals(edt7.getText().toString().trim()) || "".equals(edt8.getText().toString().trim()) ||
-                        "".equals(edt9.getText().toString().trim())){
+                        "".equals(edt7.getText().toString().trim()) ){
 
                     //產生視窗物件
                     new AlertDialog.Builder(KD_Enter_Seven.this)
@@ -85,7 +84,7 @@ public class KD_Enter_Seven extends AppCompatActivity {
 
                     //存入全域變數的class
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
-                    gv.setKd_7_weight(kd_7_weight);
+                    //gv.setKd_7_weight(kd_7_weight);
                     //gv.setKd_7_angle(kd_7_angle_min,kd_7_angle_max);
                     gv.setIsSetting(2);
                     jumpKD_Seven();

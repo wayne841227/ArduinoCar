@@ -56,8 +56,7 @@ public class KP_Enter_Seven extends AppCompatActivity {
                 if("".equals(edt1.getText().toString().trim()) || "".equals(edt2.getText().toString().trim()) ||
                         "".equals(edt3.getText().toString().trim()) || "".equals(edt4.getText().toString().trim()) ||
                         "".equals(edt5.getText().toString().trim()) || "".equals(edt6.getText().toString().trim()) ||
-                        "".equals(edt7.getText().toString().trim()) || "".equals(edt8.getText().toString().trim()) ||
-                        "".equals(edt9.getText().toString().trim())){
+                        "".equals(edt7.getText().toString().trim()) ){
 
                     //產生視窗物件
                     new AlertDialog.Builder(KP_Enter_Seven.this)

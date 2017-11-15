@@ -75,7 +75,7 @@ public class KD_Enter_Five extends AppCompatActivity {
 
                     //存入全域變數的class
                     GlobalVariable gv = (GlobalVariable)getApplicationContext();
-                    gv.setKd_5_weight(kd_5_weight);
+                    //gv.setKd_5_weight(kd_5_weight);
                     //gv.setKd_5_angle(kd_5_angle_min,kd_5_angle_max);
                     gv.setIsSetting(2);
                     jumpKD_Five();

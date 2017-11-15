@@ -268,11 +268,11 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
 //        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[6]), 1500-25, 80, t);
 
         canvas.drawText("-30", 300-25, 400+50, t);
-        canvas.drawText("wait", 500-25, 400+50, t);
-        canvas.drawText("wait", 700-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[5]*(-1)), 500-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[4]*(-1)), 700-25, 400+50, t);
         canvas.drawText("0", 900-25, 400+50, t);
-        canvas.drawText("wait", 1100-25, 400+50, t);
-        canvas.drawText("wait", 1300-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[4]), 1100-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_weight[5]), 1300-25, 400+50, t);
         canvas.drawText("30", 1500-25, 400+50, t);
 
 //        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_7_angle[0]), 300-25, 400+50, t);
