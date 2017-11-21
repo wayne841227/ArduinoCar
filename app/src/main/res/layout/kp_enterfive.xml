@@ -14,10 +14,10 @@
         android:inputType="numberDecimal"
         android:imeOptions="actionDone"
         android:maxLines="1"
-        android:layout_marginTop="57dp"
-        android:layout_marginStart="38dp"
-        android:layout_below="@+id/weight"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="46dp"
+        android:layout_marginStart="52dp"
+        android:layout_below="@+id/angle"
+        android:layout_toEndOf="@+id/back" />
 
     <EditText
         android:id="@+id/edit2"
@@ -28,59 +28,13 @@
         android:textStyle="bold"
         android:paddingLeft="5dp"
         android:ems="10"
+        android:inputType="numberDecimal"
         android:imeOptions="actionDone"
         android:maxLines="1"
-        android:inputType="numberDecimal"
-        android:layout_marginStart="21dp"
-        android:layout_above="@+id/angle"
-        android:layout_toEndOf="@+id/edit1" />
+        android:layout_marginEnd="90dp"
+        android:layout_toStartOf="@+id/check"
+        android:layout_alignBottom="@+id/edit1" />
 
-    <EditText
-        android:id="@+id/edit3"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal"
-        android:layout_above="@+id/angle"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:id="@+id/edit4"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal"
-        android:layout_marginStart="25dp"
-        android:layout_above="@+id/angle"
-        android:layout_toEndOf="@+id/edit3" />
-
-    <EditText
-        android:id="@+id/edit5"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="numberDecimal"
-        android:layout_marginStart="23dp"
-        android:layout_above="@+id/angle"
-        android:layout_toEndOf="@+id/edit4" />
 
     <Button
         android:text="確認"
@@ -102,35 +56,15 @@
         android:layout_alignParentBottom="true" />
 
     <TextView
-        android:id="@+id/weight"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="權重"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/back" />
-
-    <TextView
         android:id="@+id/angle"
         android:textStyle="bold"
         android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="角度"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/edit1"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/NM"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NM"
-        android:layout_above="@+id/edit2"
-        android:layout_toEndOf="@+id/weight" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="59dp" />
 
     <TextView
         android:id="@+id/NS"
@@ -140,18 +74,8 @@
         android:layout_height="wrap_content"
         android:text="NS"
         android:layout_above="@+id/edit2"
-        android:layout_alignStart="@+id/edit2"
-        android:layout_marginStart="25dp" />
-
-    <TextView
-        android:id="@+id/ZO"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ZO"
-        android:layout_above="@+id/edit3"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/edit1"
+        android:layout_marginStart="21dp" />
 
     <TextView
         android:id="@+id/PS"
@@ -160,20 +84,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PS"
-        android:layout_marginStart="26dp"
-        android:layout_above="@+id/edit4"
-        android:layout_alignStart="@+id/edit4" />
-
-    <TextView
-        android:id="@+id/PM"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PM"
-        android:layout_above="@+id/edit5"
-        android:layout_alignStart="@+id/edit5"
-        android:layout_marginStart="22dp" />
+        android:layout_above="@+id/edit2"
+        android:layout_alignEnd="@+id/edit2"
+        android:layout_marginEnd="25dp" />
 
 
 </RelativeLayout>
