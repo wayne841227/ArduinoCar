@@ -37,6 +37,7 @@
         android:layout_height="70dp"
         android:background="@drawable/trangle"
         android:paddingLeft="15dp"
+        android:textSize="55sp"
         android:layout_alignBaseline="@+id/NM"
         android:layout_alignBottom="@+id/NM"
         android:layout_toStartOf="@+id/ZO" />
@@ -48,6 +49,7 @@
         android:layout_centerVertical="true"
         android:background="@drawable/trangle"
         android:paddingLeft="15dp"
+        android:textSize="55sp"
         android:layout_toStartOf="@+id/NS"/>
 
     <TextView
@@ -69,7 +71,7 @@
         android:textSize="55sp"
         android:layout_alignBaseline="@+id/PS"
         android:layout_alignBottom="@+id/PS"
-        android:layout_toEndOf="@+id/PＭ" />
+        android:layout_toEndOf="@+id/PM" />
 
     <EditText
         android:id="@+id/PS"
@@ -86,18 +88,18 @@
         android:layout_toEndOf="@+id/ZO" />
 
     <EditText
-        android:id="@+id/PＭ"
+        android:id="@+id/PM"
         android:layout_width="84dp"
         android:layout_height="70dp"
+        android:layout_alignTop="@+id/PB"
+        android:layout_toEndOf="@+id/PS"
         android:background="@drawable/trangle"
-        android:textSize="50sp"
-        android:paddingLeft="15dp"
         android:ems="10"
         android:imeOptions="actionDone"
-        android:maxLines="1"
         android:inputType="numberSigned|numberDecimal"
-        android:layout_alignTop="@+id/PB"
-        android:layout_toEndOf="@+id/PS" />
+        android:maxLines="1"
+        android:paddingLeft="15dp"
+        android:textSize="50sp" />
 
     <TextView
         android:id="@+id/ZOT"
@@ -154,7 +156,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PM"
-        android:layout_above="@+id/PＭ"
+        android:layout_above="@+id/PM"
         android:layout_toStartOf="@+id/check"
         android:layout_marginEnd="16dp" />
 
@@ -165,7 +167,7 @@
         android:layout_height="wrap_content"
         android:text="PB"
         android:layout_above="@+id/PB"
-        android:layout_toEndOf="@+id/PＭ"
+        android:layout_toEndOf="@+id/PM"
         android:layout_marginStart="22dp" />
 
 
