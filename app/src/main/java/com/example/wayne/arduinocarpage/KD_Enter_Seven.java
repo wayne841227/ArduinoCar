@@ -35,31 +35,31 @@ public class KD_Enter_Seven extends AppCompatActivity implements TextWatcher {
 
         Check = (Button) findViewById(R.id.check);
         Back = (Button) findViewById(R.id.back);
-        TextView Weight = (TextView) findViewById(R.id.weight);
-        TextView Angle = (TextView) findViewById(R.id.angle);
+        //TextView Weight = (TextView) findViewById(R.id.weight);
+        //TextView Angle = (TextView) findViewById(R.id.angle);
         PS = (EditText)findViewById(R.id.PS);
         PM = (EditText)findViewById(R.id.PM);
         NS = (TextView)findViewById(R.id.NS);
         NM = (TextView)findViewById(R.id.NM);
 
-        Weight.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/SentyTang.ttf"));
-        Angle.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/SentyTang.ttf"));
+        //Weight.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/SentyTang.ttf"));
+        //Angle.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/SentyTang.ttf"));
 
 
         //更換頁面到KD_Graphic
         Check.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                EditText edt1 = (EditText) findViewById(R.id.edit1);
-                EditText edt2 = (EditText) findViewById(R.id.edit2);
-                EditText edt3 = (EditText) findViewById(R.id.edit3);
-                EditText edt4 = (EditText) findViewById(R.id.edit4);
-                EditText edt5 = (EditText) findViewById(R.id.edit5);
-                EditText edt6 = (EditText) findViewById(R.id.edit6);
-                EditText edt7 = (EditText) findViewById(R.id.edit7);
+                TextView edt1 = (TextView) findViewById(R.id.NB);
+                TextView edt2 = (TextView) findViewById(R.id.NM);
+                TextView edt3 = (TextView) findViewById(R.id.NS);
+                TextView edt4 = (TextView) findViewById(R.id.ZO);
+                EditText edt5 = (EditText) findViewById(R.id.PS);
+                EditText edt6 = (EditText) findViewById(R.id.PM);
+                TextView edt7 = (TextView) findViewById(R.id.PB);
 
-                EditText edt8 = (EditText) findViewById(R.id.edit8);
-                EditText edt9 = (EditText) findViewById(R.id.edit9);
+                //EditText edt8 = (EditText) findViewById(R.id.edit8);
+                //EditText edt9 = (EditText) findViewById(R.id.edit9);
 
                 //判斷輸入值是否為空
                 if("".equals(edt1.getText().toString().trim()) || "".equals(edt2.getText().toString().trim()) ||
