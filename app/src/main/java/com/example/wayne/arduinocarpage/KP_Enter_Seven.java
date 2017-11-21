@@ -10,15 +10,19 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class KP_Enter_Seven extends AppCompatActivity {
+public class KP_Enter_Seven extends AppCompatActivity implements TextWatcher {
 
     private Button Check,Back;
+    private EditText PS , PM;
+    private TextView NS , NM;
     float [] kp_7_weight = {(float)0,(float)0,(float)0,(float)0,(float)0,(float)0,(float)0};
 
     //float kp_7_angle_max;
@@ -33,6 +37,10 @@ public class KP_Enter_Seven extends AppCompatActivity {
         Back = (Button) findViewById(R.id.back);
         TextView Weight = (TextView) findViewById(R.id.weight);
         TextView Angle = (TextView) findViewById(R.id.angle);
+        PS = (EditText)findViewById(R.id.PS);
+        PM = (EditText)findViewById(R.id.PM);
+        NS = (TextView)findViewById(R.id.NS);
+        NM = (TextView)findViewById(R.id.NM);
 
         Weight.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/SentyTang.ttf"));
         Angle.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/SentyTang.ttf"));
@@ -98,6 +106,26 @@ public class KP_Enter_Seven extends AppCompatActivity {
                 jumpKP_Seven();
             }
         });
+
+        PS.addTextChangedListener(this);
+        PM.addTextChangedListener(this);
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        // TODO Auto-generated method stub
+
+    }
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count,int after) {
+        // TODO Auto-generated method stub
+
+    }
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        // TODO Auto-generated method stub
+        NS.setText("-" + PS.getText());
+        NM.setText("-" + PM.getText());
     }
 
 

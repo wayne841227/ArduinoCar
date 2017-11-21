@@ -2,40 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/edit1"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:layout_marginTop="46dp"
-        android:layout_marginStart="52dp"
-        android:layout_below="@+id/angle"
-        android:layout_toEndOf="@+id/back" />
-
-    <EditText
-        android:id="@+id/edit2"
-        android:background="@drawable/trangle"
-        android:layout_width="84dp"
-        android:layout_height="70dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingLeft="5dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:layout_marginEnd="90dp"
-        android:layout_toStartOf="@+id/check"
-        android:layout_alignBottom="@+id/edit1" />
-
-
     <Button
         android:text="確認"
         android:textStyle="bold"
@@ -56,37 +22,109 @@
         android:layout_alignParentBottom="true" />
 
     <TextView
-        android:id="@+id/angle"
-        android:textStyle="bold"
-        android:textSize="30sp"
+        android:id="@+id/ZO"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:text="   0 "
+        android:textSize="55sp"
+        android:background="@drawable/trangle"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/NM"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:text=" -30  "
+        android:textSize="55sp"
+        android:background="@drawable/trangle"
+        android:layout_alignTop="@+id/NS"
+        android:layout_toStartOf="@+id/NS" />
+
+    <TextView
+        android:id="@+id/PM"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:text="  30 "
+        android:textSize="55sp"
+        android:background="@drawable/trangle"
+        android:layout_alignTop="@+id/PS"
+        android:layout_toEndOf="@+id/PS" />
+
+    <TextView
+        android:id="@+id/ZOT"
+        android:textSize="35sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="角度"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="59dp" />
+        android:text="ZO"
+        android:layout_above="@+id/ZO"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/NMT"
+        android:textSize="35sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NM"
+        android:layout_above="@+id/NM"
+        android:layout_alignEnd="@+id/NM"
+        android:layout_marginEnd="24dp" />
+
+    <TextView
+        android:id="@+id/PMT"
+        android:textSize="35sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PM"
+        android:layout_above="@+id/PM"
+        android:layout_alignEnd="@+id/PM"
+        android:layout_marginEnd="26dp" />
 
     <TextView
         android:id="@+id/NS"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NS"
-        android:layout_above="@+id/edit2"
-        android:layout_alignStart="@+id/edit1"
-        android:layout_marginStart="21dp" />
+        android:paddingLeft="15dp"
+        android:background="@drawable/trangle"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:textSize="50sp"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:inputType="numberSigned|numberDecimal"
+        android:layout_alignTop="@+id/ZO"
+        android:layout_toStartOf="@+id/ZO" />
+
+    <EditText
+        android:id="@+id/PS"
+        android:background="@drawable/trangle"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:textSize="50sp"
+        android:paddingLeft="15dp"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:inputType="numberSigned|numberDecimal"
+        android:layout_alignTop="@+id/ZO"
+        android:layout_toEndOf="@+id/ZO" />
 
     <TextView
-        android:id="@+id/PS"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:id="@+id/NST"
+        android:textSize="35sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:text="NS"
+        android:layout_above="@+id/NS"
+        android:layout_toStartOf="@+id/ZO" />
+
+    <TextView
+        android:id="@+id/PST"
+        android:textSize="35sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PS"
-        android:layout_above="@+id/edit2"
-        android:layout_alignEnd="@+id/edit2"
-        android:layout_marginEnd="25dp" />
-
-
+        android:layout_marginEnd="32dp"
+        android:layout_above="@+id/PS"
+        android:layout_toStartOf="@+id/PM" />
 </RelativeLayout>
