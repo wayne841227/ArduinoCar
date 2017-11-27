@@ -506,8 +506,8 @@ public class MainActivity extends Activity implements Runnable{
         p.setColor(Color.BLACK);
         p.setTextSize(50);
         canvas.drawText("0", 140, 130, p);
-        canvas.drawText("18", 380, 130, p);
-        canvas.drawText("28", 630, 130, p);
+        canvas.drawText("0.2", 380, 130, p);
+        canvas.drawText("0.4", 630, 130, p);
 
         d.setColor(Color.RED);
         d.setTextSize(70);
@@ -515,8 +515,8 @@ public class MainActivity extends Activity implements Runnable{
         d.setColor(Color.BLACK);
         d.setTextSize(50);
         canvas.drawText("0", 140, 330, d);
-        canvas.drawText("0.2", 380, 330, d);
-        canvas.drawText("0.4", 630, 330, d);
+        canvas.drawText("18", 380, 330, d);
+        canvas.drawText("28", 630, 330, d);
 
         //kp,kp清空顏色
         p.setColor(Color.WHITE);
@@ -568,10 +568,10 @@ public class MainActivity extends Activity implements Runnable{
         //設定範圍矩形
         RectF rec_range = new RectF(1150, 150, 1750, 750);
 
-        //角度取絕對值
-        if(angle < 0){
-            angle = 0 - angle;
-        }
+//        //角度取絕對值
+//        if(angle < 0){
+//            angle = 0 - angle;
+//        }
 
         //清空角度顯示顏色
         a.setStyle(Paint.Style.FILL);
