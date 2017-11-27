@@ -89,8 +89,8 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
             public void onClick(View v) {
                 gv.setCheckString(gv.getKp3String());
-                gv.setIsSetting(1);
-                gv.setMode("KP 3");
+                gv.setIsSetting(13);
+                gv.setModep("KP 3");
                 jumpMain();
 //                if(gv.getIsSetting() != 0) {
 //                    gv.setCheckString(gv.getKp3String());

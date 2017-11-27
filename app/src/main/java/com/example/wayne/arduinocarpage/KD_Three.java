@@ -93,8 +93,8 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
 
             public void onClick(View v) {
                 gv.setCheckString(gv.getKd3String());
-                gv.setIsSetting(2);
-                gv.setMode("KD 3");
+                gv.setIsSetting(23);
+                gv.setModed("KD 3");
                 jumpMain();
 //                if(gv.getIsSetting() != 0) {
 //                    gv.setCheckString(gv.getKd3String());

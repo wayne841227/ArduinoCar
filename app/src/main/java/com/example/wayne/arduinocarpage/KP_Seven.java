@@ -92,7 +92,7 @@ public class KP_Seven extends AppCompatActivity implements SurfaceHolder.Callbac
             public void onClick(View v) {
                 if(gv.getIsSetting() == 17) {
                     gv.setCheckString(gv.getKp7String());
-                    gv.setMode("KP 7");
+                    gv.setModep("KP 7");
                     jumpMain();
                 }else{
                     Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();

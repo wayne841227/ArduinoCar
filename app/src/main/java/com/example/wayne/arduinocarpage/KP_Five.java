@@ -86,7 +86,7 @@ public class KP_Five extends AppCompatActivity implements SurfaceHolder.Callback
             public void onClick(View v) {
                 if(gv.getIsSetting() == 15) {
                     gv.setCheckString(gv.getKp5String());
-                    gv.setMode("KP 5");
+                    gv.setModep("KP 5");
                     jumpMain();
                 }else{
                     Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();

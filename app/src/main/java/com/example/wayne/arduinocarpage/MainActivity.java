@@ -253,9 +253,9 @@ public class MainActivity extends Activity implements Runnable{
                 sendData("5");
                 sendData(gv.getCheckString());
                 if((gv.getIsSetting()/10) == 2){
-                    KD.setText(gv.getMode());
+                    KD.setText(gv.getModed());
                 }else{
-                    KP.setText(gv.getMode());
+                    KP.setText(gv.getModep());
                 }
                 gv.setIsSetting(0);
             } catch (IOException e) {

@@ -94,7 +94,7 @@ public class KD_Seven extends Activity implements SurfaceHolder.Callback{
             public void onClick(View v) {
                 if(gv.getIsSetting() == 27) {
                     gv.setCheckString(gv.getKd7String());
-                    gv.setMode("KD 7");
+                    gv.setModed("KD 7");
                     jumpMain();
                 }else{
                     Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();
