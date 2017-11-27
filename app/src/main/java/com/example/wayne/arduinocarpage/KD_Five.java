@@ -248,11 +248,11 @@ public class KD_Five extends AppCompatActivity implements SurfaceHolder.Callback
 //        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_5_weight[3]), 1100-25, 80, t);
 //        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_5_weight[4]), 1300-25, 80, t);
 
-        canvas.drawText("-30", 500-25, 450+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_5_weight[3]*(-1)), 700-25, 450+50, t);
-        canvas.drawText("0", 900-25, 450+50, t);
-        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_5_weight[3]), 1100-25, 450+50, t);
-        canvas.drawText("30", 1300-25, 450+50, t);
+        canvas.drawText("-30", 500-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_5_weight[3]*(-1)), 700-25, 400+50, t);
+        canvas.drawText("0", 900-25, 400+50, t);
+        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_5_weight[3]), 1100-25, 400+50, t);
+        canvas.drawText("30", 1300-25, 400+50, t);
 
 //        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_5_angle[0]), 500-25, 400+50, t);
 //        canvas.drawText(String.format(Locale.getDefault(),"%.2f", kd_5_angle[1]), 700-25, 400+50, t);
