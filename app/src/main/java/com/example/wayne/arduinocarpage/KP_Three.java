@@ -88,13 +88,17 @@ public class KP_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         pass.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                if(gv.getIsSetting() != 0) {
-                    gv.setCheckString(gv.getKp3String());
-                    gv.setMode("KP 3");
-                    jumpMain();
-                }else{
-                    Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();
-                }
+                gv.setCheckString(gv.getKp3String());
+                gv.setIsSetting(1);
+                gv.setMode("KP 3");
+                jumpMain();
+//                if(gv.getIsSetting() != 0) {
+//                    gv.setCheckString(gv.getKp3String());
+//                    gv.setMode("KP 3");
+//                    jumpMain();
+//                }else{
+//                    Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 

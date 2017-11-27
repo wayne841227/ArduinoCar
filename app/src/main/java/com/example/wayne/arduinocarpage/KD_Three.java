@@ -73,13 +73,13 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
             }
         });
 
-        //更換頁面到KD_Enter_Three
-        Check.setOnClickListener(new Button.OnClickListener() {
-
-            public void onClick(View v) {
-                jumpKD_Enter_Three();
-            }
-        });
+//        //更換頁面到KD_Enter_Three
+//        Check.setOnClickListener(new Button.OnClickListener() {
+//
+//            public void onClick(View v) {
+//                jumpKD_Enter_Three();
+//            }
+//        });
 
         //更換頁面到MainActivity
         Back.setOnClickListener(new Button.OnClickListener() {
@@ -92,13 +92,17 @@ public class KD_Three extends AppCompatActivity implements SurfaceHolder.Callbac
         pass.setOnClickListener(new Button.OnClickListener() {
 
             public void onClick(View v) {
-                if(gv.getIsSetting() != 0) {
-                    gv.setCheckString(gv.getKd3String());
-                    gv.setMode("KD 3");
-                    jumpMain();
-                }else{
-                    Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();
-                }
+                gv.setCheckString(gv.getKd3String());
+                gv.setIsSetting(2);
+                gv.setMode("KD 3");
+                jumpMain();
+//                if(gv.getIsSetting() != 0) {
+//                    gv.setCheckString(gv.getKd3String());
+//                    gv.setMode("KD 3");
+//                    jumpMain();
+//                }else{
+//                    Toast.makeText(getApplicationContext(), "未變更", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }
