@@ -208,7 +208,7 @@ public class MainActivity extends Activity implements Runnable{
                             findBT();
                             openBT();
                         }else{
-                            Toast.makeText(getApplicationContext(),"connected",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),"connected",Toast.LENGTH_SHORT).show();
                         }
                     }catch(IOException ex){
 
@@ -296,7 +296,7 @@ public class MainActivity extends Activity implements Runnable{
         if(pairdDevice.size() > 0){
             for( BluetoothDevice device :pairdDevice){
                 text.setText(device.getName());
-                Toast.makeText(this,"Find" + device.getName(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"Find" + device.getName(),Toast.LENGTH_SHORT).show();
                 //Log.d("device",String.valueOf(device.getName()));
                 mmDevice = device;
                 break;
@@ -317,12 +317,12 @@ public class MainActivity extends Activity implements Runnable{
                 isConnected = true;
                 sendData("5");
                 beginListenForData();
-                Toast.makeText(this, "connected", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "connected", Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(this, "No connect", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "No connect", Toast.LENGTH_SHORT).show();
             }
         }else{
-            Toast.makeText(this,"No Find device",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"No Find device",Toast.LENGTH_SHORT).show();
             mmDevice = null;
         }
     }
@@ -379,17 +379,17 @@ public class MainActivity extends Activity implements Runnable{
             mmInputStream.close();
             mmSocket.close();
             data = "00000000";
-            Toast.makeText(this, "close", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "close", Toast.LENGTH_SHORT).show();
             text.setText("Bluetooth Closed");
         }else{
-            Toast.makeText(this, "No  any connect can close", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "No  any connect can close", Toast.LENGTH_SHORT).show();
         }
     }
 
     void sendData(String msg) throws IOException {
         if(isConnected) {
             mmOutputStream.write(msg.getBytes());
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
             //text.setText("Data Sent");
         }else{
             Toast.makeText(this, "No send", Toast.LENGTH_SHORT).show();
