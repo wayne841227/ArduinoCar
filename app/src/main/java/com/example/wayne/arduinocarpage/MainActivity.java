@@ -197,12 +197,12 @@ public class MainActivity extends Activity implements Runnable{
 
             @Override
             public boolean onTouch(View v,MotionEvent event){
-                // TODO Auto-generated method stub
+            // TODO Auto-generated method stub
                 if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
-                    OPEN.setBackgroundColor(Color.parseColor("#FF0000"));
+                    OPEN.setBackground(getResources().getDrawable(R.drawable.open_push));
                 }
                 if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
-                    OPEN.setBackgroundColor(Color.parseColor("#76EE00"));
+                    OPEN.setBackground(getResources().getDrawable(R.drawable.open));
                     try{
                         if(!isConnected) {
                             findBT();
@@ -224,10 +224,10 @@ public class MainActivity extends Activity implements Runnable{
             public boolean onTouch(View v,MotionEvent event){
                 // TODO Auto-generated method stub
                 if(event.getAction()== MotionEvent.ACTION_DOWN){  //按下的時候
-                    CLOSE.setBackgroundColor(Color.parseColor("#FF0000"));
+                    CLOSE.setBackground(getResources().getDrawable(R.drawable.close_push));
                 }
                 if (event.getAction() == MotionEvent.ACTION_UP) {  //起來的時候
-                    CLOSE.setBackgroundColor(Color.parseColor("#76EE00"));
+                    CLOSE.setBackground(getResources().getDrawable(R.drawable.close));
                     try{
                         closeBT();
                     }catch(IOException ex){}

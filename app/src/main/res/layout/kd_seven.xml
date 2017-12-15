@@ -11,9 +11,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="25dp"
         android:layout_toStartOf="@+id/button7"
-        android:text="確認"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:text="確認" />
 
     <Button
         android:text="設定"

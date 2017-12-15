@@ -10,10 +10,12 @@
         android:layout_weight="1">
 
         <SurfaceView
+            android:id="@+id/surfaceView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/surfaceView"/>
-
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -82,33 +84,32 @@
                 android:layout_toEndOf="@+id/Left"
                 android:background="@drawable/d" />
 
-            <Button
-                android:id="@+id/bluetooth_open"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/Left"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="20dp"
-                android:background="#76EE00"
-                android:text="open" />
 
-            <Button
-                android:id="@+id/bluetooth_close"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/bluetooth_open"
-                android:layout_alignBottom="@+id/bluetooth_open"
-                android:layout_alignStart="@+id/kd"
-                android:background="#76EE00"
-                android:text="close" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/bluetooth_close"
-                android:layout_toEndOf="@+id/kd"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
                 android:text="device" />
+
+            <Button
+                android:id="@+id/bluetooth_open"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignBottom="@+id/Up"
+                android:layout_marginEnd="32dp"
+                android:layout_toStartOf="@+id/kd"
+                android:background="@drawable/open" />
+
+            <Button
+                android:id="@+id/bluetooth_close"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignBottom="@+id/bluetooth_open"
+                android:layout_toEndOf="@+id/bluetooth_open"
+                android:background="@drawable/close" />
 
 
         </RelativeLayout>
